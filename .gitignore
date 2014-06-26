@@ -1,0 +1,6 @@
+*.swp
+1.html
+*.DS_Store
+/tmp
+jsondb_1.js
+test.js
