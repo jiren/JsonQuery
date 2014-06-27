@@ -1,6 +1,7 @@
-*.swp
-1.html
-*.DS_Store
+/_gh_pages
 /tmp
+*.swp
+*.DS_Store
+1.html
 jsondb_1.js
 test.js
