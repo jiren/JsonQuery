@@ -3,6 +3,8 @@ JsonQuery
 
 Query your JSON data like database.
 
+[Demo](http://jiren.github.io/JsonQuery/)
+
 ### Query JSON data
 
  - Query movies
