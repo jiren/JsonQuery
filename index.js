@@ -19,33 +19,52 @@ $(document).ready(function(){
 
   window.sDb = sDb;
 
-  demoHelper();
+  demoHelper(Movies, 'mDb');
 });
 
+//For debugging
 function printField(data, field){
   $.each(data, function(){
     console.log(this[field]);  
   })
 };
 
-function demoHelper(){
+function demoHelper(jsonData, dbVarName){
   $('#query-form').submit(function(e){
     var query = $("#query").val();
-    var fullQuery = "mDb.where("+ query + ")";
+    var fullQuery = dbVarName + ".where("+ query + ")";
+    var result, formated_json;
+    var $ele = $("#result");
 
     $("#query-text pre").text(fullQuery);
 
     try {
       var result = eval(fullQuery);
       var formated_json = JSON.stringify(result, undefined, 2);
-      $('#result h4').text("Found : " + result.length);
-      $('#result pre').text(formated_json);
+      $ele.find('h4').text("Found : " + result.length);
+      $ele.find('pre').text(formated_json);
     }catch(err) {
-      $('#result h4').text("");
-      $('#result pre').html("<div class='alert alert-danger'> ERROR:" + err.message + "</div>");
+      $ele.find('h4').text("");
+      $ele.find('pre').html("<div class='alert alert-danger'> ERROR:" + err.message + "</div>");
     }
+
+    $('#query-text, #result').show();
+    $ele.fadeOut().fadeIn();
 
     e.preventDefault();
   });
-};
 
+  //Set Sample jsonData
+  $("#view-movies-data").on('click', function(e){
+     var $ele = $("#result");
+
+     $ele.find('h4').text("All Movies");
+     $ele.find('pre').text(JSON.stringify(jsonData, undefined, 2));
+     $ele.fadeOut().fadeIn();
+
+     $('#result').show();
+     $('#query-text').hide();
+     e.stopPropagation();
+  })
+
+};

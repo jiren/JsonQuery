@@ -27,18 +27,19 @@
             <input type="text" class="form-control" id="query" value="{'rating': 7.6, 'year.$bt': [1950, 1980]}">
           </div>
           <button type="submit" class="btn btn-success">Execute</button>
-          <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#helpbox">Help</button>
+          <button type="button" class="btn btn-default pull-right" id="view-movies-data">View Movies Data</button>
+          <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#helpbox-modal">Help</button>
         </form>
       </div>
-      <div id="query-text" class='col-md-12 result'>
+      <div id="query-text" class='col-md-12 result no-display'>
         <pre>Query ...</pre>
       </div>
-      <div id="result" class='col-md-12 result'>
+      <div id="result" class='col-md-12 result no-display'>
         <h4></h4>
         <pre> Result ...  </pre>
       </div>
     </div>
-    <div class="modal fade" id="helpbox">
+    <div class="modal fade" id="helpbox-modal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -96,6 +97,19 @@ mDb.where({'rating.$lt': 7.6})
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="movies-data-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Movies Data</h4>
+          </div>
+          <div class="modal-body">
+            <pre></pre>
           </div>
         </div>
       </div>

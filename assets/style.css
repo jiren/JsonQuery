@@ -5,6 +5,10 @@ body{
   background-color: #eee; 
 }
 
+form .btn.pull-right{
+  margin-left: 10px;
+}
+
 .title h3{
   color: #789;
   padding-bottom: 5px;
@@ -13,4 +17,8 @@ body{
 
 .result{
   margin-top: 20px;
+}
+
+.no-display{
+  display: none;
 }
