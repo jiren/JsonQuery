@@ -49,7 +49,7 @@ function demoHelper(jsonData, dbVarName){
     }
 
     $('#query-text, #result').show();
-    blinkEle($ele);
+    $ele.fadeOut().fadeIn();
 
     e.preventDefault();
   });
@@ -60,7 +60,7 @@ function demoHelper(jsonData, dbVarName){
 
      $ele.find('h4').text("All Movies");
      $ele.find('pre').text(JSON.stringify(jsonData, undefined, 2));
-     blinkEle($ele);
+     $ele.fadeOut().fadeIn();
 
      $('#result').show();
      $('#query-text').hide();
@@ -68,11 +68,3 @@ function demoHelper(jsonData, dbVarName){
   })
 
 };
-
-function blinkEle(ele){
-  ele.animate({ opacity:0 }, 100, "linear" ,function(){
-    $(this).animate({ opacity:1 }, 100);
-  });
-
-}
-
