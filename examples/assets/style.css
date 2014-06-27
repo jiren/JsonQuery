@@ -1,0 +1,16 @@
+
+body{
+  margin-top: 20px;
+  padding-bottom: 20px;
+  background-color: #eee; 
+}
+
+.title h3{
+  color: #789;
+  padding-bottom: 5px;
+  border-bottom: 1px solid;
+}
+
+.result{
+  margin-top: 20px;
+}

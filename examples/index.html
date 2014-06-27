@@ -1,13 +1,104 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <title> JsonQuery </title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link href="assets/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="assets/style.css" media="screen" rel="stylesheet" type="text/css">
     <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="assets/bootstrap.min.js" type="text/javascript"></script>
     <script src="../json_query.js" type="text/javascript"></script>
     <script src="data/movies_json.js" type="text/javascript"></script>
     <script src="data/services_json.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
   </head>
   <body>
+    <div class="container">
+       <div class="title col-md-12">
+         <h3>JsonQuery</h3>
+       </div>
+      <div class="col-md-12">
+        <div class="help">
+        </div>
+        <form action="#" role="form" id="query-form">
+          <div class="form-group">
+            <label for="query"> Query: 
+            </label>
+            <input type="text" class="form-control" id="query" value="{'rating': 7.6, 'year.$bt': [1950, 1980]}">
+          </div>
+          <button type="submit" class="btn btn-success">Execute</button>
+          <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#helpbox">Help</button>
+        </form>
+      </div>
+      <div id="query-text" class='col-md-12 result'>
+        <pre>Query ...</pre>
+      </div>
+      <div id="result" class='col-md-12 result'>
+        <h4></h4>
+        <pre> Result ...  </pre>
+      </div>
+    </div>
+    <div class="modal fade" id="helpbox">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">JSON query</h4>
+          </div>
+          <div class="modal-body">
+            <h5>Initalize</h5>
+            <pre> var mDb = JsonQuery(Movies);</pre>
+            <h5>Oprators</h5>
+            <pre>
+$eq, $ne, $lt, $gt, $bt, $in, $ni, $li(regex)
+            </pre>
+            <h5> Equal</h5>
+            <pre>
+ mDb.where({'rating': 7.6}) 
+ #or
+ mDb.where({'rating.$eq': 7.6}) 
+ # not equal
+ mDb.where({'rating.$ne': 7.6}) 
+            </pre>
+            <h5> Like</h5>
+            <pre>
+ mDb.where({'name.$li': 'Assassins'}) 
+ #or using regex
+ mDb.where({'name.$li': /assassins/i}) 
+            </pre>
+            <h5>Between</h5>
+            <pre>
+ mDb.where({'rating.$bt': [7, 8]}) 
+            </pre>
+
+            <h5>Less then, greater then</h5>
+
+            <pre>
+# greater then
+mDb.where({'rating.$gt': 7})
+# less then
+mDb.where({'rating.$lt': 7.6})
+            </pre>
+
+           <h5>In</h5>
+           <pre>
+ # in
+ mDb.where({'rating.$in': [7.6, 7.4]})
+ # not in
+ mDb.where({'rating.$ni': [7.6, 7.3]})
+          </pre>
+          <h5>Combine multiple criteria</h5>
+
+          <pre>
+ mDb.where({'rating': 8.4, 'name.$li': /braveheart/i})
+ mDb.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
+          </pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

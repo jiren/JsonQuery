@@ -1,12 +1,11 @@
 $(document).ready(function(){
  
-  /*
-  mDb = JsonQuery(Movies, ['name', 'rating', 'year']);
-  console.log(mDb.schema);
+  var mDb = JsonQuery(Movies);
+  //console.log(mDb.schema);
 
   window.mDb = mDb;
-  */
 
+  //Add some sample data for array queries
   $.each(Services, function(){
    var c = this.service_categories[0];
 
@@ -15,14 +14,38 @@ $(document).ready(function(){
    }
   })
 
-  sDb = JsonQuery(Services);
-  console.log(sDb.schema);
+  var sDb = JsonQuery(Services);
+  //console.log(sDb.schema);
 
   window.sDb = sDb;
+
+  demoHelper();
 });
 
 function printField(data, field){
-  $.each(Services, function(){
+  $.each(data, function(){
     console.log(this[field]);  
   })
 };
+
+function demoHelper(){
+  $('#query-form').submit(function(e){
+    var query = $("#query").val();
+    var fullQuery = "mDb.where("+ query + ")";
+
+    $("#query-text pre").text(fullQuery);
+
+    try {
+      var result = eval(fullQuery);
+      var formated_json = JSON.stringify(result, undefined, 2);
+      $('#result h4').text("Found : " + result.length);
+      $('#result pre').text(formated_json);
+    }catch(err) {
+      $('#result h4').text("");
+      $('#result pre').html("<div class='alert alert-danger'> ERROR:" + err.message + "</div>");
+    }
+
+    e.preventDefault();
+  });
+};
+
