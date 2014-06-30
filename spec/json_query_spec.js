@@ -119,4 +119,14 @@ describe("JsonQuery", function(){
             expect(actual[0]).toEqual({"name":"Once Upon a Time in the West","rating":8.7,"director":"Sergio Leone","year":1968,"actor":"Henry Fonda"})
         });
     });
+
+    describe("where", function(){
+        it("with multiple operators", function(){
+            actual = input.where({'year.$bt': [1969, 1992], 'rating.$in': [7.6, 7.7], 'actor.$li': 'John'})
+
+            expect(actual.length).toEqual(2)
+            expect(actual[0]).toEqual({"name":"Barton Fink","rating":7.7,"director":"Joel Coen","year":1991,"actor":"John Turturro"})
+            expect(actual[1]).toEqual({ name : 'A Fish Called Wanda', rating : 7.6, director : 'Charles Crichton', year : 1988, actor : 'John Cleese'});
+        });
+    });
 });
