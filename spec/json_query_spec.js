@@ -101,4 +101,22 @@ describe("JsonQuery", function(){
             expect(actual[0]).toEqual({"name":"Once Upon a Time in the West","rating":8.7,"director":"Sergio Leone","year":1968,"actor":"Henry Fonda"});
         });
     });
+
+    describe("where", function(){
+        it("with $in operator", function(){
+            actual = input.where({'year.$in': [1991, 1992]});
+
+            expect(actual.length).toEqual(3)
+            expect(actual[0]).toEqual({"name":"Terminator 2: Judgment Day","rating":8.6,"director":"James Cameron","year":1991,"actor":"Arnold Schwarzenegger"});
+            expect(actual[1]).toEqual({"name":"The Last of the Mohicans","rating":7.7,"director":"Michael Mann","year":1992,"actor":"Daniel Day-Lewis"});
+            expect(actual[2]).toEqual({"name":"Barton Fink","rating":7.7,"director":"Joel Coen","year":1991,"actor":"John Turturro"});
+        });
+
+        it("with $ni operator", function(){
+            actual = input.where({'rating.$ni': [7.5, 7.6, 7.7, 7.8, 7.9, 8.0, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6]});
+
+            expect(actual.length).toEqual(1)
+            expect(actual[0]).toEqual({"name":"Once Upon a Time in the West","rating":8.7,"director":"Sergio Leone","year":1968,"actor":"Henry Fonda"})
+        });
+    });
 });
