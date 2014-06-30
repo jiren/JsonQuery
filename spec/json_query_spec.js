@@ -85,4 +85,20 @@ describe("JsonQuery", function(){
             expect(actual[0]).toEqual({"name":"Terminator 2: Judgment Day","rating":8.6,"director":"James Cameron","year":1991,"actor":"Arnold Schwarzenegger"});
         });
     });
+
+    describe("where", function(){
+        it("with $lt operator", function(){
+            actual = input.where({'rating.$lt': 7.6});
+            
+            expect(actual.length).toEqual(1)
+            expect(actual[0]).toEqual({"name":"You Can Count on Me","rating":7.5,"director":"Kenneth Lonergan","year":2000,"actor":"Laura Linney"});
+        });
+
+        it("with $gt operator", function(){
+            actual = input.where({'rating.$gt': 8.6});
+
+            expect(actual.length).toEqual(1)
+            expect(actual[0]).toEqual({"name":"Once Upon a Time in the West","rating":8.7,"director":"Sergio Leone","year":1968,"actor":"Henry Fonda"});
+        });
+    });
 });

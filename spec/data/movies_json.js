@@ -97,7 +97,7 @@ var Movies = [
   {"name":"Marathon","rating":7.7,"director":"Yoon-Chul Jeong","year":2005,"actor":"Seung-woo Cho"},
   {"name":"Where Eagles Dare","rating":7.6,"director":"Brian G. Hutton","year":1968,"actor":"Richard Burton"},
   {"name":"The Spy Who Came in from the Cold","rating":7.6,"director":"Martin Ritt","year":1965,"actor":"Richard Burton"},
-  {"name":"You Can Count on Me","rating":7.6,"director":"Kenneth Lonergan","year":2000,"actor":"Laura Linney"},
+  {"name":"You Can Count on Me","rating":7.5,"director":"Kenneth Lonergan","year":2000,"actor":"Laura Linney"},
   {"name":"The Passion of Anna","rating":7.6,"director":"Ingmar Bergman","year":1969,"actor":"Liv Ullmann"},
   {"name":"The Terminator","rating":8.1,"director":"James Camerron","year":1981,"actor":"Arnold"},
 ];
