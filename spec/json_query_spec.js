@@ -33,3 +33,35 @@ describe("where", function(){
         expect(actual[1]).toEqual(expected_movies[2]);
     });
 });
+
+describe("where", function(){
+    var input;
+
+    beforeEach(function(){
+      input = JsonQuery(Movies);
+    });
+
+    it("with $li operator", function(){
+        actual = input.where({'name.$li': 'Terminator'});
+
+        expect(actual.length).toEqual(2)
+        expect(actual[0].name).toEqual("Terminator 2: Judgment Day");
+        expect(actual[1].name).toEqual("The Terminator");
+    });
+
+    it("with $li operator with regex", function(){
+        actual = input.where({'name.$li': /[a-zA-Z]+ [0-9]+/});
+
+        expect(actual.length).toEqual(2)
+        expect(actual[0].name).toEqual("Terminator 2: Judgment Day");
+        expect(actual[1].name).toEqual("4 Months, 3 Weeks and 2 Days");
+    });
+
+    it("with $li without case sensitiveness", function(){
+       actual = input.where({'name.$li': /terminator/i});
+
+       expect(actual.length).toEqual(2)
+       expect(actual[0].name).toEqual("Terminator 2: Judgment Day");
+       expect(actual[1].name).toEqual("The Terminator");
+    });
+});
