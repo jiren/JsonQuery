@@ -1,4 +1,4 @@
-var Movies = [
+var movies = [
   {"name":"Once Upon a Time in the West","rating":8.7,"director":"Sergio Leone","year":1968,"actor":"Henry Fonda"},
   {"name":"Terminator 2: Judgment Day","rating":8.6,"director":"James Cameron","year":1991,"actor":"Arnold Schwarzenegger"},
   {"name":"Braveheart","rating":8.4,"director":"Mel Gibson","year":1995,"actor":"Mel Gibson"},
