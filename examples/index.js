@@ -62,7 +62,7 @@ function demoHelper(model, dbVarName){
      var $ele = $("#result");
 
      $ele.find('h4').text("All Movies");
-     $ele.find('pre').text(JSON.stringify(model.all().exec(), undefined, 2));
+     $ele.find('pre').text(JSON.stringify(model.all, undefined, 2));
      $ele.fadeOut().fadeIn();
 
      $('#result').show();

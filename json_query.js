@@ -10,14 +10,19 @@
 
   JsonQuery.VERSION = '0.0.1'
 
-  var each = Array.forEach;
-
-  if(!each){
-    each = function(objs, callback, context){
-      var  i = 0, l = objs.length, context = context;
-
-      for(i; i < l; i++){
+  var nativeForEach = Array.prototype.forEach;
+  var each = function(objs, callback, context){
+    if(objs.forEach === nativeForEach){
+      objs.forEach(callback, context);
+    }else if (objs.length === +objs.length) {
+      for (var i = 0, l = objs.length; i < l; i++) {
         callback.call(context, objs[i], i);
+      }
+    }else{
+      for (var key in objs) {
+        if (hasOwnProperty.call(objs, key)) {
+          callback.call(context, objs[key], key);
+        }
       }
     }
   }
@@ -193,7 +198,7 @@
     return result;
   };
 
-  each(['where', 'groupBy', 'select', 'pluck'], function(c){
+  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
       q[c](query)
@@ -201,11 +206,29 @@
     };
   });
 
-  JQ.all = function(){
-    var q  = new Query(this, this.records);
-    q.criteria['all'] = true;
-    return q;
-  };
+  Object.defineProperty(JQ, 'count', {
+    get: function(){
+       return this.records.length;
+    }
+  });
+
+  Object.defineProperty(JQ, 'first', {
+    get: function(){
+           return this.records[0];
+         }
+  });
+
+  Object.defineProperty(JQ, 'last', {
+    get: function(){
+           return this.records[this.records.length - 1];
+         }
+  });
+
+  Object.defineProperty(JQ, 'all', {
+    get: function(){
+      return this.records;
+    }
+  });
 
   var execWhere = function(query, records){
     var q, criteria, result;
@@ -221,9 +244,9 @@
   var execGroupBy = function(field, records){
     var fn = this.jQ.getFns[field], v, result = {}, i = 0, l = records.length;
 
-    each(records, function(v){
-      v = fn(v);
-      (result[v] || (result[v] = [])).push(v);
+    each(records, function(r){
+      v = fn(r);
+      (result[v] || (result[v] = [])).push(r);
     });
 
     return result;
@@ -266,7 +289,7 @@
     each(this.exec() || [], callback, context)
   };
 
-  Q.exec = Q.toArray = function(){
+  Q.exec = Q.toArray = function(callback){
     var result, c;
 
     if(this.criteria['all']){
@@ -285,9 +308,17 @@
       result = execPluck.call(this, this.criteria['pluck'], result || this.records);
     }
 
+    if(this.criteria['limit']){
+      result = (result || this.records).slice(this.criteria['offset'] || 0, (this.criteria['offset'] || 0) + this.criteria['limit']);
+    }
+
     if(this.criteria['group_by']){
       result = execGroupBy.call(this, this.criteria['group_by'], result || this.records);
     }
+
+    if(callback){
+      each(result || this.records, callback);
+    };
 
     return result;
   }
@@ -324,6 +355,41 @@
     this.criteria['pluck'] = field;
     return this;
   };
+
+  Q.limit = function(l){
+    this.criteria['limit'] = l;
+    return this;
+  };
+
+  Q.offset = function(o){
+    this.criteria['offset'] = o;
+    return this;
+  }
+
+  Object.defineProperty(Q, 'count', {
+    get: function(){
+      var r = this.exec();
+
+      if(this.jQ.getDataType(r) == 'Array'){
+        return this.exec().length;
+      }else{
+        return Object.keys(r).length;
+      }
+    }
+  });
+
+  Object.defineProperty(Q, 'first', {
+    get: function(){
+           return this.exec()[0];
+         }
+  });
+
+  Object.defineProperty(Q, 'last', {
+    get: function(){
+           var r = this.exec();
+           return r[r.length - 1];
+         }
+  });
 
 
 })(this);
