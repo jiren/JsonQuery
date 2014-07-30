@@ -1,12 +1,12 @@
 $(document).ready(function(){
- 
-  var mDb = JsonQuery(Movies);
-  //console.log(mDb.schema);
 
-  window.mDb = mDb;
+  var Movie = JsonQuery(movies);
+  //console.log(Movies.schema);
+
+  window.Movie = Movie;
 
   //Add some sample data for array queries
-  $.each(Services, function(){
+  $.each(services, function(){
    var c = this.service_categories[0];
 
    if(c){
@@ -14,25 +14,27 @@ $(document).ready(function(){
    }
   })
 
-  var sDb = JsonQuery(Services);
+  var Service = JsonQuery(services);
   //console.log(sDb.schema);
 
-  window.sDb = sDb;
+  window.Service = Service;
 
-  demoHelper(Movies, 'mDb');
+  demoHelper(Movie, 'Movie');
 });
 
 //For debugging
 function printField(data, field){
   $.each(data, function(){
-    console.log(this[field]);  
+    console.log(this[field]);
   })
 };
 
-function demoHelper(jsonData, dbVarName){
+window.log = function(v) { console.log(v) };
+
+function demoHelper(model, dbVarName){
   $('#query-form').submit(function(e){
     var query = $("#query").val();
-    var fullQuery = dbVarName + ".where("+ query + ")";
+    var fullQuery = query //dbVarName + ".where("+ query + ")";
     var result, formated_json;
     var $ele = $("#result");
 
@@ -41,30 +43,41 @@ function demoHelper(jsonData, dbVarName){
     try {
       var result = eval(fullQuery);
       var formated_json = JSON.stringify(result, undefined, 2);
-      $ele.find('h4').text("Found : " + result.length);
-      $ele.find('pre').text(formated_json);
+
+      console.log(result)
+
+      if(result.toString() == "[object Object]" && result.criteria){
+        $ele.find('h4').text("Execute Query using 'exec()'");
+        $ele.find('pre').text(fullQuery + '.exec()');
+      }else{
+        $ele.find('h4').text("Found : " + result.length);
+        $ele.find('pre').text(formated_json);
+      }
     }catch(err) {
       $ele.find('h4').text("");
       $ele.find('pre').html("<div class='alert alert-danger'> ERROR:" + err.message + "</div>");
+      log(err);
     }
 
-    $('#query-text, #result').show();
+    //$('#query-text, #result').show();
     $ele.fadeOut().fadeIn();
 
     e.preventDefault();
   });
 
-  //Set Sample jsonData
+  //Set Sample model
   $("#view-movies-data").on('click', function(e){
      var $ele = $("#result");
 
      $ele.find('h4').text("All Movies");
-     $ele.find('pre').text(JSON.stringify(jsonData, undefined, 2));
+     $ele.find('pre').text(JSON.stringify(model.all, undefined, 2));
      $ele.fadeOut().fadeIn();
 
      $('#result').show();
      $('#query-text').hide();
      e.stopPropagation();
   })
+
+  $("#view-movies-data").trigger('click');
 
 };

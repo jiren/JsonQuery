@@ -22,11 +22,11 @@
         </div>
         <form action="#" role="form" id="query-form">
           <div class="form-group">
-            <label for="query"> Query: 
+            <label for="query"> Query:
             </label>
-            <input type="text" class="form-control" id="query" value="{'rating': 7.6, 'year.$bt': [1950, 1980]}">
+            <input type="text" class="form-control" id="query" value="Movie.where({'rating': 7.6, 'year.$bt': [1950, 1980]})">
           </div>
-          <button type="submit" class="btn btn-success">Execute</button>
+          <button type="submit" class="btn btn-success">Run</button>
           <button type="button" class="btn btn-default pull-right" id="view-movies-data">View Movies Data</button>
           <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#helpbox-modal">Help</button>
         </form>
@@ -48,52 +48,71 @@
           </div>
           <div class="modal-body">
             <h5>Initialize</h5>
-            <pre> var mDb = JsonQuery(Movies);</pre>
+            <pre>
+# Pass JSON object array
+var Movie = JsonQuery(movies);
+            </pre>
             <h5>Operators</h5>
             <pre>
 $eq, $ne, $lt, $gt, $bt, $in, $ni, $li(regex)
             </pre>
             <h5> Equal</h5>
             <pre>
- mDb.where({'rating': 7.6}) 
+ Movie.where({'rating': 7.6})
  #or
- mDb.where({'rating.$eq': 7.6}) 
+ Movie.where({'rating.$eq': 7.6})
  # not equal
- mDb.where({'rating.$ne': 7.6}) 
+ Movie.where({'rating.$ne': 7.6})
             </pre>
             <h5> Like</h5>
             <pre>
- mDb.where({'name.$li': 'Assassins'}) 
+ Movie.where({'name.$li': 'Assassins'})
  #or using regex
- mDb.where({'name.$li': /assassins/i}) 
+ Movie.where({'name.$li': /assassins/i})
             </pre>
             <h5>Between</h5>
             <pre>
- mDb.where({'rating.$bt': [7, 8]}) 
+ Movie.where({'rating.$bt': [7, 8]})
             </pre>
 
-            <h5>Less then, greater then</h5>
+            <h5>Less than, greater than</h5>
 
             <pre>
-# greater then
-mDb.where({'rating.$gt': 7})
-# less then
-mDb.where({'rating.$lt': 7.6})
+# greater than
+Movie.where({'rating.$gt': 7})
+# less than
+Movie.where({'rating.$lt': 7.6})
             </pre>
 
            <h5>In</h5>
            <pre>
  # in
- mDb.where({'rating.$in': [7.6, 7.4]})
+ Movie.where({'rating.$in': [7.6, 7.4]})
  # not in
- mDb.where({'rating.$ni': [7.6, 7.3]})
+ Movie.where({'rating.$ni': [7.6, 7.3]})
           </pre>
           <h5>Combine multiple criteria</h5>
 
           <pre>
- mDb.where({'rating': 8.4, 'name.$li': /braveheart/i})
- mDb.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
+ Movie.where({'rating': 8.4, 'name.$li': /braveheart/i})
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
           </pre>
+          <h5>all, groupBy, select, pluck, limit and offset</h5>
+
+          <pre>
+ Movie.all
+ Movie.groupBy('rating')
+ Movie.select(['actor', 'rating']).exec()
+ Movie.pluck('actor').exec()
+ Movie.limit(10).offset(20).exec()
+
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).all
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).groupBy()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).select(['actor', 'rating']).exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).pluck('actor').exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).limit(10).offset(20).exec()
+          </pre>
+          </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
