@@ -34,24 +34,32 @@ window.log = function(v) { console.log(v) };
 function demoHelper(model, dbVarName){
   $('#query-form').submit(function(e){
     var query = $("#query").val();
-    var fullQuery = dbVarName + ".where("+ query + ")";
+    var fullQuery = query //dbVarName + ".where("+ query + ")";
     var result, formated_json;
     var $ele = $("#result");
 
     $("#query-text pre").text(fullQuery);
 
     try {
-      var result = eval(fullQuery).exec();
+      var result = eval(fullQuery);
       var formated_json = JSON.stringify(result, undefined, 2);
-      $ele.find('h4').text("Found : " + result.length);
-      $ele.find('pre').text(formated_json);
+
+      console.log(result)
+
+      if(result.toString() == "[object Object]" && result.criteria){
+        $ele.find('h4').text("Execute Query using 'exec()'");
+        $ele.find('pre').text(fullQuery + '.exec()');
+      }else{
+        $ele.find('h4').text("Found : " + result.length);
+        $ele.find('pre').text(formated_json);
+      }
     }catch(err) {
       $ele.find('h4').text("");
       $ele.find('pre').html("<div class='alert alert-danger'> ERROR:" + err.message + "</div>");
       log(err);
     }
 
-    $('#query-text, #result').show();
+    //$('#query-text, #result').show();
     $ele.fadeOut().fadeIn();
 
     e.preventDefault();

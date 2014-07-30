@@ -24,9 +24,9 @@
           <div class="form-group">
             <label for="query"> Query:
             </label>
-            <input type="text" class="form-control" id="query" value="{'rating': 7.6, 'year.$bt': [1950, 1980]}">
+            <input type="text" class="form-control" id="query" value="Movie.where({'rating': 7.6, 'year.$bt': [1950, 1980]})">
           </div>
-          <button type="submit" class="btn btn-success">Execute</button>
+          <button type="submit" class="btn btn-success">Run</button>
           <button type="button" class="btn btn-default pull-right" id="view-movies-data">View Movies Data</button>
           <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#helpbox-modal">Help</button>
         </form>
@@ -97,6 +97,22 @@ Movie.where({'rating.$lt': 7.6})
  Movie.where({'rating': 8.4, 'name.$li': /braveheart/i})
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
           </pre>
+          <h5>all, groupBy, select, pluck, limit and offset</h5>
+
+          <pre>
+ Movie.all
+ Movie.groupBy('rating')
+ Movie.select(['actor', 'rating']).exec()
+ Movie.pluck('actor').exec()
+ Movie.limit(10).offset(20).exec()
+
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).all
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).groupBy()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).select(['actor', 'rating']).exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).pluck('actor').exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).limit(10).offset(20).exec()
+          </pre>
+          </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
