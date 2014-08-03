@@ -18,33 +18,34 @@ Query your JSON data like database.
   ]
 
  # Init query object
- var mDb = JsonQuery(movies);
+ var Movie = JsonQuery(movies);
 
 ```
+-  To execute query to get result call `exec()`
 
 ***
 
 #### Equal queries
 
 ```
- mDb.where({'rating': 7.6}) 
+ Movie.where({'rating': 7.6}).exec()
 
  #or
 
- mDb.where({'rating.$eq': 7.6}) 
+ Movie.where({'rating.$eq': 7.6}).exec()
 
  # not equal
- mDb.where({'rating.$ne': 7.6}) 
- 
+ Movie.where({'rating.$ne': 7.6}).exec()
+
 ```
 
 #### Like queries
 
 ```
- mDb.where({'name.$li': 'Assassins'}) 
+ Movie.where({'name.$li': 'Assassins'}).exec()
 
  #or using regex
- mDb.where({'name.$li': /assassins/i}) 
+ Movie.where({'name.$li': /assassins/i}).exec()
 
 ```
 
@@ -52,7 +53,7 @@ Query your JSON data like database.
 #### Between queries
 
 ```
- mDb.where({'rating.$bt': [7, 8]}) 
+ Movie.where({'rating.$bt': [7, 8]}).exec()
 
 ```
 
@@ -60,10 +61,10 @@ Query your JSON data like database.
 
 ```
   # greater then
-  mDb.where({'rating.$gt': 7})
+  Movie.where({'rating.$gt': 7}).exec()
 
   # less then
-  mDb.where({'rating.$lt': 7.6})
+  Movie.where({'rating.$lt': 7.6}).exec()
 
 ```
 
@@ -71,26 +72,64 @@ Query your JSON data like database.
 
 ```
  # in
- mDb.where({'rating.$in': [7.6, 7.4]})
+ Movie.where({'rating.$in': [7.6, 7.4]}).exec()
 
  # not in
- mDb.where({'rating.$ni': [7.6, 7.3]})
+ Movie.where({'rating.$ni': [7.6, 7.3]}).exec()
 
 ```
 
-### Combine multiple criteria
+#### Combine multiple criteria
 
 ```
- mDb.where({'rating': 8.4, 'name.$li': /braveheart/i})
+ Movie.where({'rating': 8.4, 'name.$li': /braveheart/i}).exec()
 
- mDb.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).exec()
 
- mDb.where({'actor.$li': /walter/i, 'year.$gt': 1970 })
+ Movie.where({'actor.$li': /walter/i, 'year.$gt': 1970 }).exec()
 
- mDb.where({'actor.$li': /walter/i, 'year.$bt': [1950, 1980], 'rating': 7.7 })
+ Movie.where({'actor.$li': /walter/i, 'year.$bt': [1950, 1980], 'rating': 7.7 }).exec()
+
+ Movie.where({'rating': 8.4, 'name.$li': /braveheart/i}).exec()
+```
+
+#### More query functions : all, groupBy, select, pluck, limit and offset, order
+
+- Chaining multiple functions
+
+```
+ Movie.all
+ Movie.first
+ Movie.last
+ Movie.groupBy('rating')
+ Movie.select(['actor', 'rating']).exec()
+ Movie.pluck('actor').exec()
+ Movie.limit(10).offset(20).exec()
+
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).all
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).first
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).groupBy('rating')
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).select(['actor', 'rating']).exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).pluck('actor').exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).limit(10).offset(20).exec()
+
+ # Order : desc / asc
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).order({'rating': 'desc'}).exec()
+ Movie.order({'rating': 'desc', actor: 'asc'}).exec()
+
+```
+
+#### Iterating query result by passing function to `exec`
+
+```
+  Movie.order({'rating': 'desc', actor: 'asc'}).exec(function(movie){
+    console.log(movie.rating);
+  })
 ```
 
 ***
+
+
 
 
 
