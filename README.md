@@ -21,7 +21,9 @@ Query your JSON data like database.
  var Movie = JsonQuery(movies);
 
 ```
--  To execute query to get result call `exec()`
+-  To execute query and get result call `exec()`
+
+   i.e `Movie.where({'rating': 7.6}).exec()`
 
 ***
 
