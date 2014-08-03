@@ -198,7 +198,7 @@
     return result;
   };
 
-  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset'], function(c){
+  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
       q[c](query)
@@ -252,6 +252,25 @@
     return result;
   };
 
+  var execOrder = function(orders, records){
+    var fn,
+        direction,
+        _records = records.slice(0);
+
+    for(var i = 0, l = orders.length; i < l; i++){
+      fn = this.jQ.getFns[orders[i].field],
+        direction = orders[i].direction == 'asc' ? 1 : -1;
+
+      _records.sort(function(r1,r2){
+        var a = fn(r1), b = fn(r2);
+
+        return (a < b ? -1 : a > b ? 1 : 0)*direction;
+      })
+    }
+
+    return _records;
+  };
+
   var execSelect = function(fields, records){
     var self = this, result = [], getFn;
 
@@ -298,6 +317,10 @@
 
     if(this.criteria['where']){
       result = execWhere.call(this, this.criteria['where'], result || this.records);
+    }
+
+    if(this.criteria['order']){
+      result = execOrder.call(this, this.criteria['order'], result || this.records);
     }
 
     if(this.criteria['select']){
@@ -364,7 +387,18 @@
   Q.offset = function(o){
     this.criteria['offset'] = o;
     return this;
-  }
+  };
+
+  Q.order = function(criteria){
+    var field;
+    this.criteria['order'] = this.criteria['order'] || [];
+
+    for(field in criteria){
+      this.criteria['order'].push({field: field, direction: criteria[field]});
+    }
+
+    return this;
+  };
 
   Object.defineProperty(Q, 'count', {
     get: function(){
@@ -390,7 +424,6 @@
            return r[r.length - 1];
          }
   });
-
 
 })(this);
 

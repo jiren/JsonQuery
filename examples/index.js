@@ -15,7 +15,6 @@ $(document).ready(function(){
   })
 
   var Service = JsonQuery(services);
-  //console.log(sDb.schema);
 
   window.Service = Service;
 
@@ -40,17 +39,21 @@ function demoHelper(model, dbVarName){
 
     $("#query-text pre").text(fullQuery);
 
-    try {
-      var result = eval(fullQuery);
-      var formated_json = JSON.stringify(result, undefined, 2);
+    var time_taken;
 
-      console.log(result)
+    try {
+      var t1 = new Date();
+      var result = eval(fullQuery);
+      time_taken = new Date() - t1;
+      var formated_json = JSON.stringify(result, undefined, 2);
 
       if(result.toString() == "[object Object]" && result.criteria){
         $ele.find('h4').text("Execute Query using 'exec()'");
         $ele.find('pre').text(fullQuery + '.exec()');
       }else{
-        $ele.find('h4').text("Found : " + result.length);
+        if(time_taken){
+          $ele.find('h4').text("Found : " + result.length + ' in ' + time_taken  + ' ms');
+        }
         $ele.find('pre').text(formated_json);
       }
     }catch(err) {
