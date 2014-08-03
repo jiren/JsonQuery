@@ -37,17 +37,17 @@
       <div id="result" class='col-md-12 result no-display'>
         <h4></h4>
         <pre> Result ...  </pre>
+        </div>
       </div>
-    </div>
-    <div class="modal fade" id="helpbox-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title">JSON query</h4>
-          </div>
-          <div class="modal-body">
-            <h5>Initialize</h5>
+      <div class="modal fade" id="helpbox-modal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">JSON query</h4>
+            </div>
+            <div class="modal-body">
+              <h5>Initialize</h5>
             <pre>
 # Pass JSON object array
 var Movie = JsonQuery(movies);
@@ -120,22 +120,8 @@ Movie.where({'rating.$lt': 7.6})
  Movie.order({'rating': 'desc', actor: 'asc'}).exec()
           </pre>
           </div>
-          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="movies-data-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title">Movies Data</h4>
-          </div>
-          <div class="modal-body">
-            <pre></pre>
           </div>
         </div>
       </div>
