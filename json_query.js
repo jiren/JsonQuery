@@ -208,7 +208,13 @@
   each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
-      q[c](query)
+
+      if(c != 'select'){
+        q[c](query)
+      }else{
+        q[c].apply(q, arguments);
+      }
+
       return q;
     };
   });

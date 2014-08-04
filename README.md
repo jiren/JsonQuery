@@ -112,7 +112,7 @@ Query your JSON data like database.
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).first
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).count
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).groupBy('rating')
- Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).select(['actor', 'rating']).exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).select('actor', 'rating').exec()
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).pluck('actor').exec()
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).limit(10).offset(20).exec()
 
