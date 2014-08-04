@@ -51,9 +51,7 @@ function demoHelper(model, dbVarName){
         $ele.find('h4').text("Execute Query using 'exec()'");
         $ele.find('pre').text(fullQuery + '.exec()');
       }else{
-        if(time_taken){
-          $ele.find('h4').text("Found : " + result.length + ' in ' + time_taken  + ' ms');
-        }
+        $ele.find('h4').text("Found : " + result.length + ' in ' + time_taken  + ' ms');
         $ele.find('pre').text(formated_json);
       }
     }catch(err) {
