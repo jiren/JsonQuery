@@ -95,7 +95,7 @@ Query your JSON data like database.
  Movie.where({'rating': 8.4, 'name.$li': /braveheart/i}).exec()
 ```
 
-#### More query functions : all, groupBy, select, pluck, limit and offset, order
+#### More query functions : all, groupBy, select, pluck, limit and offset, order, first, last, count
 
 - Chaining multiple functions
 
@@ -110,6 +110,7 @@ Query your JSON data like database.
 
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).all
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).first
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).count
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).groupBy('rating')
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).select(['actor', 'rating']).exec()
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).pluck('actor').exec()

@@ -30,7 +30,7 @@
   var _JsonQuery = function(records){
     this.records = records || [];
     this.schema = {};
-    this.getFns = {};
+    this.getterFns = {};
     this.buildSchema(this.records[0])
     this.buildPropGetters(this.records[0]);
   };
@@ -38,7 +38,13 @@
   var JQ = _JsonQuery.prototype;
 
   JQ.getDataType = function(val){
-    return toString.call(val).slice(8, -1)
+    var type = toString.call(val).slice(8, -1);
+
+    if(type == 'String' && val.match(/\d{4}-\d{2}-\d{2}/)){
+      return 'Date';
+    }
+
+    return type;
   };
 
   JQ.buildSchema = function(d, p){
@@ -48,10 +54,9 @@
       v = d[field];
       k = p ? (p + '.' + field) : field;
 
+      dataType = this.getDataType(v);
+
       if (v != undefined){
-
-        dataType = this.getDataType(v);
-
         if (dataType == 'Array'){
           if(this.getDataType(v[0]) == 'Object'){
             this.schema[k] = 'Array';
@@ -62,19 +67,11 @@
         }else if (dataType  == 'Object'){
           this.schema[k] = 'Object';
           this.buildSchema(v, k);
-        }else if (dataType  == 'Number'){
-          this.schema[k] = 'Number';
-        }else if (dataType  == 'Boolean'){
-          this.schema[k] = 'Boolean';
-        }else if (dataType  == 'String' && v.match(/\d{4}-\d{2}-\d{2}/)){
-          this.schema[k] = 'Date';
-        }else if (dataType  == 'String'){
-          this.schema[k] = 'String';
         }else{
-          this.schema[k] = v;
+          this.schema[k] = dataType;
         }
       }else{
-        this.schema[k] = v;
+        this.schema[k] = this.dataType;
       }
 
     }
@@ -87,25 +84,27 @@
       type = this.schema[selector];
 
       if(type != 'Array' && type != 'Object'){
-        this.getFns[selector] = this.buildGetPropFn(selector);
+        this.getterFns[selector] = this.buildGetPropFn(selector, type);
       }
 
-      propFn = this.getFns[selector];
+      propFn = this.getterFns[selector];
       if(propFn){
         rVal = propFn(record);
       }else{
         rVal = record[selector];
       }
 
-      this.schema[selector] = this.getDataType(rVal);
+      if(!this.schema[selector]){
+        this.schema[selector] = this.getDataType(rVal);
+      }
     }
   };
 
-  JQ.buildGetPropFn = function(field){
+  JQ.buildGetPropFn = function(field, type){
     var i = 0, nestedPath, accessPath = "obj", accessFn, __f, map;
 
-    if(this.getFns[field]){
-      return this.getFns[field];
+    if(this.getterFns[field]){
+      return this.getterFns[field];
     }
 
     nestedPath = field.split('.');
@@ -124,7 +123,12 @@
       }
     };
 
-    accessFn = '__f = function(obj){ return '+ accessPath +'; }' ;
+    if(type == 'Date'){
+      accessFn = '__f = function(obj){ var v = '+ accessPath +';  return (v ? new Date(v) : null);}' ;
+    }else{
+      accessFn = '__f = function(obj){ return '+ accessPath +'; }' ;
+    }
+
     eval(accessFn);
     return __f;
   };
@@ -165,12 +169,15 @@
     };
   };
 
+  JQ.setGetterFn = function(field, fn){
+    this.getterFns[field] = fn;
+  };
 
   JQ._findAll = function(records, qField, cVal, cOpt){
     var result = [],
         cFn,
         rVal,
-        qFn = this.getFns[qField], arrayCFn;
+        qFn = this.getterFns[qField], arrayCFn;
 
     if(cOpt == 'li' && typeof cVal == 'string'){
       cVal = new RegExp(cVal);
@@ -242,7 +249,7 @@
   };
 
   var execGroupBy = function(field, records){
-    var fn = this.jQ.getFns[field], v, result = {}, i = 0, l = records.length;
+    var fn = this.jQ.getterFns[field], v, result = {}, i = 0, l = records.length;
 
     each(records, function(r){
       v = fn(r);
@@ -258,7 +265,7 @@
         _records = records.slice(0);
 
     for(var i = 0, l = orders.length; i < l; i++){
-      fn = this.jQ.getFns[orders[i].field],
+      fn = this.jQ.getterFns[orders[i].field],
         direction = orders[i].direction == 'asc' ? 1 : -1;
 
       _records.sort(function(r1,r2){
@@ -275,7 +282,7 @@
     var self = this, result = [], getFn;
 
     each(fields, function(f){
-      getFn = self.jQ.getFns[f];
+      getFn = self.jQ.getterFns[f];
 
       each(records, function(r, i){
         (result[i] || (result[i] = {}))[f] = getFn(r);
@@ -286,7 +293,7 @@
   };
 
   var execPluck = function(field, records){
-    var getFn = this.jQ.getFns[field], result = [];
+    var getFn = this.jQ.getterFns[field], result = [];
 
     each(records, function(r){
       result.push(getFn(r));
