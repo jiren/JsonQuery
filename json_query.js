@@ -31,13 +31,13 @@
     this.records = records || [];
     this.schema = {};
     this.getterFns = {};
-    this.buildSchema(this.records[0])
-    this.buildPropGetters(this.records[0]);
+    buildSchema.call(this, this.records[0])
+    buildPropGetters.call(this, this.records[0]);
   };
 
   var JQ = _JsonQuery.prototype;
 
-  JQ.getDataType = function(val){
+  var getDataType = function(val){
     var type = toString.call(val).slice(8, -1);
 
     if(type == 'String' && val.match(/\d{4}-\d{2}-\d{2}/)){
@@ -47,44 +47,44 @@
     return type;
   };
 
-  JQ.buildSchema = function(d, p){
+  var buildSchema = function(d, p){
     var field, v, type, k, dataType;
 
     for(field in d){
       v = d[field];
       k = p ? (p + '.' + field) : field;
 
-      dataType = this.getDataType(v);
+      dataType = getDataType(v);
 
       if (v != undefined){
         if (dataType == 'Array'){
-          if(this.getDataType(v[0]) == 'Object'){
+          if(getDataType(v[0]) == 'Object'){
             this.schema[k] = 'Array';
-            this.buildSchema(v[0], k);
+            buildSchema.call(this, v[0], k);
           }else{
-            this.schema[k] = this.getDataType(v[0]);
+            this.schema[k] = getDataType(v[0]);
           }
         }else if (dataType  == 'Object'){
           this.schema[k] = 'Object';
-          this.buildSchema(v, k);
+          buildSchema.call(this, v, k);
         }else{
           this.schema[k] = dataType;
         }
       }else{
-        this.schema[k] = this.dataType;
+        this.schema[k] = dataType;
       }
 
     }
   };
 
-  JQ.buildPropGetters = function(record){
+  var buildPropGetters = function(record){
     var selector, type, propFn, rVal;
 
     for(selector in this.schema){
       type = this.schema[selector];
 
       if(type != 'Array' && type != 'Object'){
-        this.getterFns[selector] = this.buildGetPropFn(selector, type);
+        this.getterFns[selector] = buildGetPropFn.call(this, selector, type);
       }
 
       propFn = this.getterFns[selector];
@@ -95,12 +95,12 @@
       }
 
       if(!this.schema[selector]){
-        this.schema[selector] = this.getDataType(rVal);
+        this.schema[selector] = getDataType(rVal);
       }
     }
   };
 
-  JQ.buildGetPropFn = function(field, type){
+  var buildGetPropFn = function(field, type){
     var i = 0, nestedPath, accessPath = "obj", accessFn, __f, map;
 
     if(this.getterFns[field]){
@@ -148,7 +148,7 @@
 
   // rVal = Record Value
   // cVal = Condition Value
-  JQ.arrayMatcher = function(rVal, cVal, cFn){
+  var arrayMatcher = function(rVal, cVal, cFn){
      var i = 0, l = rVal.length;
 
      for(i; i < l; i++){
@@ -191,7 +191,7 @@
 
     if(this.schema[qField] == 'Array'){
       arrayCFn = cFn;
-      cFn = this.arrayMatcher;
+      cFn = arrayMatcher;
     }
 
     each(records, function(v){
@@ -205,16 +205,10 @@
     return result;
   };
 
-  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order'], function(c){
+  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order', 'uniq'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
-
-      if(c != 'select'){
-        q[c](query)
-      }else{
-        q[c].apply(q, arguments);
-      }
-
+      q[c].apply(q, arguments);
       return q;
     };
   });
@@ -242,6 +236,18 @@
       return this.records;
     }
   });
+
+  var compareObj = function(obj1, obj2){
+    var prop;
+
+    for(prop in obj1){
+      if(this.getterFns[prop](obj1) !== this.getterFns[prop](obj2)){
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   var execWhere = function(query, records){
     var q, criteria, result;
@@ -308,6 +314,38 @@
     return result;
   };
 
+  var execUniq = function(fields, records){
+    var result = [], self = this;
+
+    if(getDataType(records[0]) != 'Object'){
+      each(records, function(r){
+        if(result.indexOf(r) == -1){
+          result.push(r);
+        }
+      });
+
+      return result;
+    }
+
+    result.push(records[0]);
+
+    each(records, function(r){
+      var present = false;
+
+      for(var i = 0, l = result.length; i < l; i++){
+        if(compareObj.call(self.jQ, result[i], r)){
+          present = true;
+        }
+      }
+
+      if(!present){
+        result.push(r);
+      }
+    });
+
+    return result;
+  };
+
   var Query = function(jQ, records){
     this.jQ = jQ;
     this.records = records;
@@ -342,6 +380,11 @@
 
     if(this.criteria['pluck']){
       result = execPluck.call(this, this.criteria['pluck'], result || this.records);
+    }
+
+    if(this.criteria['uniq']){
+      console.log(11111)
+      result = execUniq.call(this, this.criteria['uniq'], result || this.records);
     }
 
     if(this.criteria['limit']){
@@ -407,9 +450,14 @@
     this.criteria['order'] = this.criteria['order'] || [];
 
     for(field in criteria){
-      this.criteria['order'].push({field: field, direction: criteria[field]});
+      this.criteria['order'].push({field: field, direction: criteria[field].toLowerCase()});
     }
 
+    return this;
+  };
+
+  Q.uniq = function(){
+    this.criteria['uniq'] = (arguments.length > 0 ? arguments : true);
     return this;
   };
 
@@ -417,7 +465,7 @@
     get: function(){
       var r = this.exec();
 
-      if(this.jQ.getDataType(r) == 'Array'){
+      if(getDataType(r) == 'Array'){
         return this.exec().length;
       }else{
         return Object.keys(r).length;
