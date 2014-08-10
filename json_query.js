@@ -25,7 +25,7 @@
         }
       }
     }
-  }
+  };
 
   var _JsonQuery = function(records){
     this.records = records || [];
@@ -38,6 +38,10 @@
   var JQ = _JsonQuery.prototype;
 
   var getDataType = function(val){
+    if(val == null){
+      return 'String';
+    }
+
     var type = toString.call(val).slice(8, -1);
 
     if(type == 'String' && val.match(/\d{4}-\d{2}-\d{2}/)){
@@ -64,7 +68,7 @@
           }else{
             this.schema[k] = getDataType(v[0]);
           }
-        }else if (dataType  == 'Object'){
+        }else if (dataType == 'Object'){
           this.schema[k] = 'Object';
           buildSchema.call(this, v, k);
         }else{
@@ -73,7 +77,6 @@
       }else{
         this.schema[k] = dataType;
       }
-
     }
   };
 
@@ -94,7 +97,7 @@
         rVal = record[selector];
       }
 
-      if(!this.schema[selector]){
+      if(this.schema[selector]){
         this.schema[selector] = getDataType(rVal);
       }
     }
@@ -143,7 +146,7 @@
     in: function(v1, v2){ return v2.indexOf(v1) > -1},
     ni: function(v1, v2){ return v2.indexOf(v1) == -1},
     li: function(v, regx) { return regx.test(v)},
-    bt: function(v1, v2){ return (v1 > v2[0] && v1 < v2[1])}
+    bt: function(v1, v2){ return (v1 >= v2[0] && v1 <= v2[1])}
   };
 
   // rVal = Record Value
@@ -237,11 +240,9 @@
     }
   });
 
-  var compareObj = function(obj1, obj2){
-    var prop;
-
-    for(prop in obj1){
-      if(this.getterFns[prop](obj1) !== this.getterFns[prop](obj2)){
+  var compareObj = function(obj1, obj2, fields){
+    for(var i = 0, l = fields.length; i < l; i++){
+      if(this.getterFns[fields[i]](obj1) !== this.getterFns[fields[i]](obj2)){
         return false;
       }
     }
@@ -333,7 +334,7 @@
       var present = false;
 
       for(var i = 0, l = result.length; i < l; i++){
-        if(compareObj.call(self.jQ, result[i], r)){
+        if(compareObj.call(self.jQ, result[i], r, fields)){
           present = true;
         }
       }
@@ -374,17 +375,16 @@
       result = execOrder.call(this, this.criteria['order'], result || this.records);
     }
 
+    if(this.criteria['uniq']){
+      result = execUniq.call(this, this.criteria['uniq'], result || this.records);
+    }
+
     if(this.criteria['select']){
       result = execSelect.call(this, this.criteria['select'], result || this.records);
     }
 
     if(this.criteria['pluck']){
       result = execPluck.call(this, this.criteria['pluck'], result || this.records);
-    }
-
-    if(this.criteria['uniq']){
-      console.log(11111)
-      result = execUniq.call(this, this.criteria['uniq'], result || this.records);
     }
 
     if(this.criteria['limit']){
@@ -471,6 +471,12 @@
         return Object.keys(r).length;
       }
     }
+  });
+
+  Object.defineProperty(Q, 'all', {
+    get: function(){
+           return this.exec();
+         }
   });
 
   Object.defineProperty(Q, 'first', {
