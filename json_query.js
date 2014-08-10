@@ -51,90 +51,70 @@
     return type;
   };
 
-  var buildSchema = function(d, p){
-    var field, v, type, k, dataType;
+  var buildSchema = function(obj, parentField){
+    var field, dataType, fullPath, fieldValue;
 
-    for(field in d){
-      v = d[field];
-      k = p ? (p + '.' + field) : field;
+    for(field in obj){
+      fieldValue = obj[field];
+      dataType = getDataType(fieldValue);
 
-      dataType = getDataType(v);
+      fullPath = parentField ? (parentField + '.' + field) : field;
+      this.schema[fullPath] = dataType;
 
-      if (v != undefined){
-        if (dataType == 'Array'){
-          if(getDataType(v[0]) == 'Object'){
-            this.schema[k] = 'Array';
-            buildSchema.call(this, v[0], k);
-          }else{
-            this.schema[k] = getDataType(v[0]);
-          }
-        }else if (dataType == 'Object'){
-          this.schema[k] = 'Object';
-          buildSchema.call(this, v, k);
+      if(dataType == 'Object'){
+        buildSchema.call(this, fieldValue, fullPath);
+      }else if(dataType == 'Array'){
+
+        if(['Object', 'Array'].indexOf(getDataType(fieldValue[0])) > -1){
+          buildSchema.call(this, obj[field][0], fullPath);
         }else{
-          this.schema[k] = dataType;
+          this.schema[fullPath] = getDataType(fieldValue[0]);
         }
-      }else{
-        this.schema[k] = dataType;
       }
     }
   };
 
   var buildPropGetters = function(record){
-    var selector, type, propFn, rVal;
+    var selector, type, val;
 
     for(selector in this.schema){
       type = this.schema[selector];
+      this.getterFns[selector] = buildGetPropFn.call(this, selector, type);
 
-      if(type != 'Array' && type != 'Object'){
-        this.getterFns[selector] = buildGetPropFn.call(this, selector, type);
-      }
-
-      propFn = this.getterFns[selector];
-      if(propFn){
-        rVal = propFn(record);
-      }else{
-        rVal = record[selector];
-      }
-
-      if(this.schema[selector]){
-        this.schema[selector] = getDataType(rVal);
+      //Remap if it is array
+      val = this.getterFns[selector](record);
+      if(getDataType(val) == 'Array'){
+        this.schema[selector] = 'Array';
       }
     }
   };
 
   var buildGetPropFn = function(field, type){
-    var i = 0, nestedPath, accessPath = "obj", accessFn, __f, map;
-
-    if(this.getterFns[field]){
-      return this.getterFns[field];
-    }
+    var i = 0, nestedPath, accessPath = "", accessFn, __f, map;
 
     nestedPath = field.split('.');
 
-    for (i = 0; i < nestedPath.length; i++) {
-      if(this.schema[nestedPath[i]] == 'Array'){
-        map = true;
-        accessPath = accessPath + "['" + nestedPath[i] + "']";
+    for(i = nestedPath.length - 1; i >= 0; i--){
+      var last = nestedPath[i];
+      var parentField = nestedPath.slice(0, i).join('.');
+
+      if(this.schema[parentField] == 'Array'){
+        accessPath = accessPath + ".map(function(r){ return r['" + last +"']})"
       }else{
-        if(map){
-           accessPath = accessPath + ".map(function(r){ return r['" + nestedPath[i] +"']})"
-        }else{
-          map = false;
-          accessPath =  accessPath +  "['" + nestedPath[i] + "']";
-        }
+        accessPath = "['" + last +"']"  + accessPath
       }
-    };
+    }
 
     if(type == 'Date'){
-      accessFn = '__f = function(obj){ var v = '+ accessPath +';  return (v ? new Date(v) : null);}' ;
+      accessFn = '__f = function(obj){ var v = obj'+ accessPath +';  return (v ? new Date(v) : null);}' ;
     }else{
-      accessFn = '__f = function(obj){ return '+ accessPath +'; }' ;
+      accessFn = '__f = function(obj){ return obj'+ accessPath +'; }' ;
     }
 
     eval(accessFn);
     return __f;
   };
+
 
   JQ.operators = {
     eq: function(v1, v2){ return v1 == v2},
