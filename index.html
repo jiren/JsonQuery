@@ -118,6 +118,12 @@ Movie.where({'rating.$lt': 7.6})
  # Order : desc / asc
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).order({'rating': 'desc'}).exec()
  Movie.order({'rating': 'desc', actor: 'asc'}).exec()
+
+ # Unique
+ Movie.uniq('rating').exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).uniq('rating').exec()
+ Movie.uniq('rating').pluck('rating').exec()
+
           </pre>
           </div>
           <div class="modal-footer">
