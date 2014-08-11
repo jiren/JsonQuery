@@ -16,7 +16,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1974-04-30T10:29:29+05:30"
+    "date": "1974-04-30T10:29:29+05:30",
+    "actor": "Tim Robbins"
   },
   {
     "name": "The Godfather",
@@ -35,7 +36,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1974-07-12T10:29:29+05:30"
+    "date": "1974-07-12T10:29:29+05:30",
+    "actor": "Marlon Brando"
   },
   {
     "name": "The Godfather: Part II",
@@ -54,7 +56,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1992-08-23T10:29:29+05:30"
+    "date": "1992-08-23T10:29:29+05:30",
+    "actor": "Al Pacino"
   },
   {
     "name": "Pulp Fiction",
@@ -73,7 +76,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1994-02-09T10:29:29+05:30"
+    "date": "1994-02-09T10:29:29+05:30",
+    "actor": "John Travolta"
   },
   {
     "name": "The Good, the Bad and the Ugly",
@@ -92,7 +96,8 @@ var movies = [
       "Western"
     ],
     "certificate": "TV_14",
-    "date": "1980-10-05T10:29:29+05:30"
+    "date": "1980-10-05T10:29:29+05:30",
+    "actor": "Clint Eastwood"
   },
   {
     "name": "The Dark Knight",
@@ -113,7 +118,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG_13",
-    "date": "2002-09-14T10:29:29+05:30"
+    "date": "2002-09-14T10:29:29+05:30",
+    "actor": "Christian Bale"
   },
   {
     "name": "12 Angry Men",
@@ -131,7 +137,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1993-11-21T10:29:29+05:30"
+    "date": "1993-11-21T10:29:29+05:30",
+    "actor": "Henry Fonda"
   },
   {
     "name": "Schindler's List",
@@ -152,7 +159,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1991-03-02T10:29:29+05:30"
+    "date": "1991-03-02T10:29:29+05:30",
+    "actor": "Liam Neeson"
   },
   {
     "name": "The Lord of the Rings: The Return of the King",
@@ -172,7 +180,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG_13",
-    "date": "2007-01-29T10:29:29+05:30"
+    "date": "2007-01-29T10:29:29+05:30",
+    "actor": "Elijah Wood"
   },
   {
     "name": "Fight Club",
@@ -190,7 +199,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1989-05-06T10:29:29+05:30"
+    "date": "1989-05-06T10:29:29+05:30",
+    "actor": "Brad Pitt"
   },
   {
     "name": "Star Wars: Episode V - The Empire Strikes Back",
@@ -210,7 +220,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG",
-    "date": "1993-02-18T10:29:29+05:30"
+    "date": "1993-02-18T10:29:29+05:30",
+    "actor": "Mark Hamill"
   },
   {
     "name": "The Lord of the Rings: The Fellowship of the Ring",
@@ -230,7 +241,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG_13",
-    "date": "1984-11-28T10:29:29+05:30"
+    "date": "1984-11-28T10:29:29+05:30",
+    "actor": "Elijah Wood"
   },
   {
     "name": "Inception",
@@ -252,7 +264,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG_13",
-    "date": "2009-02-18T10:29:29+05:30"
+    "date": "2009-02-18T10:29:29+05:30",
+    "actor": "Leonardo DiCaprio"
   },
   {
     "name": "One Flew Over the Cuckoo's Nest",
@@ -270,7 +283,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1962-04-17T10:29:29+05:30"
+    "date": "1962-04-17T10:29:29+05:30",
+    "actor": "Jack Nicholson"
   },
   {
     "name": "Seven Samurai",
@@ -289,7 +303,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "UNRATED",
-    "date": "2011-01-08T10:29:29+05:30"
+    "date": "2011-01-08T10:29:29+05:30",
+    "actor": "Toshirô Mifune"
   },
   {
     "name": "Goodfellas",
@@ -310,7 +325,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1980-08-13T10:29:29+05:30"
+    "date": "1980-08-13T10:29:29+05:30",
+    "actor": "Robert De Niro"
   },
   {
     "name": "Star Wars",
@@ -331,7 +347,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG",
-    "date": "1978-05-18T10:29:29+05:30"
+    "date": "1978-05-18T10:29:29+05:30",
+    "actor": "Mark Hamill"
   },
   {
     "name": "Forrest Gump",
@@ -350,7 +367,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG_13",
-    "date": "1981-11-14T10:29:29+05:30"
+    "date": "1981-11-14T10:29:29+05:30",
+    "actor": "Tom Hanks"
   },
   {
     "name": "The Lord of the Rings: The Two Towers",
@@ -370,7 +388,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG_13",
-    "date": "1965-05-08T10:29:29+05:30"
+    "date": "1965-05-08T10:29:29+05:30",
+    "actor": "Elijah Wood"
   },
   {
     "name": "The Matrix",
@@ -391,7 +410,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "R",
-    "date": "1990-11-29T10:29:29+05:30"
+    "date": "1990-11-29T10:29:29+05:30",
+    "actor": "Lana Wachowski"
   },
   {
     "name": "City of God",
@@ -411,7 +431,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2004-10-25T10:29:29+05:30"
+    "date": "2004-10-25T10:29:29+05:30",
+    "actor": "Kátia Lund"
   },
   {
     "name": "Once Upon a Time in the West",
@@ -430,7 +451,8 @@ var movies = [
       "Western"
     ],
     "certificate": "United States-M",
-    "date": "2009-01-30T10:29:29+05:30"
+    "date": "2009-01-30T10:29:29+05:30",
+    "actor": "Henry Fonda"
   },
   {
     "name": "Casablanca",
@@ -450,7 +472,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "1970-04-10T10:29:29+05:30"
+    "date": "1970-04-10T10:29:29+05:30",
+    "actor": "Humphrey Bogart"
   },
   {
     "name": "The Usual Suspects",
@@ -470,7 +493,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1984-06-14T10:29:29+05:30"
+    "date": "1984-06-14T10:29:29+05:30",
+    "actor": "Kevin Spacey"
   },
   {
     "name": "Se7en",
@@ -490,7 +514,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1989-07-10T10:29:29+05:30"
+    "date": "1989-07-10T10:29:29+05:30",
+    "actor": "Morgan Freeman"
   },
   {
     "name": "The Silence of the Lambs",
@@ -510,7 +535,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2009-10-29T10:29:29+05:30"
+    "date": "2009-10-29T10:29:29+05:30",
+    "actor": "Jodie Foster"
   },
   {
     "name": "It's a Wonderful Life",
@@ -530,7 +556,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "APPROVED",
-    "date": "1982-05-20T10:29:29+05:30"
+    "date": "1982-05-20T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "Rear Window",
@@ -549,7 +576,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1968-10-12T10:29:29+05:30"
+    "date": "1968-10-12T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "Raiders of the Lost Ark",
@@ -568,7 +596,8 @@ var movies = [
       "Adventure"
     ],
     "certificate": "PG",
-    "date": "2014-05-17T10:29:29+05:30"
+    "date": "2014-05-17T10:29:29+05:30",
+    "actor": "Harrison Ford"
   },
   {
     "name": "Léon: The Professional",
@@ -588,7 +617,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "UNRATED",
-    "date": "2004-02-02T10:29:29+05:30"
+    "date": "2004-02-02T10:29:29+05:30",
+    "actor": "Jean Reno"
   },
   {
     "name": "Psycho",
@@ -608,7 +638,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "TV_14",
-    "date": "1999-12-23T10:29:29+05:30"
+    "date": "1999-12-23T10:29:29+05:30",
+    "actor": "Anthony Perkins"
   },
   {
     "name": "The Dark Knight Rises",
@@ -628,7 +659,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG_13",
-    "date": "2013-09-06T10:29:29+05:30"
+    "date": "2013-09-06T10:29:29+05:30",
+    "actor": "Christian Bale"
   },
   {
     "name": "Sunset Blvd.",
@@ -647,7 +679,8 @@ var movies = [
       "Film-Noir"
     ],
     "certificate": "APPROVED",
-    "date": "1998-06-21T10:29:29+05:30"
+    "date": "1998-06-21T10:29:29+05:30",
+    "actor": "William Holden"
   },
   {
     "name": "City Lights",
@@ -667,7 +700,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "United States-PASSED",
-    "date": "2000-05-05T10:29:29+05:30"
+    "date": "2000-05-05T10:29:29+05:30",
+    "actor": "Charles Chaplin"
   },
   {
     "name": "American History X",
@@ -686,7 +720,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2001-07-07T10:29:29+05:30"
+    "date": "2001-07-07T10:29:29+05:30",
+    "actor": "Edward Norton"
   },
   {
     "name": "Django Unchained",
@@ -707,7 +742,8 @@ var movies = [
       "Western"
     ],
     "certificate": "R",
-    "date": "1966-10-17T10:29:29+05:30"
+    "date": "1966-10-17T10:29:29+05:30",
+    "actor": "Jamie Foxx"
   },
   {
     "name": "Memento",
@@ -726,7 +762,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1976-06-23T10:29:29+05:30"
+    "date": "1976-06-23T10:29:29+05:30",
+    "actor": "Guy Pearce"
   },
   {
     "name": "Apocalypse Now",
@@ -745,7 +782,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1969-12-13T10:29:29+05:30"
+    "date": "1969-12-13T10:29:29+05:30",
+    "actor": "Martin Sheen"
   },
   {
     "name": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
@@ -764,7 +802,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "2014-01-13T10:29:29+05:30"
+    "date": "2014-01-13T10:29:29+05:30",
+    "actor": "Peter Sellers"
   },
   {
     "name": "Spirited Away",
@@ -785,7 +824,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG",
-    "date": "1972-07-29T10:29:29+05:30"
+    "date": "1972-07-29T10:29:29+05:30",
+    "actor": "Daveigh Chase"
   },
   {
     "name": "Terminator 2: Judgment Day",
@@ -805,7 +845,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1993-11-14T10:29:29+05:30"
+    "date": "1993-11-14T10:29:29+05:30",
+    "actor": "Arnold Schwarzenegger"
   },
   {
     "name": "Saving Private Ryan",
@@ -825,7 +866,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1961-11-27T10:29:29+05:30"
+    "date": "1961-11-27T10:29:29+05:30",
+    "actor": "Tom Hanks"
   },
   {
     "name": "Modern Times",
@@ -844,7 +886,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1973-06-27T10:29:29+05:30"
+    "date": "1973-06-27T10:29:29+05:30",
+    "actor": "Charles Chaplin"
   },
   {
     "name": "The Intouchables",
@@ -865,7 +908,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2001-02-01T10:29:29+05:30"
+    "date": "2001-02-01T10:29:29+05:30",
+    "actor": "Eric Toledano"
   },
   {
     "name": "North by Northwest",
@@ -886,7 +930,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1977-07-07T10:29:29+05:30"
+    "date": "1977-07-07T10:29:29+05:30",
+    "actor": "Cary Grant"
   },
   {
     "name": "Alien",
@@ -905,7 +950,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "TV_14",
-    "date": "1982-09-09T10:29:29+05:30"
+    "date": "1982-09-09T10:29:29+05:30",
+    "actor": "Sigourney Weaver"
   },
   {
     "name": "M",
@@ -926,7 +972,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "TV_14",
-    "date": "2007-09-24T10:29:29+05:30"
+    "date": "2007-09-24T10:29:29+05:30",
+    "actor": "Peter Lorre"
   },
   {
     "name": "Life Is Beautiful",
@@ -948,7 +995,8 @@ var movies = [
       "War"
     ],
     "certificate": "PG_13",
-    "date": "1967-12-05T10:29:29+05:30"
+    "date": "1967-12-05T10:29:29+05:30",
+    "actor": "Rod Dean"
   },
   {
     "name": "Paths of Glory",
@@ -967,7 +1015,8 @@ var movies = [
       "War"
     ],
     "certificate": "TV_14",
-    "date": "1974-10-26T10:29:29+05:30"
+    "date": "1974-10-26T10:29:29+05:30",
+    "actor": "Kirk Douglas"
   },
   {
     "name": "Citizen Kane",
@@ -986,7 +1035,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "APPROVED",
-    "date": "1968-08-28T10:29:29+05:30"
+    "date": "1968-08-28T10:29:29+05:30",
+    "actor": "Orson Welles"
   },
   {
     "name": "Double Indemnity",
@@ -1007,7 +1057,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1994-03-21T10:29:29+05:30"
+    "date": "1994-03-21T10:29:29+05:30",
+    "actor": "Fred MacMurray"
   },
   {
     "name": "The Pianist",
@@ -1028,7 +1079,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1995-10-02T10:29:29+05:30"
+    "date": "1995-10-02T10:29:29+05:30",
+    "actor": "Adrien Brody"
   },
   {
     "name": "Back to the Future",
@@ -1048,7 +1100,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG",
-    "date": "1991-09-15T10:29:29+05:30"
+    "date": "1991-09-15T10:29:29+05:30",
+    "actor": "Michael J. Fox"
   },
   {
     "name": "The Departed",
@@ -1067,7 +1120,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1972-04-28T10:29:29+05:30"
+    "date": "1972-04-28T10:29:29+05:30",
+    "actor": "Leonardo DiCaprio"
   },
   {
     "name": "The Shining",
@@ -1086,7 +1140,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "R",
-    "date": "2006-07-27T10:29:29+05:30"
+    "date": "2006-07-27T10:29:29+05:30",
+    "actor": "Jack Nicholson"
   },
   {
     "name": "Vertigo",
@@ -1106,7 +1161,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1993-02-25T10:29:29+05:30"
+    "date": "1993-02-25T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "The Lives of Others",
@@ -1125,7 +1181,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1996-10-03T10:29:29+05:30"
+    "date": "1996-10-03T10:29:29+05:30",
+    "actor": "Ulrich Mühe"
   },
   {
     "name": "American Beauty",
@@ -1143,7 +1200,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1967-03-31T10:29:29+05:30"
+    "date": "1967-03-31T10:29:29+05:30",
+    "actor": "Kevin Spacey"
   },
   {
     "name": "Toy Story 3",
@@ -1165,7 +1223,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "G",
-    "date": "1960-04-11T10:29:29+05:30"
+    "date": "1960-04-11T10:29:29+05:30",
+    "actor": "Tom Hanks"
   },
   {
     "name": "Aliens",
@@ -1186,7 +1245,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1988-09-08T10:29:29+05:30"
+    "date": "1988-09-08T10:29:29+05:30",
+    "actor": "Sigourney Weaver"
   },
   {
     "name": "The Great Dictator",
@@ -1206,7 +1266,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "2010-04-06T10:29:29+05:30"
+    "date": "2010-04-06T10:29:29+05:30",
+    "actor": "Charles Chaplin"
   },
   {
     "name": "Taxi Driver",
@@ -1225,7 +1286,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2012-02-27T10:29:29+05:30"
+    "date": "2012-02-27T10:29:29+05:30",
+    "actor": "Robert De Niro"
   },
   {
     "name": "WALL·E",
@@ -1247,7 +1309,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "G",
-    "date": "1985-05-21T10:29:29+05:30"
+    "date": "1985-05-21T10:29:29+05:30",
+    "actor": "Ben Burtt"
   },
   {
     "name": "A Separation",
@@ -1265,7 +1328,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG_13",
-    "date": "2013-11-07T10:29:29+05:30"
+    "date": "2013-11-07T10:29:29+05:30",
+    "actor": "Payman Maadi"
   },
   {
     "name": "Gladiator",
@@ -1285,7 +1349,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1981-02-25T10:29:29+05:30"
+    "date": "1981-02-25T10:29:29+05:30",
+    "actor": "Russell Crowe"
   },
   {
     "name": "Amélie",
@@ -1304,7 +1369,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "R",
-    "date": "1980-01-24T10:29:29+05:30"
+    "date": "1980-01-24T10:29:29+05:30",
+    "actor": "Audrey Tautou"
   },
   {
     "name": "The Green Mile",
@@ -1325,7 +1391,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "R",
-    "date": "1974-12-20T10:29:29+05:30"
+    "date": "1974-12-20T10:29:29+05:30",
+    "actor": "Tom Hanks"
   },
   {
     "name": "A Clockwork Orange",
@@ -1345,7 +1412,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "R",
-    "date": "2006-07-03T10:29:29+05:30"
+    "date": "2006-07-03T10:29:29+05:30",
+    "actor": "Malcolm McDowell"
   },
   {
     "name": "Lawrence of Arabia",
@@ -1367,7 +1435,8 @@ var movies = [
       "War"
     ],
     "certificate": "TV_14",
-    "date": "1992-06-01T10:29:29+05:30"
+    "date": "1992-06-01T10:29:29+05:30",
+    "actor": "Peter O'Toole"
   },
   {
     "name": "The Prestige",
@@ -1387,7 +1456,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG_13",
-    "date": "1963-10-05T10:29:29+05:30"
+    "date": "1963-10-05T10:29:29+05:30",
+    "actor": "Christian Bale"
   },
   {
     "name": "Cinema Paradiso",
@@ -1405,7 +1475,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2000-08-16T10:29:29+05:30"
+    "date": "2000-08-16T10:29:29+05:30",
+    "actor": "Philippe Noiret"
   },
   {
     "name": "To Kill a Mockingbird",
@@ -1425,7 +1496,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "APPROVED",
-    "date": "2013-08-20T10:29:29+05:30"
+    "date": "2013-08-20T10:29:29+05:30",
+    "actor": "Gregory Peck"
   },
   {
     "name": "Das Boot",
@@ -1447,7 +1519,8 @@ var movies = [
       "War"
     ],
     "certificate": "UNRATED",
-    "date": "1971-02-06T10:29:29+05:30"
+    "date": "1971-02-06T10:29:29+05:30",
+    "actor": "Jürgen Prochnow"
   },
   {
     "name": "The Treasure of the Sierra Madre",
@@ -1468,7 +1541,8 @@ var movies = [
       "Western"
     ],
     "certificate": "TV_PG",
-    "date": "2007-01-28T10:29:29+05:30"
+    "date": "2007-01-28T10:29:29+05:30",
+    "actor": "Humphrey Bogart"
   },
   {
     "name": "The Third Man",
@@ -1488,7 +1562,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1978-07-18T10:29:29+05:30"
+    "date": "1978-07-18T10:29:29+05:30",
+    "actor": "Orson Welles"
   },
   {
     "name": "Reservoir Dogs",
@@ -1507,7 +1582,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2005-12-28T10:29:29+05:30"
+    "date": "2005-12-28T10:29:29+05:30",
+    "actor": "Harvey Keitel"
   },
   {
     "name": "Requiem for a Dream",
@@ -1525,7 +1601,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "UNRATED",
-    "date": "1972-12-28T10:29:29+05:30"
+    "date": "1972-12-28T10:29:29+05:30",
+    "actor": "Ellen Burstyn"
   },
   {
     "name": "Eternal Sunshine of the Spotless Mind",
@@ -1545,7 +1622,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "R",
-    "date": "2005-03-14T10:29:29+05:30"
+    "date": "2005-03-14T10:29:29+05:30",
+    "actor": "Jim Carrey"
   },
   {
     "name": "The Lion King",
@@ -1568,7 +1646,8 @@ var movies = [
       "Musical"
     ],
     "certificate": "G",
-    "date": "1976-10-25T10:29:29+05:30"
+    "date": "1976-10-25T10:29:29+05:30",
+    "actor": "Rob Minkoff"
   },
   {
     "name": "Once Upon a Time in America",
@@ -1587,7 +1666,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1984-10-13T10:29:29+05:30"
+    "date": "1984-10-13T10:29:29+05:30",
+    "actor": "Robert De Niro"
   },
   {
     "name": "Bicycle Thieves",
@@ -1606,7 +1686,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "NOT_RATED",
-    "date": "2000-05-19T10:29:29+05:30"
+    "date": "2000-05-19T10:29:29+05:30",
+    "actor": "Lamberto Maggiorani"
   },
   {
     "name": "All About Eve",
@@ -1624,7 +1705,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1993-09-20T10:29:29+05:30"
+    "date": "1993-09-20T10:29:29+05:30",
+    "actor": "Bette Davis"
   },
   {
     "name": "Grave of the Fireflies",
@@ -1644,7 +1726,8 @@ var movies = [
       "War"
     ],
     "certificate": "TV_14",
-    "date": "2006-12-19T10:29:29+05:30"
+    "date": "2006-12-19T10:29:29+05:30",
+    "actor": "Tsutomu Tatsumi"
   },
   {
     "name": "Singin' in the Rain",
@@ -1665,7 +1748,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "APPROVED",
-    "date": "1981-01-01T10:29:29+05:30"
+    "date": "1981-01-01T10:29:29+05:30",
+    "actor": "Gene Kelly"
   },
   {
     "name": "Witness for the Prosecution",
@@ -1684,7 +1768,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "APPROVED",
-    "date": "1966-03-12T10:29:29+05:30"
+    "date": "1966-03-12T10:29:29+05:30",
+    "actor": "Tyrone Power"
   },
   {
     "name": "Braveheart",
@@ -1706,7 +1791,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1971-10-30T10:29:29+05:30"
+    "date": "1971-10-30T10:29:29+05:30",
+    "actor": "Mel Gibson"
   },
   {
     "name": "Princess Mononoke",
@@ -1726,7 +1812,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "TV_14",
-    "date": "1980-07-16T10:29:29+05:30"
+    "date": "1980-07-16T10:29:29+05:30",
+    "actor": "Yôji Matsuda"
   },
   {
     "name": "Star Wars: Episode VI - Return of the Jedi",
@@ -1747,7 +1834,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG",
-    "date": "1994-11-14T10:29:29+05:30"
+    "date": "1994-11-14T10:29:29+05:30",
+    "actor": "Mark Hamill"
   },
   {
     "name": "Rashomon",
@@ -1766,7 +1854,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "UNRATED",
-    "date": "1966-07-13T10:29:29+05:30"
+    "date": "1966-07-13T10:29:29+05:30",
+    "actor": "Toshirô Mifune"
   },
   {
     "name": "Metropolis",
@@ -1785,7 +1874,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "NOT_RATED",
-    "date": "1987-01-19T10:29:29+05:30"
+    "date": "1987-01-19T10:29:29+05:30",
+    "actor": "Brigitte Helm"
   },
   {
     "name": "Oldboy",
@@ -1805,7 +1895,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1988-12-24T10:29:29+05:30"
+    "date": "1988-12-24T10:29:29+05:30",
+    "actor": "Min-sik Choi"
   },
   {
     "name": "Monty Python and the Holy Grail",
@@ -1826,7 +1917,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG",
-    "date": "1964-09-26T10:29:29+05:30"
+    "date": "1964-09-26T10:29:29+05:30",
+    "actor": "Terry Jones"
   },
   {
     "name": "Some Like It Hot",
@@ -1844,7 +1936,8 @@ var movies = [
       "Comedy"
     ],
     "certificate": "APPROVED",
-    "date": "1978-10-07T10:29:29+05:30"
+    "date": "1978-10-07T10:29:29+05:30",
+    "actor": "Marilyn Monroe"
   },
   {
     "name": "Chinatown",
@@ -1864,7 +1957,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "TV_14",
-    "date": "2013-10-22T10:29:29+05:30"
+    "date": "2013-10-22T10:29:29+05:30",
+    "actor": "Jack Nicholson"
   },
   {
     "name": "Full Metal Jacket",
@@ -1883,7 +1977,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1964-12-23T10:29:29+05:30"
+    "date": "1964-12-23T10:29:29+05:30",
+    "actor": "Matthew Modine"
   },
   {
     "name": "The Apartment",
@@ -1903,7 +1998,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "APPROVED",
-    "date": "1981-02-09T10:29:29+05:30"
+    "date": "1981-02-09T10:29:29+05:30",
+    "actor": "Jack Lemmon"
   },
   {
     "name": "Amadeus",
@@ -1923,7 +2019,8 @@ var movies = [
       "Music"
     ],
     "certificate": "R",
-    "date": "2012-03-04T10:29:29+05:30"
+    "date": "2012-03-04T10:29:29+05:30",
+    "actor": "F. Murray Abraham"
   },
   {
     "name": "L.A. Confidential",
@@ -1944,7 +2041,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1982-07-10T10:29:29+05:30"
+    "date": "1982-07-10T10:29:29+05:30",
+    "actor": "Kevin Spacey"
   },
   {
     "name": "Like Stars on Earth",
@@ -1962,7 +2060,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG",
-    "date": "2005-04-11T10:29:29+05:30"
+    "date": "2005-04-11T10:29:29+05:30",
+    "actor": "Darsheel Safary"
   },
   {
     "name": "The Sting",
@@ -1982,7 +2081,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "TV_14",
-    "date": "1968-04-03T10:29:29+05:30"
+    "date": "1968-04-03T10:29:29+05:30",
+    "actor": "Paul Newman"
   },
   {
     "name": "Yojimbo",
@@ -2001,7 +2101,8 @@ var movies = [
       "Adventure"
     ],
     "certificate": "TV_MA",
-    "date": "1981-08-02T10:29:29+05:30"
+    "date": "1981-08-02T10:29:29+05:30",
+    "actor": "Toshirô Mifune"
   },
   {
     "name": "2001: A Space Odyssey",
@@ -2021,7 +2122,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "TV_PG",
-    "date": "1970-07-02T10:29:29+05:30"
+    "date": "1970-07-02T10:29:29+05:30",
+    "actor": "Keir Dullea"
   },
   {
     "name": "The Bridge on the River Kwai",
@@ -2042,7 +2144,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "2001-09-25T10:29:29+05:30"
+    "date": "2001-09-25T10:29:29+05:30",
+    "actor": "William Holden"
   },
   {
     "name": "Raging Bull",
@@ -2062,7 +2165,8 @@ var movies = [
       "Sport"
     ],
     "certificate": "R",
-    "date": "2000-04-30T10:29:29+05:30"
+    "date": "2000-04-30T10:29:29+05:30",
+    "actor": "Robert De Niro"
   },
   {
     "name": "Unforgiven",
@@ -2080,7 +2184,8 @@ var movies = [
       "Western"
     ],
     "certificate": "R",
-    "date": "2005-11-24T10:29:29+05:30"
+    "date": "2005-11-24T10:29:29+05:30",
+    "actor": "Clint Eastwood"
   },
   {
     "name": "Mr. Smith Goes to Washington",
@@ -2098,7 +2203,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1962-07-24T10:29:29+05:30"
+    "date": "1962-07-24T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "The General",
@@ -2121,7 +2227,8 @@ var movies = [
       "War"
     ],
     "certificate": "UNRATED",
-    "date": "1983-06-04T10:29:29+05:30"
+    "date": "1983-06-04T10:29:29+05:30",
+    "actor": "Buster Keaton"
   },
   {
     "name": "Indiana Jones and the Last Crusade",
@@ -2140,7 +2247,8 @@ var movies = [
       "Adventure"
     ],
     "certificate": "United States-E",
-    "date": "2014-03-19T10:29:29+05:30"
+    "date": "2014-03-19T10:29:29+05:30",
+    "actor": "Harrison Ford"
   },
   {
     "name": "Batman Begins",
@@ -2161,7 +2269,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG_13",
-    "date": "2003-03-20T10:29:29+05:30"
+    "date": "2003-03-20T10:29:29+05:30",
+    "actor": "Christian Bale"
   },
   {
     "name": "For a Few Dollars More",
@@ -2179,7 +2288,8 @@ var movies = [
       "Western"
     ],
     "certificate": "APPROVED",
-    "date": "2006-07-25T10:29:29+05:30"
+    "date": "2006-07-25T10:29:29+05:30",
+    "actor": "Clint Eastwood"
   },
   {
     "name": "The Great Escape",
@@ -2201,7 +2311,8 @@ var movies = [
       "War"
     ],
     "certificate": "UNRATED",
-    "date": "1999-04-14T10:29:29+05:30"
+    "date": "1999-04-14T10:29:29+05:30",
+    "actor": "Steve McQueen"
   },
   {
     "name": "On the Waterfront",
@@ -2220,7 +2331,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1997-02-11T10:29:29+05:30"
+    "date": "1997-02-11T10:29:29+05:30",
+    "actor": "Marlon Brando"
   },
   {
     "name": "The Kid",
@@ -2240,7 +2352,8 @@ var movies = [
       "Family"
     ],
     "certificate": "NOT_RATED",
-    "date": "1964-12-04T10:29:29+05:30"
+    "date": "1964-12-04T10:29:29+05:30",
+    "actor": "Charles Chaplin"
   },
   {
     "name": "Die Hard",
@@ -2259,7 +2372,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1995-05-19T10:29:29+05:30"
+    "date": "1995-05-19T10:29:29+05:30",
+    "actor": "Bruce Willis"
   },
   {
     "name": "Downfall",
@@ -2280,7 +2394,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "2005-07-08T10:29:29+05:30"
+    "date": "2005-07-08T10:29:29+05:30",
+    "actor": "Bruno Ganz"
   },
   {
     "name": "Snatch.",
@@ -2299,7 +2414,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1989-12-16T10:29:29+05:30"
+    "date": "1989-12-16T10:29:29+05:30",
+    "actor": "Jason Statham"
   },
   {
     "name": "The Seventh Seal",
@@ -2318,7 +2434,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "TV_PG",
-    "date": "1971-09-29T10:29:29+05:30"
+    "date": "1971-09-29T10:29:29+05:30",
+    "actor": "Max von Sydow"
   },
   {
     "name": "Pan's Labyrinth",
@@ -2338,7 +2455,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1971-04-20T10:29:29+05:30"
+    "date": "1971-04-20T10:29:29+05:30",
+    "actor": "Ivana Baquero"
   },
   {
     "name": "Wild Strawberries",
@@ -2356,7 +2474,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "UNRATED",
-    "date": "1959-12-14T10:29:29+05:30"
+    "date": "1959-12-14T10:29:29+05:30",
+    "actor": "Victor Sjöström"
   },
   {
     "name": "Inglourious Basterds",
@@ -2376,7 +2495,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1960-08-07T10:29:29+05:30"
+    "date": "1960-08-07T10:29:29+05:30",
+    "actor": "Brad Pitt"
   },
   {
     "name": "Up",
@@ -2400,7 +2520,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG",
-    "date": "1977-01-18T10:29:29+05:30"
+    "date": "1977-01-18T10:29:29+05:30",
+    "actor": "Bob Peterson"
   },
   {
     "name": "The Elephant Man",
@@ -2419,7 +2540,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG",
-    "date": "1964-11-29T10:29:29+05:30"
+    "date": "1964-11-29T10:29:29+05:30",
+    "actor": "Anthony Hopkins"
   },
   {
     "name": "The Maltese Falcon",
@@ -2440,7 +2562,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "APPROVED",
-    "date": "1985-12-06T10:29:29+05:30"
+    "date": "1985-12-06T10:29:29+05:30",
+    "actor": "Humphrey Bogart"
   },
   {
     "name": "Rebecca",
@@ -2460,7 +2583,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "2007-01-08T10:29:29+05:30"
+    "date": "2007-01-08T10:29:29+05:30",
+    "actor": "Laurence Olivier"
   },
   {
     "name": "The Avengers",
@@ -2478,7 +2602,8 @@ var movies = [
       "Action"
     ],
     "certificate": "PG_13",
-    "date": "1994-03-18T10:29:29+05:30"
+    "date": "1994-03-18T10:29:29+05:30",
+    "actor": "Robert Downey Jr."
   },
   {
     "name": "3 Idiots",
@@ -2498,7 +2623,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG_13",
-    "date": "2009-04-24T10:29:29+05:30"
+    "date": "2009-04-24T10:29:29+05:30",
+    "actor": "Aamir Khan"
   },
   {
     "name": "Heat",
@@ -2519,7 +2645,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1999-12-12T10:29:29+05:30"
+    "date": "1999-12-12T10:29:29+05:30",
+    "actor": "Al Pacino"
   },
   {
     "name": "Toy Story",
@@ -2541,7 +2668,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "G",
-    "date": "2008-09-07T10:29:29+05:30"
+    "date": "2008-09-07T10:29:29+05:30",
+    "actor": "Tom Hanks"
   },
   {
     "name": "Blade Runner",
@@ -2561,7 +2689,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1981-02-09T10:29:29+05:30"
+    "date": "1981-02-09T10:29:29+05:30",
+    "actor": "Harrison Ford"
   },
   {
     "name": "Ran",
@@ -2581,7 +2710,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1985-07-11T10:29:29+05:30"
+    "date": "1985-07-11T10:29:29+05:30",
+    "actor": "Tatsuya Nakadai"
   },
   {
     "name": "Scarface",
@@ -2601,7 +2731,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1986-01-27T10:29:29+05:30"
+    "date": "1986-01-27T10:29:29+05:30",
+    "actor": "Al Pacino"
   },
   {
     "name": "Touch of Evil",
@@ -2621,7 +2752,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "UNRATED",
-    "date": "2004-07-12T10:29:29+05:30"
+    "date": "2004-07-12T10:29:29+05:30",
+    "actor": "Charlton Heston"
   },
   {
     "name": "The Gold Rush",
@@ -2643,7 +2775,8 @@ var movies = [
       "Western"
     ],
     "certificate": "NOT_RATED",
-    "date": "2010-05-05T10:29:29+05:30"
+    "date": "2010-05-05T10:29:29+05:30",
+    "actor": "Charles Chaplin"
   },
   {
     "name": "Gran Torino",
@@ -2661,7 +2794,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1986-03-28T10:29:29+05:30"
+    "date": "1986-03-28T10:29:29+05:30",
+    "actor": "Clint Eastwood"
   },
   {
     "name": "The Big Lebowski",
@@ -2680,7 +2814,8 @@ var movies = [
       "Crime"
     ],
     "certificate": "R",
-    "date": "1987-01-01T10:29:29+05:30"
+    "date": "1987-01-01T10:29:29+05:30",
+    "actor": "Jeff Bridges"
   },
   {
     "name": "It Happened One Night",
@@ -2699,7 +2834,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "UNRATED",
-    "date": "1968-02-03T10:29:29+05:30"
+    "date": "1968-02-03T10:29:29+05:30",
+    "actor": "Clark Gable"
   },
   {
     "name": "Cool Hand Luke",
@@ -2718,7 +2854,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "2001-04-06T10:29:29+05:30"
+    "date": "2001-04-06T10:29:29+05:30",
+    "actor": "Paul Newman"
   },
   {
     "name": "Fargo",
@@ -2737,7 +2874,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1986-05-30T10:29:29+05:30"
+    "date": "1986-05-30T10:29:29+05:30",
+    "actor": "William H. Macy"
   },
   {
     "name": "Warrior",
@@ -2756,7 +2894,8 @@ var movies = [
       "Sport"
     ],
     "certificate": "PG_13",
-    "date": "1988-01-17T10:29:29+05:30"
+    "date": "1988-01-17T10:29:29+05:30",
+    "actor": "Tom Hardy"
   },
   {
     "name": "The Deer Hunter",
@@ -2775,7 +2914,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1967-06-11T10:29:29+05:30"
+    "date": "1967-06-11T10:29:29+05:30",
+    "actor": "Robert De Niro"
   },
   {
     "name": "The Secret in Their Eyes",
@@ -2795,7 +2935,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2013-04-11T10:29:29+05:30"
+    "date": "2013-04-11T10:29:29+05:30",
+    "actor": "Ricardo Darín"
   },
   {
     "name": "Strangers on a Train",
@@ -2814,7 +2955,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1995-09-01T10:29:29+05:30"
+    "date": "1995-09-01T10:29:29+05:30",
+    "actor": "Farley Granger"
   },
   {
     "name": "The Best Years of Our Lives",
@@ -2834,7 +2976,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "2008-06-05T10:29:29+05:30"
+    "date": "2008-06-05T10:29:29+05:30",
+    "actor": "Fredric March"
   },
   {
     "name": "Lock, Stock and Two Smoking Barrels",
@@ -2853,7 +2996,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2007-01-07T10:29:29+05:30"
+    "date": "2007-01-07T10:29:29+05:30",
+    "actor": "Jason Flemyng"
   },
   {
     "name": "High Noon",
@@ -2872,7 +3016,8 @@ var movies = [
       "Western"
     ],
     "certificate": "APPROVED",
-    "date": "1963-12-31T10:29:29+05:30"
+    "date": "1963-12-31T10:29:29+05:30",
+    "actor": "Gary Cooper"
   },
   {
     "name": "My Neighbor Totoro",
@@ -2892,7 +3037,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "G",
-    "date": "1959-12-20T10:29:29+05:30"
+    "date": "1959-12-20T10:29:29+05:30",
+    "actor": "Hitoshi Takagi"
   },
   {
     "name": "Sin City",
@@ -2912,7 +3058,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "UNRATED",
-    "date": "1964-01-23T10:29:29+05:30"
+    "date": "1964-01-23T10:29:29+05:30",
+    "actor": "Robert Rodriguez"
   },
   {
     "name": "The Grapes of Wrath",
@@ -2930,7 +3077,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1980-05-29T10:29:29+05:30"
+    "date": "1980-05-29T10:29:29+05:30",
+    "actor": "Henry Fonda"
   },
   {
     "name": "Gone with the Wind",
@@ -2950,7 +3098,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "1986-11-12T10:29:29+05:30"
+    "date": "1986-11-12T10:29:29+05:30",
+    "actor": "Clark Gable"
   },
   {
     "name": "Butch Cassidy and the Sundance Kid",
@@ -2971,7 +3120,8 @@ var movies = [
       "Western"
     ],
     "certificate": "United States-M",
-    "date": "2008-02-25T10:29:29+05:30"
+    "date": "2008-02-25T10:29:29+05:30",
+    "actor": "Paul Newman"
   },
   {
     "name": "The Thing",
@@ -2992,7 +3142,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2004-07-06T10:29:29+05:30"
+    "date": "2004-07-06T10:29:29+05:30",
+    "actor": "Kurt Russell"
   },
   {
     "name": "Hotel Rwanda",
@@ -3013,7 +3164,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1996-05-04T10:29:29+05:30"
+    "date": "1996-05-04T10:29:29+05:30",
+    "actor": "Don Cheadle"
   },
   {
     "name": "No Country for Old Men",
@@ -3034,7 +3186,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1992-04-24T10:29:29+05:30"
+    "date": "1992-04-24T10:29:29+05:30",
+    "actor": "Joel Coen"
   },
   {
     "name": "Casino",
@@ -3054,7 +3207,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1976-04-01T10:29:29+05:30"
+    "date": "1976-04-01T10:29:29+05:30",
+    "actor": "Robert De Niro"
   },
   {
     "name": "Notorious",
@@ -3074,7 +3228,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "UNRATED",
-    "date": "2002-06-13T10:29:29+05:30"
+    "date": "2002-06-13T10:29:29+05:30",
+    "actor": "Cary Grant"
   },
   {
     "name": "Trainspotting",
@@ -3093,7 +3248,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1997-12-06T10:29:29+05:30"
+    "date": "1997-12-06T10:29:29+05:30",
+    "actor": "Ewan McGregor"
   },
   {
     "name": "V for Vendetta",
@@ -3113,7 +3269,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1966-08-13T10:29:29+05:30"
+    "date": "1966-08-13T10:29:29+05:30",
+    "actor": "Hugo Weaving"
   },
   {
     "name": "The Wizard of Oz",
@@ -3134,7 +3291,8 @@ var movies = [
       "Musical"
     ],
     "certificate": "APPROVED",
-    "date": "1977-09-11T10:29:29+05:30"
+    "date": "1977-09-11T10:29:29+05:30",
+    "actor": "Judy Garland"
   },
   {
     "name": "Good Will Hunting",
@@ -3152,7 +3310,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1999-07-28T10:29:29+05:30"
+    "date": "1999-07-28T10:29:29+05:30",
+    "actor": "Robin Williams"
   },
   {
     "name": "Platoon",
@@ -3172,7 +3331,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "1977-05-20T10:29:29+05:30"
+    "date": "1977-05-20T10:29:29+05:30",
+    "actor": "Charlie Sheen"
   },
   {
     "name": "The Hobbit: An Unexpected Journey",
@@ -3191,7 +3351,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG_13",
-    "date": "1991-12-01T10:29:29+05:30"
+    "date": "1991-12-01T10:29:29+05:30",
+    "actor": "Martin Freeman"
   },
   {
     "name": "Jaws",
@@ -3211,7 +3372,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "TV_14",
-    "date": "2004-08-25T10:29:29+05:30"
+    "date": "2004-08-25T10:29:29+05:30",
+    "actor": "Roy Scheider"
   },
   {
     "name": "Annie Hall",
@@ -3231,7 +3393,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG",
-    "date": "2002-11-01T10:29:29+05:30"
+    "date": "2002-11-01T10:29:29+05:30",
+    "actor": "Woody Allen"
   },
   {
     "name": "Into the Wild",
@@ -3251,7 +3414,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1984-08-02T10:29:29+05:30"
+    "date": "1984-08-02T10:29:29+05:30",
+    "actor": "Emile Hirsch"
   },
   {
     "name": "The Sixth Sense",
@@ -3271,7 +3435,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG_13",
-    "date": "1994-12-14T10:29:29+05:30"
+    "date": "1994-12-14T10:29:29+05:30",
+    "actor": "Bruce Willis"
   },
   {
     "name": "The Night of the Hunter",
@@ -3291,7 +3456,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "UNRATED",
-    "date": "1968-12-29T10:29:29+05:30"
+    "date": "1968-12-29T10:29:29+05:30",
+    "actor": "Robert Mitchum"
   },
   {
     "name": "How to Train Your Dragon",
@@ -3315,7 +3481,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG",
-    "date": "1972-09-24T10:29:29+05:30"
+    "date": "1972-09-24T10:29:29+05:30",
+    "actor": "Chris Sanders"
   },
   {
     "name": "The Big Sleep",
@@ -3336,7 +3503,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "TV_PG",
-    "date": "1982-01-11T10:29:29+05:30"
+    "date": "1982-01-11T10:29:29+05:30",
+    "actor": "Humphrey Bogart"
   },
   {
     "name": "Kill Bill: Vol. 1",
@@ -3356,7 +3524,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "TV_14",
-    "date": "1961-04-16T10:29:29+05:30"
+    "date": "1961-04-16T10:29:29+05:30",
+    "actor": "Uma Thurman"
   },
   {
     "name": "Dial M for Murder",
@@ -3376,7 +3545,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1961-12-22T10:29:29+05:30"
+    "date": "1961-12-22T10:29:29+05:30",
+    "actor": "Ray Milland"
   },
   {
     "name": "Persona",
@@ -3394,7 +3564,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "NOT_RATED",
-    "date": "2000-11-13T10:29:29+05:30"
+    "date": "2000-11-13T10:29:29+05:30",
+    "actor": "Bibi Andersson"
   },
   {
     "name": "Mary and Max",
@@ -3414,7 +3585,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "NOT_RATED",
-    "date": "1973-11-16T10:29:29+05:30"
+    "date": "1973-11-16T10:29:29+05:30",
+    "actor": "Toni Collette"
   },
   {
     "name": "Life of Brian",
@@ -3432,7 +3604,8 @@ var movies = [
       "Comedy"
     ],
     "certificate": "R",
-    "date": "1972-08-06T10:29:29+05:30"
+    "date": "1972-08-06T10:29:29+05:30",
+    "actor": "Graham Chapman"
   },
   {
     "name": "Network",
@@ -3450,7 +3623,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1980-06-03T10:29:29+05:30"
+    "date": "1980-06-03T10:29:29+05:30",
+    "actor": "Faye Dunaway"
   },
   {
     "name": "The 400 Blows",
@@ -3469,7 +3643,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "NOT_RATED",
-    "date": "1987-10-10T10:29:29+05:30"
+    "date": "1987-10-10T10:29:29+05:30",
+    "actor": "Jean-Pierre Léaud"
   },
   {
     "name": "Finding Nemo",
@@ -3491,7 +3666,8 @@ var movies = [
       "Family"
     ],
     "certificate": "G",
-    "date": "1983-04-19T10:29:29+05:30"
+    "date": "1983-04-19T10:29:29+05:30",
+    "actor": "Lee Unkrich"
   },
   {
     "name": "Ben-Hur",
@@ -3513,7 +3689,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "APPROVED",
-    "date": "1963-03-08T10:29:29+05:30"
+    "date": "1963-03-08T10:29:29+05:30",
+    "actor": "Charlton Heston"
   },
   {
     "name": "Life of Pi",
@@ -3533,7 +3710,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG",
-    "date": "1996-09-27T10:29:29+05:30"
+    "date": "1996-09-27T10:29:29+05:30",
+    "actor": "Suraj Sharma"
   },
   {
     "name": "Donnie Darko",
@@ -3553,7 +3731,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "R",
-    "date": "1980-06-16T10:29:29+05:30"
+    "date": "1980-06-16T10:29:29+05:30",
+    "actor": "Jake Gyllenhaal"
   },
   {
     "name": "The King's Speech",
@@ -3573,7 +3752,8 @@ var movies = [
       "History"
     ],
     "certificate": "R",
-    "date": "1977-08-20T10:29:29+05:30"
+    "date": "1977-08-20T10:29:29+05:30",
+    "actor": "Colin Firth"
   },
   {
     "name": "Howl's Moving Castle",
@@ -3596,7 +3776,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "TV_PG",
-    "date": "1979-08-01T10:29:29+05:30"
+    "date": "1979-08-01T10:29:29+05:30",
+    "actor": "Chieko Baishô"
   },
   {
     "name": "There Will Be Blood",
@@ -3614,7 +3795,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1994-01-11T10:29:29+05:30"
+    "date": "1994-01-11T10:29:29+05:30",
+    "actor": "Daniel Day-Lewis"
   },
   {
     "name": "Stand by Me",
@@ -3633,7 +3815,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2001-12-12T10:29:29+05:30"
+    "date": "2001-12-12T10:29:29+05:30",
+    "actor": "Wil Wheaton"
   },
   {
     "name": "La strada",
@@ -3651,7 +3834,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "TV_PG",
-    "date": "1999-03-20T10:29:29+05:30"
+    "date": "1999-03-20T10:29:29+05:30",
+    "actor": "Anthony Quinn"
   },
   {
     "name": "The Killing",
@@ -3671,7 +3855,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "2011-11-26T10:29:29+05:30"
+    "date": "2011-11-26T10:29:29+05:30",
+    "actor": "Sterling Hayden"
   },
   {
     "name": "The Princess Bride",
@@ -3693,7 +3878,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG",
-    "date": "1992-03-30T10:29:29+05:30"
+    "date": "1992-03-30T10:29:29+05:30",
+    "actor": "Cary Elwes"
   },
   {
     "name": "Million Dollar Baby",
@@ -3712,7 +3898,8 @@ var movies = [
       "Sport"
     ],
     "certificate": "PG_13",
-    "date": "1969-03-03T10:29:29+05:30"
+    "date": "1969-03-03T10:29:29+05:30",
+    "actor": "Hilary Swank"
   },
   {
     "name": "Amores Perros",
@@ -3731,7 +3918,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1982-08-06T10:29:29+05:30"
+    "date": "1982-08-06T10:29:29+05:30",
+    "actor": "Emilio Echevarría"
   },
   {
     "name": "Who's Afraid of Virginia Woolf?",
@@ -3749,7 +3937,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1968-04-16T10:29:29+05:30"
+    "date": "1968-04-16T10:29:29+05:30",
+    "actor": "Elizabeth Taylor"
   },
   {
     "name": "Stalker",
@@ -3771,7 +3960,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "NOT_RATED",
-    "date": "1972-08-23T10:29:29+05:30"
+    "date": "1972-08-23T10:29:29+05:30",
+    "actor": "Alisa Freyndlikh"
   },
   {
     "name": "8½",
@@ -3790,7 +3980,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "NOT_RATED",
-    "date": "1977-06-04T10:29:29+05:30"
+    "date": "1977-06-04T10:29:29+05:30",
+    "actor": "Marcello Mastroianni"
   },
   {
     "name": "The Terminator",
@@ -3809,7 +4000,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "R",
-    "date": "1973-06-20T10:29:29+05:30"
+    "date": "1973-06-20T10:29:29+05:30",
+    "actor": "Arnold Schwarzenegger"
   },
   {
     "name": "Gandhi",
@@ -3829,7 +4021,8 @@ var movies = [
       "History"
     ],
     "certificate": "PG",
-    "date": "1986-07-08T10:29:29+05:30"
+    "date": "1986-07-08T10:29:29+05:30",
+    "actor": "Ben Kingsley"
   },
   {
     "name": "Groundhog Day",
@@ -3850,7 +4043,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG",
-    "date": "2011-07-02T10:29:29+05:30"
+    "date": "2011-07-02T10:29:29+05:30",
+    "actor": "Bill Murray"
   },
   {
     "name": "Dog Day Afternoon",
@@ -3869,7 +4063,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2008-06-01T10:29:29+05:30"
+    "date": "2008-06-01T10:29:29+05:30",
+    "actor": "Al Pacino"
   },
   {
     "name": "Incendies",
@@ -3889,7 +4084,8 @@ var movies = [
       "War"
     ],
     "certificate": "R",
-    "date": "2011-10-05T10:29:29+05:30"
+    "date": "2011-10-05T10:29:29+05:30",
+    "actor": "Lubna Azabal"
   },
   {
     "name": "The Bourne Ultimatum",
@@ -3909,7 +4105,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG_13",
-    "date": "2012-10-17T10:29:29+05:30"
+    "date": "2012-10-17T10:29:29+05:30",
+    "actor": "Matt Damon"
   },
   {
     "name": "The Perks of Being a Wallflower",
@@ -3928,7 +4125,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG_13",
-    "date": "1995-12-28T10:29:29+05:30"
+    "date": "1995-12-28T10:29:29+05:30",
+    "actor": "Logan Lerman"
   },
   {
     "name": "The Hustler",
@@ -3947,7 +4145,8 @@ var movies = [
       "Sport"
     ],
     "certificate": "UNRATED",
-    "date": "1985-10-15T10:29:29+05:30"
+    "date": "1985-10-15T10:29:29+05:30",
+    "actor": "Paul Newman"
   },
   {
     "name": "Twelve Monkeys",
@@ -3967,7 +4166,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1979-02-25T10:29:29+05:30"
+    "date": "1979-02-25T10:29:29+05:30",
+    "actor": "Bruce Willis"
   },
   {
     "name": "Black Swan",
@@ -3987,7 +4187,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2000-11-12T10:29:29+05:30"
+    "date": "2000-11-12T10:29:29+05:30",
+    "actor": "Natalie Portman"
   },
   {
     "name": "Memories of Murder",
@@ -4008,7 +4209,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "UNRATED",
-    "date": "1975-11-03T10:29:29+05:30"
+    "date": "1975-11-03T10:29:29+05:30",
+    "actor": "Kang-ho Song"
   },
   {
     "name": "Anatomy of a Murder",
@@ -4028,7 +4230,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "UNRATED",
-    "date": "1971-02-13T10:29:29+05:30"
+    "date": "1971-02-13T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "Stalag 17",
@@ -4049,7 +4252,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "2010-06-27T10:29:29+05:30"
+    "date": "2010-06-27T10:29:29+05:30",
+    "actor": "William Holden"
   },
   {
     "name": "Sleuth",
@@ -4068,7 +4272,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "PG",
-    "date": "1968-12-07T10:29:29+05:30"
+    "date": "1968-12-07T10:29:29+05:30",
+    "actor": "Laurence Olivier"
   },
   {
     "name": "The Graduate",
@@ -4088,7 +4293,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "APPROVED",
-    "date": "2011-05-09T10:29:29+05:30"
+    "date": "2011-05-09T10:29:29+05:30",
+    "actor": "Dustin Hoffman"
   },
   {
     "name": "The Man Who Shot Liberty Valance",
@@ -4108,7 +4314,8 @@ var movies = [
       "Western"
     ],
     "certificate": "UNRATED",
-    "date": "1965-05-31T10:29:29+05:30"
+    "date": "1965-05-31T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "The Manchurian Candidate",
@@ -4130,7 +4337,8 @@ var movies = [
       "War"
     ],
     "certificate": "APPROVED",
-    "date": "1982-11-29T10:29:29+05:30"
+    "date": "1982-11-29T10:29:29+05:30",
+    "actor": "Frank Sinatra"
   },
   {
     "name": "A Beautiful Mind",
@@ -4149,7 +4357,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG_13",
-    "date": "2005-03-20T10:29:29+05:30"
+    "date": "2005-03-20T10:29:29+05:30",
+    "actor": "Russell Crowe"
   },
   {
     "name": "Harry Potter and the Deathly Hallows: Part 2",
@@ -4170,7 +4379,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "PG_13",
-    "date": "2013-04-05T10:29:29+05:30"
+    "date": "2013-04-05T10:29:29+05:30",
+    "actor": "Daniel Radcliffe"
   },
   {
     "name": "Barry Lyndon",
@@ -4191,7 +4401,8 @@ var movies = [
       "War"
     ],
     "certificate": "PG",
-    "date": "1963-07-12T10:29:29+05:30"
+    "date": "1963-07-12T10:29:29+05:30",
+    "actor": "Ryan O'Neal"
   },
   {
     "name": "Infernal Affairs",
@@ -4212,7 +4423,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1973-06-08T10:29:29+05:30"
+    "date": "1973-06-08T10:29:29+05:30",
+    "actor": "Alan Mak"
   },
   {
     "name": "The Wild Bunch",
@@ -4230,7 +4442,8 @@ var movies = [
       "Western"
     ],
     "certificate": "R",
-    "date": "1976-01-02T10:29:29+05:30"
+    "date": "1976-01-02T10:29:29+05:30",
+    "actor": "William Holden"
   },
   {
     "name": "Slumdog Millionaire",
@@ -4251,7 +4464,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1996-09-22T10:29:29+05:30"
+    "date": "1996-09-22T10:29:29+05:30",
+    "actor": "Loveleen Tandan"
   },
   {
     "name": "Ip Man",
@@ -4272,7 +4486,8 @@ var movies = [
       "History"
     ],
     "certificate": "R",
-    "date": "2004-09-07T10:29:29+05:30"
+    "date": "2004-09-07T10:29:29+05:30",
+    "actor": "Donnie Yen"
   },
   {
     "name": "Roman Holiday",
@@ -4292,7 +4507,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "APPROVED",
-    "date": "2008-03-19T10:29:29+05:30"
+    "date": "2008-03-19T10:29:29+05:30",
+    "actor": "Gregory Peck"
   },
   {
     "name": "Rocky",
@@ -4311,7 +4527,8 @@ var movies = [
       "Sport"
     ],
     "certificate": "PG",
-    "date": "1987-08-18T10:29:29+05:30"
+    "date": "1987-08-18T10:29:29+05:30",
+    "actor": "Sylvester Stallone"
   },
   {
     "name": "Nausicaä of the Valley of the Wind",
@@ -4333,7 +4550,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG",
-    "date": "2004-11-02T10:29:29+05:30"
+    "date": "2004-11-02T10:29:29+05:30",
+    "actor": "Sumi Shimamoto"
   },
   {
     "name": "In the Name of the Father",
@@ -4353,7 +4571,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1981-12-14T10:29:29+05:30"
+    "date": "1981-12-14T10:29:29+05:30",
+    "actor": "Daniel Day-Lewis"
   },
   {
     "name": "The Artist",
@@ -4373,7 +4592,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG_13",
-    "date": "1966-12-02T10:29:29+05:30"
+    "date": "1966-12-02T10:29:29+05:30",
+    "actor": "Jean Dujardin"
   },
   {
     "name": "Rope",
@@ -4393,7 +4613,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "APPROVED",
-    "date": "1971-07-30T10:29:29+05:30"
+    "date": "1971-07-30T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "La Haine",
@@ -4411,7 +4632,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "NOT_RATED",
-    "date": "1990-10-11T10:29:29+05:30"
+    "date": "1990-10-11T10:29:29+05:30",
+    "actor": "Vincent Cassel"
   },
   {
     "name": "The Celebration",
@@ -4428,7 +4650,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1963-07-23T10:29:29+05:30"
+    "date": "1963-07-23T10:29:29+05:30",
+    "actor": "Henning Moritzen"
   },
   {
     "name": "Harvey",
@@ -4447,7 +4670,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1996-09-09T10:29:29+05:30"
+    "date": "1996-09-09T10:29:29+05:30",
+    "actor": "James Stewart"
   },
   {
     "name": "All Quiet on the Western Front",
@@ -4466,7 +4690,8 @@ var movies = [
       "War"
     ],
     "certificate": "UNRATED",
-    "date": "1979-02-14T10:29:29+05:30"
+    "date": "1979-02-14T10:29:29+05:30",
+    "actor": "Lew Ayres"
   },
   {
     "name": "Spring, Summer, Fall, Winter... and Spring",
@@ -4484,7 +4709,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "2005-12-08T10:29:29+05:30"
+    "date": "2005-12-08T10:29:29+05:30",
+    "actor": "Ki-duk Kim"
   },
   {
     "name": "Pirates of the Caribbean: The Curse of the Black Pearl",
@@ -4504,7 +4730,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG_13",
-    "date": "1964-10-09T10:29:29+05:30"
+    "date": "1964-10-09T10:29:29+05:30",
+    "actor": "Johnny Depp"
   },
   {
     "name": "The Exorcist",
@@ -4523,7 +4750,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "TV_14",
-    "date": "1991-05-18T10:29:29+05:30"
+    "date": "1991-05-18T10:29:29+05:30",
+    "actor": "Ellen Burstyn"
   },
   {
     "name": "In the Mood for Love",
@@ -4542,7 +4770,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "PG",
-    "date": "2000-12-04T10:29:29+05:30"
+    "date": "2000-12-04T10:29:29+05:30",
+    "actor": "Tony Leung Chiu Wai"
   },
   {
     "name": "The Diving Bell and the Butterfly",
@@ -4561,7 +4790,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG_13",
-    "date": "2012-03-04T10:29:29+05:30"
+    "date": "2012-03-04T10:29:29+05:30",
+    "actor": "Mathieu Amalric"
   },
   {
     "name": "The Help",
@@ -4579,7 +4809,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "PG_13",
-    "date": "1963-05-13T10:29:29+05:30"
+    "date": "1963-05-13T10:29:29+05:30",
+    "actor": "Emma Stone"
   },
   {
     "name": "A Streetcar Named Desire",
@@ -4597,7 +4828,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "APPROVED",
-    "date": "1981-01-18T10:29:29+05:30"
+    "date": "1981-01-18T10:29:29+05:30",
+    "actor": "Vivien Leigh"
   },
   {
     "name": "A Fistful of Dollars",
@@ -4615,7 +4847,8 @@ var movies = [
       "Western"
     ],
     "certificate": "R",
-    "date": "1974-10-03T10:29:29+05:30"
+    "date": "1974-10-03T10:29:29+05:30",
+    "actor": "Clint Eastwood"
   },
   {
     "name": "Star Trek",
@@ -4635,7 +4868,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG_13",
-    "date": "1979-06-28T10:29:29+05:30"
+    "date": "1979-06-28T10:29:29+05:30",
+    "actor": "Chris Pine"
   },
   {
     "name": "Monsters, Inc.",
@@ -4658,7 +4892,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "TV_PG",
-    "date": "1984-02-05T10:29:29+05:30"
+    "date": "1984-02-05T10:29:29+05:30",
+    "actor": "David Silverman"
   },
   {
     "name": "District 9",
@@ -4678,7 +4913,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1989-09-05T10:29:29+05:30"
+    "date": "1989-09-05T10:29:29+05:30",
+    "actor": "Sharlto Copley"
   },
   {
     "name": "Papillon",
@@ -4698,7 +4934,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1993-09-17T10:29:29+05:30"
+    "date": "1993-09-17T10:29:29+05:30",
+    "actor": "Steve McQueen"
   },
   {
     "name": "The Truman Show",
@@ -4718,7 +4955,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG",
-    "date": "2004-03-11T10:29:29+05:30"
+    "date": "2004-03-11T10:29:29+05:30",
+    "actor": "Jim Carrey"
   },
   {
     "name": "Ratatouille",
@@ -4740,7 +4978,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "G",
-    "date": "1970-04-29T10:29:29+05:30"
+    "date": "1970-04-29T10:29:29+05:30",
+    "actor": "Jan Pinkava"
   },
   {
     "name": "Beauty and the Beast",
@@ -4763,7 +5002,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "G",
-    "date": "1998-01-20T10:29:29+05:30"
+    "date": "1998-01-20T10:29:29+05:30",
+    "actor": "Kirk Wise"
   },
   {
     "name": "Shutter Island",
@@ -4782,7 +5022,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2010-09-07T10:29:29+05:30"
+    "date": "2010-09-07T10:29:29+05:30",
+    "actor": "Leonardo DiCaprio"
   },
   {
     "name": "Nosferatu",
@@ -4800,7 +5041,8 @@ var movies = [
       "Horror"
     ],
     "certificate": "UNRATED",
-    "date": "2005-12-22T10:29:29+05:30"
+    "date": "2005-12-22T10:29:29+05:30",
+    "actor": "Max Schreck"
   },
   {
     "name": "Manhattan",
@@ -4820,7 +5062,8 @@ var movies = [
       "Romance"
     ],
     "certificate": "R",
-    "date": "1976-02-14T10:29:29+05:30"
+    "date": "1976-02-14T10:29:29+05:30",
+    "actor": "Woody Allen"
   },
   {
     "name": "Rosemary's Baby",
@@ -4840,7 +5083,8 @@ var movies = [
       "Mystery"
     ],
     "certificate": "APPROVED",
-    "date": "1984-06-13T10:29:29+05:30"
+    "date": "1984-06-13T10:29:29+05:30",
+    "actor": "Mia Farrow"
   },
   {
     "name": "Jurassic Park",
@@ -4859,7 +5103,8 @@ var movies = [
       "Sci-Fi"
     ],
     "certificate": "PG_13",
-    "date": "2009-05-04T10:29:29+05:30"
+    "date": "2009-05-04T10:29:29+05:30",
+    "actor": "Sam Neill"
   },
   {
     "name": "Big Fish",
@@ -4879,7 +5124,8 @@ var movies = [
       "Fantasy"
     ],
     "certificate": "PG_13",
-    "date": "1988-02-08T10:29:29+05:30"
+    "date": "1988-02-08T10:29:29+05:30",
+    "actor": "Ewan McGregor"
   },
   {
     "name": "Rain Man",
@@ -4897,7 +5143,8 @@ var movies = [
       "Drama"
     ],
     "certificate": "R",
-    "date": "1990-11-24T10:29:29+05:30"
+    "date": "1990-11-24T10:29:29+05:30",
+    "actor": "Dustin Hoffman"
   },
   {
     "name": "Mystic River",
@@ -4918,7 +5165,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "1987-03-04T10:29:29+05:30"
+    "date": "1987-03-04T10:29:29+05:30",
+    "actor": "Sean Penn"
   },
   {
     "name": "The Untouchables",
@@ -4939,7 +5187,8 @@ var movies = [
       "Thriller"
     ],
     "certificate": "R",
-    "date": "2001-04-11T10:29:29+05:30"
+    "date": "2001-04-11T10:29:29+05:30",
+    "actor": "Kevin Costner"
   },
   {
     "name": "The Wrestler",
@@ -4959,6 +5208,7 @@ var movies = [
       "Sport"
     ],
     "certificate": "R",
-    "date": "1988-04-11T10:29:29+05:30"
+    "date": "1988-04-11T10:29:29+05:30",
+    "actor": "Mickey Rourke"
   }
 ]
