@@ -25,19 +25,23 @@
         }
       }
     }
-  }
+  };
 
   var _JsonQuery = function(records){
     this.records = records || [];
     this.schema = {};
     this.getterFns = {};
-    this.buildSchema(this.records[0])
-    this.buildPropGetters(this.records[0]);
+    buildSchema.call(this, this.records[0])
+    buildPropGetters.call(this, this.records[0]);
   };
 
   var JQ = _JsonQuery.prototype;
 
-  JQ.getDataType = function(val){
+  var getDataType = function(val){
+    if(val == null){
+      return 'String';
+    }
+
     var type = toString.call(val).slice(8, -1);
 
     if(type == 'String' && val.match(/\d{4}-\d{2}-\d{2}/)){
@@ -47,91 +51,70 @@
     return type;
   };
 
-  JQ.buildSchema = function(d, p){
-    var field, v, type, k, dataType;
+  var buildSchema = function(obj, parentField){
+    var field, dataType, fullPath, fieldValue;
 
-    for(field in d){
-      v = d[field];
-      k = p ? (p + '.' + field) : field;
+    for(field in obj){
+      fieldValue = obj[field];
+      dataType = getDataType(fieldValue);
 
-      dataType = this.getDataType(v);
+      fullPath = parentField ? (parentField + '.' + field) : field;
+      this.schema[fullPath] = dataType;
 
-      if (v != undefined){
-        if (dataType == 'Array'){
-          if(this.getDataType(v[0]) == 'Object'){
-            this.schema[k] = 'Array';
-            this.buildSchema(v[0], k);
-          }else{
-            this.schema[k] = this.getDataType(v[0]);
-          }
-        }else if (dataType  == 'Object'){
-          this.schema[k] = 'Object';
-          this.buildSchema(v, k);
+      if(dataType == 'Object'){
+        buildSchema.call(this, fieldValue, fullPath);
+      }else if(dataType == 'Array'){
+
+        if(['Object', 'Array'].indexOf(getDataType(fieldValue[0])) > -1){
+          buildSchema.call(this, obj[field][0], fullPath);
         }else{
-          this.schema[k] = dataType;
+          this.schema[fullPath] = getDataType(fieldValue[0]);
         }
-      }else{
-        this.schema[k] = this.dataType;
       }
-
     }
   };
 
-  JQ.buildPropGetters = function(record){
-    var selector, type, propFn, rVal;
+  var buildPropGetters = function(record){
+    var selector, type, val;
 
     for(selector in this.schema){
       type = this.schema[selector];
+      this.getterFns[selector] = buildGetPropFn.call(this, selector, type);
 
-      if(type != 'Array' && type != 'Object'){
-        this.getterFns[selector] = this.buildGetPropFn(selector, type);
-      }
-
-      propFn = this.getterFns[selector];
-      if(propFn){
-        rVal = propFn(record);
-      }else{
-        rVal = record[selector];
-      }
-
-      if(!this.schema[selector]){
-        this.schema[selector] = this.getDataType(rVal);
+      //Remap if it is array
+      val = this.getterFns[selector](record);
+      if(getDataType(val) == 'Array'){
+        this.schema[selector] = 'Array';
       }
     }
   };
 
-  JQ.buildGetPropFn = function(field, type){
-    var i = 0, nestedPath, accessPath = "obj", accessFn, __f, map;
-
-    if(this.getterFns[field]){
-      return this.getterFns[field];
-    }
+  var buildGetPropFn = function(field, type){
+    var i = 0, nestedPath, accessPath = "", accessFn, __f, map;
 
     nestedPath = field.split('.');
 
-    for (i = 0; i < nestedPath.length; i++) {
-      if(this.schema[nestedPath[i]] == 'Array'){
-        map = true;
-        accessPath = accessPath + "['" + nestedPath[i] + "']";
+    for(i = nestedPath.length - 1; i >= 0; i--){
+      var last = nestedPath[i];
+      var parentField = nestedPath.slice(0, i).join('.');
+
+      if(this.schema[parentField] == 'Array'){
+        accessPath = accessPath + ".map(function(r){ return r['" + last +"']})"
       }else{
-        if(map){
-           accessPath = accessPath + ".map(function(r){ return r['" + nestedPath[i] +"']})"
-        }else{
-          map = false;
-          accessPath =  accessPath +  "['" + nestedPath[i] + "']";
-        }
+        accessPath = "['" + last +"']"  + accessPath
       }
-    };
+    }
 
     if(type == 'Date'){
-      accessFn = '__f = function(obj){ var v = '+ accessPath +';  return (v ? new Date(v) : null);}' ;
+      accessFn = '__f = function(obj){ var v = obj'+ accessPath +';  return (v ? new Date(v) : null);}' ;
     }else{
-      accessFn = '__f = function(obj){ return '+ accessPath +'; }' ;
+      accessFn = '__f = function(obj){ return obj'+ accessPath +'; }' ;
     }
 
     eval(accessFn);
     return __f;
   };
+
 
   JQ.operators = {
     eq: function(v1, v2){ return v1 == v2},
@@ -143,12 +126,12 @@
     in: function(v1, v2){ return v2.indexOf(v1) > -1},
     ni: function(v1, v2){ return v2.indexOf(v1) == -1},
     li: function(v, regx) { return regx.test(v)},
-    bt: function(v1, v2){ return (v1 > v2[0] && v1 < v2[1])}
+    bt: function(v1, v2){ return (v1 >= v2[0] && v1 <= v2[1])}
   };
 
   // rVal = Record Value
   // cVal = Condition Value
-  JQ.arrayMatcher = function(rVal, cVal, cFn){
+  var arrayMatcher = function(rVal, cVal, cFn){
      var i = 0, l = rVal.length;
 
      for(i; i < l; i++){
@@ -191,7 +174,7 @@
 
     if(this.schema[qField] == 'Array'){
       arrayCFn = cFn;
-      cFn = this.arrayMatcher;
+      cFn = arrayMatcher;
     }
 
     each(records, function(v){
@@ -205,16 +188,10 @@
     return result;
   };
 
-  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order'], function(c){
+  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order', 'uniq'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
-
-      if(c != 'select'){
-        q[c](query)
-      }else{
-        q[c].apply(q, arguments);
-      }
-
+      q[c].apply(q, arguments);
       return q;
     };
   });
@@ -242,6 +219,16 @@
       return this.records;
     }
   });
+
+  var compareObj = function(obj1, obj2, fields){
+    for(var i = 0, l = fields.length; i < l; i++){
+      if(this.getterFns[fields[i]](obj1) !== this.getterFns[fields[i]](obj2)){
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   var execWhere = function(query, records){
     var q, criteria, result;
@@ -308,6 +295,38 @@
     return result;
   };
 
+  var execUniq = function(fields, records){
+    var result = [], self = this;
+
+    if(getDataType(records[0]) != 'Object'){
+      each(records, function(r){
+        if(result.indexOf(r) == -1){
+          result.push(r);
+        }
+      });
+
+      return result;
+    }
+
+    result.push(records[0]);
+
+    each(records, function(r){
+      var present = false;
+
+      for(var i = 0, l = result.length; i < l; i++){
+        if(compareObj.call(self.jQ, result[i], r, fields)){
+          present = true;
+        }
+      }
+
+      if(!present){
+        result.push(r);
+      }
+    });
+
+    return result;
+  };
+
   var Query = function(jQ, records){
     this.jQ = jQ;
     this.records = records;
@@ -334,6 +353,10 @@
 
     if(this.criteria['order']){
       result = execOrder.call(this, this.criteria['order'], result || this.records);
+    }
+
+    if(this.criteria['uniq']){
+      result = execUniq.call(this, this.criteria['uniq'], result || this.records);
     }
 
     if(this.criteria['select']){
@@ -407,9 +430,14 @@
     this.criteria['order'] = this.criteria['order'] || [];
 
     for(field in criteria){
-      this.criteria['order'].push({field: field, direction: criteria[field]});
+      this.criteria['order'].push({field: field, direction: criteria[field].toLowerCase()});
     }
 
+    return this;
+  };
+
+  Q.uniq = function(){
+    this.criteria['uniq'] = (arguments.length > 0 ? arguments : true);
     return this;
   };
 
@@ -417,12 +445,18 @@
     get: function(){
       var r = this.exec();
 
-      if(this.jQ.getDataType(r) == 'Array'){
+      if(getDataType(r) == 'Array'){
         return this.exec().length;
       }else{
         return Object.keys(r).length;
       }
     }
+  });
+
+  Object.defineProperty(Q, 'all', {
+    get: function(){
+           return this.exec();
+         }
   });
 
   Object.defineProperty(Q, 'first', {
