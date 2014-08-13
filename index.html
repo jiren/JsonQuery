@@ -96,6 +96,9 @@ Movie.where({'rating.$lt': 7.6})
           <pre>
  Movie.where({'rating': 8.4, 'name.$li': /braveheart/i})
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
+
+ #OR query. It must used with where.
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or('rating': 8.4).exec();
           </pre>
           <h5>all, groupBy, select, pluck, limit and offset, order</h5>
 
@@ -125,7 +128,8 @@ Movie.where({'rating.$lt': 7.6})
  Movie.uniq('rating').pluck('rating').exec()
 
  # Find - will return first record
- # Default id field is `id`. If id field other then `id` then set "Movie = JsonQuery(movies, {'id': '_id'})";
+ # Default id field is `id`. If id field other then `id`
+ # then set "Movie = JsonQuery(movies, {'id': '_id'})";
  Movie.find(10)
  Movie.find('rating', 8.4)
  Movie.find('rating', 8.4)
