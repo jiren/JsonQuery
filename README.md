@@ -119,7 +119,7 @@ Query your JSON data like database.
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).limit(10).offset(20).exec()
 
  #OR query. It must used with where.
- Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or('rating': 8.4).exec();
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or({'rating': 8.4}).exec();
 
  # Order : desc / asc
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).order({'rating': 'desc'}).exec()
