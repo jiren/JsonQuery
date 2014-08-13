@@ -8,8 +8,8 @@
     <script src="assets/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="assets/bootstrap.min.js" type="text/javascript"></script>
     <script src="../json_query.js" type="text/javascript"></script>
-    <script src="data/movies_data.js" type="text/javascript"></script>
-    <script src="data/services_json.js" type="text/javascript"></script>
+    <script src="data/movies.js" type="text/javascript"></script>
+    <script src="data/services.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
   </head>
   <body>
@@ -123,6 +123,12 @@ Movie.where({'rating.$lt': 7.6})
  Movie.uniq('rating').exec()
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).uniq('rating').exec()
  Movie.uniq('rating').pluck('rating').exec()
+
+ # Find - will return first record
+ # Default id field is `id`. If id field other then `id` then set "Movie = JsonQuery(movies, {'id': '_id'})";
+ Movie.find(10)
+ Movie.find('rating', 8.4)
+ Movie.find('rating', 8.4)
 
           </pre>
           </div>

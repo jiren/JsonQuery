@@ -5,17 +5,7 @@ $(document).ready(function(){
 
   window.Movie = Movie;
 
-  //Add some sample data for array queries
-  $.each(services, function(){
-   var c = this.service_categories[0];
-
-   if(c){
-    this.service_categories.push({category_id: (c.category_id + 200), to_param: (c.to_param + 200)})
-   }
-  })
-
   var Service = JsonQuery(services);
-
   window.Service = Service;
 
   demoHelper(Movie, 'Movie');
@@ -51,7 +41,7 @@ function demoHelper(model, dbVarName){
         $ele.find('h4').text("Execute Query using 'exec()'");
         $ele.find('pre').text(fullQuery + '.exec()');
       }else{
-        $ele.find('h4').text("Found : " + result.length + ' in ' + time_taken  + ' ms');
+        $ele.find('h4').text("Found : " + (result.length || 1) + ' in ' + time_taken  + ' ms');
         $ele.find('pre').text(formated_json);
       }
     }catch(err) {

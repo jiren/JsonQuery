@@ -2,7 +2,7 @@
 body{
   margin-top: 20px;
   padding-bottom: 20px;
-  background-color: #eee; 
+  background-color: #eee;
 }
 
 form .btn.pull-right{
@@ -21,4 +21,9 @@ form .btn.pull-right{
 
 .no-display{
   display: none;
+}
+
+.gmap{
+  margin-top: 15px;
+  height: 300px;
 }
