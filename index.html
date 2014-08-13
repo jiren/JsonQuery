@@ -98,7 +98,7 @@ Movie.where({'rating.$lt': 7.6})
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 })
 
  #OR query. It must used with where.
- Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or('rating': 8.4).exec();
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or({'rating': 8.4}).exec();
           </pre>
           <h5>all, groupBy, select, pluck, limit and offset, order</h5>
 
