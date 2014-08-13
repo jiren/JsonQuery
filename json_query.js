@@ -2,13 +2,13 @@
 
   'use strict';
 
-  var JsonQuery = function(records){
-      return new _JsonQuery(records);
+  var JsonQuery = function(records, opts){
+      return new _JsonQuery(records, opts || {});
   };
 
   window.JsonQuery = JsonQuery;
 
-  JsonQuery.VERSION = '0.0.1'
+  JsonQuery.VERSION = '0.0.2'
 
   var nativeForEach = Array.prototype.forEach;
   var each = function(objs, callback, context){
@@ -27,10 +27,22 @@
     }
   };
 
-  var _JsonQuery = function(records){
+  var eachWithBreak = function(objs, callback, context){
+    for (var i = 0, l = objs.length; i < l; i++) {
+      if(callback.call(context, objs[i], i) === false){
+        return;
+      }
+    }
+  };
+
+  var _JsonQuery = function(records, opts){
     this.records = records || [];
     this.schema = {};
     this.getterFns = {};
+    this.lat = opts.latitude || 'latitude';
+    this.lng = opts.longitude || 'longitude'
+    this.id = opts.id || 'id';
+
     buildSchema.call(this, this.records[0])
     buildPropGetters.call(this, this.records[0]);
   };
@@ -156,6 +168,10 @@
     this.getterFns[field] = fn;
   };
 
+  JQ.addRecords = function(records){
+    this.records = this.records.concat(records);
+  };
+
   JQ._findAll = function(records, qField, cVal, cOpt){
     var result = [],
         cFn,
@@ -188,7 +204,27 @@
     return result;
   };
 
-  each(['where', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order', 'uniq'], function(c){
+  JQ.find = function(field, value){
+    var result, qFn;
+
+    if(!value){
+      value = field;
+      field = this.id;
+    }
+
+    qFn = this.getterFns[field];
+
+    eachWithBreak(this.records, function(r){
+      if(qFn(r) == value){
+        result = r;
+        return false;
+      }
+    });
+
+    return result;
+  };
+
+  each(['where', 'or', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order', 'uniq', 'near'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
       q[c].apply(q, arguments);
@@ -351,8 +387,17 @@
       result = execWhere.call(this, this.criteria['where'], result || this.records);
     }
 
+    if(this.criteria['or']){
+      result = result.concat(execWhere.call(this, this.criteria['or'], this.records));
+      result = execUniq.call(this, [this.jQ.id], result);
+    }
+
     if(this.criteria['order']){
       result = execOrder.call(this, this.criteria['order'], result || this.records);
+    }
+
+    if(this.criteria['near']){
+      result = execNear.call(this, this.criteria['near'], result || this.records);
     }
 
     if(this.criteria['uniq']){
@@ -398,6 +443,10 @@
 
   Q.where = function(query){
     return addToCriteria.call(this, 'where', query);
+  };
+
+  Q.or = function(query){
+    return addToCriteria.call(this, 'or', query);
   };
 
   Q.groupBy = function(field){
@@ -472,5 +521,51 @@
          }
   });
 
-})(this);
+  //Geocoding
+  var GEO = {
+    redius: 6371,
+    toRad: function(v){
+      return v * Math.PI / 180;
+    }
+  };
 
+  var calculateDistance = function(lat1, lat2, lng1, lng2){
+    var dLat = GEO.toRad(lat2 - lat1),
+        dLon = GEO.toRad(lng2 - lng1),
+        lat1 = GEO.toRad(lat1),
+        lat2 = GEO.toRad(lat2);
+
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+
+    return (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * GEO.redius;
+  };
+
+  var execNear = function(opts, records){
+    var result = [],
+        self = this,
+        unit_c = opts.unit == 'mile' ? 0.6214 : 1,
+        latFn = self.jQ.getterFns[self.jQ.lat],
+        lngFn = self.jQ.getterFns[self.jQ.lng];
+
+    each(records, function(r){
+      r._distance = calculateDistance(latFn(r), opts.lat, lngFn(r), opts.lng) * unit_c;
+
+      if(r._distance <= opts.distance){
+        result.push(r);
+      }
+    });
+
+    result.sort(function(a, b){
+      return (a._distance < b._distance ? -1 : a._distance > b._distance ? 1 : 0);
+    })
+
+    return result;
+  };
+
+  Q.near = function(lat, lng, distance, unit){
+    this.criteria['near'] = {lat: lat, lng: lng, distance: distance, unit: (unit || 'km')};
+    return this;
+  };
+
+})(this);
