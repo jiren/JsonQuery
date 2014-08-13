@@ -4,6 +4,7 @@ JsonQuery
 Query your JSON data like database.
 
 [Demo](http://jiren.github.io/JsonQuery/)
+
 [Demo for Geo](http://jiren.github.io/JsonQuery/geo.html)
 
 ### Query JSON data
