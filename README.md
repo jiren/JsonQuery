@@ -4,6 +4,7 @@ JsonQuery
 Query your JSON data like database.
 
 [Demo](http://jiren.github.io/JsonQuery/)
+[Demo for Geo](http://jiren.github.io/JsonQuery/geo.html)
 
 ### Query JSON data
 
@@ -116,9 +117,27 @@ Query your JSON data like database.
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).pluck('actor').exec()
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).limit(10).offset(20).exec()
 
+ #OR query. It must used with where.
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or('rating': 8.4).exec();
+
  # Order : desc / asc
  Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).order({'rating': 'desc'}).exec()
  Movie.order({'rating': 'desc', actor: 'asc'}).exec()
+
+ # Unique
+ Movie.uniq('rating').exec()
+ Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).uniq('rating').exec()
+ Movie.uniq('rating').pluck('rating').exec()
+
+ # Find - will return first record
+ # Default id field is `id`. If id field other then `id` then set "Movie = JsonQuery(movies, {'id': '_id'})";
+ Movie.find(10)
+ Movie.find('rating', 8.4)
+ Movie.find('rating', 8.4)
+
+ #Geo: Args: lat, lng, distance, unit(optional): (km, or mile) : Default: km
+ Place.near(37.730416, -122.384424, 5).exec()
+ Place.where({'name': 'Bayview'}).near(37.730416, -122.384424, 5).exec()
 
 ```
 
