@@ -20,49 +20,50 @@ function printField(data, field){
 
 window.log = function(v) { console.log(v) };
 
+function updateResult(title, result, error){
+  var $ele = $("#result");
+
+  if(!error){
+    $ele.find('h4').text(title);
+    $ele.find('pre').text(result);
+  }else{
+    $ele.find('h4').text('');
+    $ele.find('pre').html("<div class='alert alert-danger'> ERROR:" + error.message + "</div>");
+  }
+
+  $ele.fadeOut().fadeIn();
+};
+
 function demoHelper(model, dbVarName){
   $('#query-form').submit(function(e){
     var query = $("#query").val();
-    var fullQuery = query //dbVarName + ".where("+ query + ")";
+    var query = query //dbVarName + ".where("+ query + ")";
     var result, formated_json;
-    var $ele = $("#result");
-
-    $("#query-text pre").text(fullQuery);
-
-    var time_taken;
 
     try {
-      var t1 = new Date();
-      var result = eval(fullQuery);
-      time_taken = new Date() - t1;
+      var t1 = new Date(),
+          result = eval(query),
+          time_taken = new Date() - t1;
+
+      if(result.criteria){
+        result = result.exec();
+        $('#query').val(query + '.exec()');
+      }
+
       var formated_json = JSON.stringify(result, undefined, 2);
 
-      if(result.toString() == "[object Object]" && result.criteria){
-        $ele.find('h4').text("Execute Query using 'exec()'");
-        $ele.find('pre').text(fullQuery + '.exec()');
-      }else{
-        $ele.find('h4').text("Found : " + (result.length || 1) + ' in ' + time_taken  + ' ms');
-        $ele.find('pre').text(formated_json);
-      }
+      updateResult("Found : " + (result.length || 1) + ' in ' + time_taken  + ' ms', formated_json);
     }catch(err) {
-      $ele.find('h4').text("");
-      $ele.find('pre').html("<div class='alert alert-danger'> ERROR:" + err.message + "</div>");
+      updateResult(null, null, err);
       log(err);
     }
-
-    //$('#query-text, #result').show();
-    $ele.fadeOut().fadeIn();
 
     e.preventDefault();
   });
 
   //Set Sample model
   $("#view-movies-data").on('click', function(e){
-     var $ele = $("#result");
-
-     $ele.find('h4').text("All Movies");
-     $ele.find('pre').text(JSON.stringify(model.all, undefined, 2));
-     $ele.fadeOut().fadeIn();
+     updateResult('All Movie', JSON.stringify(model.all, undefined, 2));
 
      $('#result').show();
      $('#query-text').hide();
@@ -70,5 +71,15 @@ function demoHelper(model, dbVarName){
   })
 
   $("#view-movies-data").trigger('click');
+
+  $('a[data-q]').on('click', function(e){
+    var query = QUERIES[$(this).data('q')];
+
+    $('#helpbox-modal').modal('hide')
+    $("#query").val(query);
+    $('#query-form').submit();
+
+    e.preventDefault();
+  });
 
 };
