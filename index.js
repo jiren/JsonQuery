@@ -43,13 +43,14 @@ function demoHelper(model, dbVarName){
     try {
       var t1 = new Date(),
           result = eval(query),
-          time_taken = new Date() - t1,
-          formated_json = JSON.stringify(result, undefined, 2);
+          time_taken = new Date() - t1;
 
       if(result.criteria){
         result = result.exec();
         $('#query').val(query + '.exec()');
       }
+
+      var formated_json = JSON.stringify(result, undefined, 2);
 
       updateResult("Found : " + (result.length || 1) + ' in ' + time_taken  + ' ms', formated_json);
     }catch(err) {

@@ -1,15 +1,14 @@
-
-QUERIES = [
-  "Movie.where({'rating': 7.6})",
-  "Movie.where({'rating.$eq': 7.6})",
-  "Movie.where({'rating.$ne': 7.6})",
-  "Movie.where({'name.$li': 'Assassins'})",
-  "Movie.where({'name.$li': /assassins/i})",
-  "Movie.where({'rating.$bt': [7, 8]})",
+var QUERIES = [
+  "Movie.where({'rating': 8.4})",
+  "Movie.where({'rating.$eq': 8.4})",
+  "Movie.where({'rating.$ne': 8.4})",
+  "Movie.where({'name.$li': 'Godfather'})",
+  "Movie.where({'name.$li': /godfather/i})",
+  "Movie.where({'rating.$bt': [8, 9]})",
   "Movie.where({'rating.$gt': 7})",
-  "Movie.where({'rating.$lt': 7.6})",
-  "Movie.where({'rating.$in': [7.6, 7.4]})",
-  "Movie.where({'rating.$ni': [7.6, 7.3]})",
+  "Movie.where({'rating.$lt': 8.4})",
+  "Movie.where({'rating.$in': [8.4, 7.4]})",
+  "Movie.where({'rating.$ni': [8.4, 7.3]})",
   "Movie.where({'rating': 8.4, 'name.$li': /braveheart/i})",
   "Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 })",
   "Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).or({'rating': 8.4}).exec()",
@@ -34,20 +33,3 @@ QUERIES = [
   "Movie.find(10)",
   "Movie.find('rating', 8.4)"
 ];
-
-function initTypehead(){
-
-  var source = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: $.map(QUERIES, function(query) { return { value: query }; })
-  });
-
-  source.initialize();
-
-  $('.typeahead').typeahead(null, {
-    name: 'movies',
-    displayKey: 'value',
-    source: source.ttAdapter()
-  })
-}
