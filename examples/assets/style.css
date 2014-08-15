@@ -23,7 +23,26 @@ form .btn.pull-right{
   display: none;
 }
 
-.gmap{
+.map{
   margin-top: 15px;
   height: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
+pre.ui-distance {
+  position:absolute;
+  bottom: -10px;
+  /*left:10px;*/
+  padding:5px 10px;
+  background: rgba(0,0,0,0.8);
+  color:#fff;
+  font-size:11px;
+  line-height:15px;
+  border-radius:0px;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper{
+  border-radius: 0; 
 }

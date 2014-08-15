@@ -1,39 +1,43 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title> JsonQuery : Geo </title>
+    <title> JsonQuery : Geo - Leflet </title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href="assets/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="assets/style.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.16&key=AIzaSyBWcRdeBybFQUpx5tyfIw1QbwskiRuFsdc" type="text/javascript">
-    </script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="assets/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="assets/bootstrap.min.js" type="text/javascript"></script>
     <script src="../json_query.js" type="text/javascript"></script>
-    <script src="query_helper.js" type="text/javascript"></script>
     <script src="data/places.js" type="text/javascript"></script>
-    <script src="geo.js" type="text/javascript"></script>
+    <script src="query_helper.js" type="text/javascript"></script>
+    <script src="leaflet.js" type="text/javascript"></script>
   </head>
   <body>
     <div class="container">
-      <div class="title col-md-12">
-        <h3>JsonQuery</h3>
-      </div>
-      <div class="col-md-12">
-        <div class="help"></div>
+       <div class="title col-sm-12">
+         <h3> JsonQuery </h3>
+       </div>
+      <div class="col-sm-12">
+        <div class="help">
+        </div>
         <form action="#" role="form" id="query-form">
           <div class="form-group">
-            <label for="query"> Query: </label>
-            <input type="text" class="form-control" id="query" value="Place.near(37.730416, -122.384424, 10).exec()">
+            <label for="query"> Query:
+            </label>
+            <input type="text" class="form-control" id="query" value="Place.near(37.782479, -122.440465, 10).exec()">
           </div>
           <button type="submit" class="btn btn-success">Run</button>
           <button type="button" class="btn btn-default pull-right" id="all-records">View Places Data</button>
         </form>
       </div>
-      <div class='col-md-12'>
+      <div class='col-sm-12'>
         <div id="map" class="map"></div>
+        <pre id='distance' class='ui-distance'>Hover on marker to get distance</pre>
       </div>
-      <div id="result" class='col-md-12 result no-display'>
+      <div id="result" class='col-sm-12 result'>
         <h4></h4>
         <pre> Result ...  </pre>
       </div>

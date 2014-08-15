@@ -5,7 +5,9 @@ Query your JSON data like database.
 
 [Demo](http://jiren.github.io/JsonQuery/)
 
-[Demo for Geo](http://jiren.github.io/JsonQuery/geo.html)
+[Demo for Geo: GoogleMap](http://jiren.github.io/JsonQuery/geo.html)
+
+[Demo for Geo: LefletMap](http://jiren.github.io/JsonQuery/leaflet.html)
 
 ### Query JSON data
 
