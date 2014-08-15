@@ -10,6 +10,7 @@
     <script src="json_query.js" type="text/javascript"></script>
     <script src="data/movies.js" type="text/javascript"></script>
     <script src="data/services.js" type="text/javascript"></script>
+    <script src="query_helper.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
     <script src="query_list.js" type="text/javascript"></script>
   </head>
@@ -27,14 +28,11 @@
             <input type="text" class="form-control typeahead" id="query" value="Movie.where({'rating': 8.6, 'year.$bt': [1950, 1980]}).exec()">
           </div>
           <button type="submit" class="btn btn-success">Run</button>
-          <button type="button" class="btn btn-default pull-right" id="view-movies-data">View Movies Data</button>
+          <button type="button" class="btn btn-default pull-right" id="all-records">View Movies Data</button>
           <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#helpbox-modal">Help</button>
         </form>
       </div>
-      <div id="query-text" class='col-md-12 result'>
-        <pre>Query ...</pre>
-      </div>
-      <div id="result" class='col-md-12 result no-display'>
+      <div id="result" class='col-md-12 result'>
         <h4></h4>
         <pre> Result ...  </pre>
         </div>

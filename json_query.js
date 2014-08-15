@@ -169,7 +169,17 @@
   };
 
   JQ.addRecords = function(records){
-    this.records = this.records.concat(records);
+    if(!records){
+      return false;
+    }
+
+    if(getDataType(records) == 'Array'){
+      this.records = this.records.concat(records);
+    }else{
+      this.records.push(records);
+    }
+
+    return true;
   };
 
   JQ._findAll = function(records, qField, cVal, cOpt){
@@ -232,28 +242,12 @@
     };
   });
 
-  Object.defineProperty(JQ, 'count', {
-    get: function(){
-       return this.records.length;
-    }
-  });
-
-  Object.defineProperty(JQ, 'first', {
-    get: function(){
-           return this.records[0];
-         }
-  });
-
-  Object.defineProperty(JQ, 'last', {
-    get: function(){
-           return this.records[this.records.length - 1];
-         }
-  });
-
-  Object.defineProperty(JQ, 'all', {
-    get: function(){
-      return this.records;
-    }
+  each(['count', 'first', 'last', 'all'], function(c){
+    Object.defineProperty(JQ, c, {
+      get: function(){
+        return (new Query(this, this.records))[c];
+      }
+    });
   });
 
   var compareObj = function(obj1, obj2, fields){
@@ -424,6 +418,14 @@
       each(result || this.records, callback);
     };
 
+    if(!result){
+      result = this.records;
+    }
+
+    if(this.jQ.onResult){
+      this.jQ.onResult(result, this.criteria);
+    }
+
     return result;
   }
 
@@ -492,6 +494,7 @@
 
   Object.defineProperty(Q, 'count', {
     get: function(){
+      this.criteria['count'] = true;
       var r = this.exec();
 
       if(getDataType(r) == 'Array'){
@@ -504,21 +507,24 @@
 
   Object.defineProperty(Q, 'all', {
     get: function(){
-           return this.exec();
-         }
+      this.criteria['all'] = true;
+      return this.exec();
+    }
   });
 
   Object.defineProperty(Q, 'first', {
     get: function(){
-           return this.exec()[0];
-         }
+      this.criteria['first'] = true;
+      return this.exec()[0];
+    }
   });
 
   Object.defineProperty(Q, 'last', {
     get: function(){
-           var r = this.exec();
-           return r[r.length - 1];
-         }
+      this.criteria['last'] = true;
+      var r = this.exec();
+      return r[r.length - 1];
+    }
   });
 
   //Geocoding
