@@ -1,3 +1,14 @@
+/*
+ * JsonQuery
+ * version: 0.0.2 (15/8/2014)
+ *
+ * Licensed under the MIT:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Copyright 2014 Jiren Patel[jirenpatel@gmail.com]
+ *
+ */
+
 (function(window) {
 
   'use strict';
@@ -41,7 +52,7 @@
     this.getterFns = {};
     this.lat = opts.latitude || 'latitude';
     this.lng = opts.longitude || 'longitude'
-    this.id = opts.id || 'id';
+    this.id = opts.id || (records[0]._id ? '_id' : 'id');
 
     buildSchema.call(this, this.records[0])
     buildPropGetters.call(this, this.records[0]);
