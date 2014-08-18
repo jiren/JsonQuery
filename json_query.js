@@ -152,6 +152,10 @@
     bt: function(v1, v2){ return (v1 >= v2[0] && v1 <= v2[1])}
   };
 
+  JQ.addOperator = function(name, fn){
+    this.operators[name] = fn;
+  };
+
   // rVal = Record Value
   // cVal = Condition Value
   var arrayMatcher = function(rVal, cVal, cFn){
