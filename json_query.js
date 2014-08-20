@@ -113,7 +113,7 @@
   };
 
   var buildGetPropFn = function(field, type){
-    var i = 0, nestedPath, accessPath = "", accessFn, __f, map;
+    var i = 0, nestedPath, accessPath = "", accessFnBody, map;
 
     nestedPath = field.split('.');
 
@@ -129,13 +129,12 @@
     }
 
     if(type == 'Date'){
-      accessFn = '__f = function(obj){ var v = obj'+ accessPath +';  return (v ? new Date(v) : null);}' ;
+      accessFnBody = 'var v = obj'+ accessPath +';  return (v ? new Date(v) : null);' ;
     }else{
-      accessFn = '__f = function(obj){ return obj'+ accessPath +'; }' ;
+      accessFnBody = 'return obj'+ accessPath +';' ;
     }
 
-    eval(accessFn);
-    return __f;
+    return new Function('obj', accessFnBody);
   };
 
 
