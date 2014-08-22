@@ -113,7 +113,7 @@
   };
 
   var buildGetPropFn = function(field, type){
-    var i = 0, nestedPath, accessPath = "", accessFnBody, map;
+    var i = 0, nestedPath, accessPath = "", accessFn, __f, map;
 
     nestedPath = field.split('.');
 
@@ -129,12 +129,13 @@
     }
 
     if(type == 'Date'){
-      accessFnBody = 'var v = obj'+ accessPath +';  return (v ? new Date(v) : null);' ;
+      accessFn = '__f = function(obj){ var v = obj'+ accessPath +';  return (v ? new Date(v) : null);}' ;
     }else{
-      accessFnBody = 'return obj'+ accessPath +';' ;
+      accessFn = '__f = function(obj){ return obj'+ accessPath +'; }' ;
     }
 
-    return new Function('obj', accessFnBody);
+    eval(accessFn);
+    return __f;
   };
 
 
@@ -149,10 +150,6 @@
     ni: function(v1, v2){ return v2.indexOf(v1) == -1},
     li: function(v, regx) { return regx.test(v)},
     bt: function(v1, v2){ return (v1 >= v2[0] && v1 <= v2[1])}
-  };
-
-  JQ.addOperator = function(name, fn){
-    this.operators[name] = fn;
   };
 
   // rVal = Record Value
