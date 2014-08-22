@@ -47,7 +47,7 @@ function queryHelper(model, onResult){
 
   //Set Sample model
   $("#all-records").on('click', function(e){
-     updateResult('All Movie', JSON.stringify(model.all, undefined, 2));
+     updateResult('All Records', JSON.stringify(model.all, undefined, 2));
 
      if(onResult){
        onResult(model.all);
