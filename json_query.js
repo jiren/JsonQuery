@@ -23,9 +23,7 @@
 
   var nativeForEach = Array.prototype.forEach;
   var each = function(objs, callback, context){
-    if(objs.forEach === nativeForEach){
-      objs.forEach(callback, context);
-    }else if (objs.length === +objs.length) {
+    if (objs.length === +objs.length) {
       for (var i = 0, l = objs.length; i < l; i++) {
         callback.call(context, objs[i], i);
       }
@@ -586,6 +584,43 @@
   Q.near = function(lat, lng, distance, unit){
     this.criteria['near'] = {lat: lat, lng: lng, distance: distance, unit: (unit || 'km')};
     return this;
+  };
+
+  //Helpers
+  Q.map = Q.collect = function(fn){
+    var result = [], out;
+
+    this.exec(function(r){
+      if(out = fn(r)){
+        result.push(out);
+      }
+    })
+    return result;
+  };
+
+  Q.sum = function(field){
+    var result = 0,
+        group,
+        getFn = this.jQ.getterFns[field];
+
+    if(this.criteria['group_by']){
+      group = true;
+      result = {};
+    }
+
+    this.exec(function(r, i){
+      if(group){
+        result[i] = 0;
+
+        each(r, function(e){
+          result[i] = result[i] + (getFn(e) || 0);
+        })
+      }else{
+        result = result + (getFn(r) || 0);
+      }
+    });
+
+    return result;
   };
 
 })(this);
