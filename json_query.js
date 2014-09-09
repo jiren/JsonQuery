@@ -21,7 +21,6 @@
 
   JsonQuery.VERSION = '0.0.2'
 
-  var nativeForEach = Array.prototype.forEach;
   var each = function(objs, callback, context){
     if (objs.length === +objs.length) {
       for (var i = 0, l = objs.length; i < l; i++) {
@@ -46,17 +45,27 @@
 
   var _JsonQuery = function(records, opts){
     this.records = records || [];
-    this.schema = {};
     this.getterFns = {};
     this.lat = opts.latitude || 'latitude';
     this.lng = opts.longitude || 'longitude'
-    this.id = opts.id || (records[0]._id ? '_id' : 'id');
+    this.id = opts.id;
 
-    buildSchema.call(this, this.records[0])
-    buildPropGetters.call(this, this.records[0]);
+    if(records.length){
+      initSchema(this, records[0]);
+    }
   };
 
   var JQ = _JsonQuery.prototype;
+
+  var initSchema = function(context, record){
+    context.schema = {};
+
+    if(!context.id){
+      context.id = record._id ? '_id' : 'id';
+    }
+    buildSchema.call(context, record)
+    buildPropGetters.call(context, record);
+  };
 
   var getDataType = function(val){
     if(val == null){
@@ -191,6 +200,10 @@
       this.records.push(records);
     }
 
+    if(!this.schema){
+      initSchema(this, records[0]);
+    }
+
     return true;
   };
 
@@ -202,10 +215,6 @@
 
     if(cOpt == 'li' && typeof cVal == 'string'){
       cVal = new RegExp(cVal);
-    }else if(cOpt == 'eq' && Array.isArray(cVal)){
-      cOpt = 'in';
-    }else if(cOpt == 'ne' && Array.isArray(cVal)){
-      cOpt = 'ni';
     }
 
     cFn = this.operators[cOpt];
