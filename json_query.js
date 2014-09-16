@@ -50,7 +50,7 @@
     this.lng = opts.longitude || 'longitude'
     this.id = opts.id;
 
-    if(records.length){
+    if(this.records.length){
       initSchema(this, records[0]);
     }
   };
@@ -190,7 +190,7 @@
   };
 
   JQ.addRecords = function(records){
-    if(!records){
+    if(!records || !records.length){
       return false;
     }
 
