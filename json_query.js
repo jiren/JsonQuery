@@ -64,8 +64,11 @@
     if(val == null){
       return 'String';
     }
-
-    var type = toString.call(val).slice(8, -1);
+    
+	/*@info Fix for IE 10 & 11
+	 *@bug Invalid calling object
+	 */
+    var type = Object.prototype.toString.call(val).slice(8, -1);
 
     if(type == 'String' && val.match(/\d{4}-\d{2}-\d{2}/)){
       return 'Date';
