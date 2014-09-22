@@ -21,11 +21,8 @@
 
   JsonQuery.VERSION = '0.0.2'
 
-  var nativeForEach = Array.prototype.forEach;
   var each = function(objs, callback, context){
-    if(objs.forEach === nativeForEach){
-      objs.forEach(callback, context);
-    }else if (objs.length === +objs.length) {
+    if (objs.length === +objs.length) {
       for (var i = 0, l = objs.length; i < l; i++) {
         callback.call(context, objs[i], i);
       }
@@ -48,26 +45,37 @@
 
   var _JsonQuery = function(records, opts){
     this.records = records || [];
-    this.schema = {};
     this.getterFns = {};
     this.lat = opts.latitude || 'latitude';
     this.lng = opts.longitude || 'longitude'
-    this.id = opts.id || (records[0]._id ? '_id' : 'id');
+    this.id = opts.id;
 
-    buildSchema.call(this, this.records[0])
-    buildPropGetters.call(this, this.records[0]);
+    if(this.records.length){
+      initSchema(this, records[0]);
+    }
   };
 
   var JQ = _JsonQuery.prototype;
+
+  var initSchema = function(context, record){
+    context.schema = {};
+
+    if(!context.id){
+      context.id = record._id ? '_id' : 'id';
+    }
+    buildSchema.call(context, record)
+    buildPropGetters.call(context, record);
+  };
 
   var getDataType = function(val){
     if(val == null){
       return 'String';
     }
-    
-	/*@info Fix for IE 10 & 11
-	 *@bug Invalid calling object
-	 */
+
+    /*
+     * @info Fix for IE 10 & 11
+     * @bug Invalid calling object
+     */
     var type = Object.prototype.toString.call(val).slice(8, -1);
 
     if(type == 'String' && val.match(/\d{4}-\d{2}-\d{2}/)){
@@ -186,7 +194,7 @@
   };
 
   JQ.addRecords = function(records){
-    if(!records){
+    if(!records || !records.length){
       return false;
     }
 
@@ -194,6 +202,10 @@
       this.records = this.records.concat(records);
     }else{
       this.records.push(records);
+    }
+
+    if(!this.schema){
+      initSchema(this, records[0]);
     }
 
     return true;
@@ -207,10 +219,6 @@
 
     if(cOpt == 'li' && typeof cVal == 'string'){
       cVal = new RegExp(cVal);
-    }else if(cOpt == 'eq' && Array.isArray(cVal)){
-      cOpt = 'in';
-    }else if(cOpt == 'ne' && Array.isArray(cVal)){
-      cOpt = 'ni';
     }
 
     cFn = this.operators[cOpt];
@@ -589,6 +597,43 @@
   Q.near = function(lat, lng, distance, unit){
     this.criteria['near'] = {lat: lat, lng: lng, distance: distance, unit: (unit || 'km')};
     return this;
+  };
+
+  //Helpers
+  Q.map = Q.collect = function(fn){
+    var result = [], out;
+
+    this.exec(function(r){
+      if(out = fn(r)){
+        result.push(out);
+      }
+    })
+    return result;
+  };
+
+  Q.sum = function(field){
+    var result = 0,
+        group,
+        getFn = this.jQ.getterFns[field];
+
+    if(this.criteria['group_by']){
+      group = true;
+      result = {};
+    }
+
+    this.exec(function(r, i){
+      if(group){
+        result[i] = 0;
+
+        each(r, function(e){
+          result[i] = result[i] + (getFn(e) || 0);
+        })
+      }else{
+        result = result + (getFn(r) || 0);
+      }
+    });
+
+    return result;
   };
 
 })(this);
