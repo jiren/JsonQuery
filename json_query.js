@@ -21,6 +21,12 @@
 
   JsonQuery.VERSION = '0.0.2'
 
+  if(!Object.defineProperty){
+    Object.defineProperty = function(obj, name, opts){
+      obj[name] = opts.get
+    }
+  }
+
   var each = function(objs, callback, context){
     if (objs.length === +objs.length) {
       for (var i = 0, l = objs.length; i < l; i++) {
@@ -637,3 +643,13 @@
   };
 
 })(this);
+
+//In IE indexOf method not define.
+if (!Array.prototype.indexOf) {
+  Array.prototype.indexOf = function(obj, start) {
+    for (var i = (start || 0), j = this.length; i < j; i++) {
+      if (this[i] === obj) { return i; }
+    }
+    return -1;
+  }
+}
