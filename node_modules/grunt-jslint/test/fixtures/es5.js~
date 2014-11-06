@@ -1,0 +1,4 @@
+/* use a feature legal in es5 */
+var trailing = [ 1,
+                 2,
+                 3, ];

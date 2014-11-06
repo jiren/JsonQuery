@@ -1,0 +1,35 @@
+'use strict';
+
+var path = require('path'),
+    vows = require('vows'),
+    assert = require('assert'),
+    jslint = require('..'),
+    validate = jslint.validate,
+    suite = vows.describe('editions');
+
+function getFixture(file) {
+    return path.join(__dirname, 'fixtures', file);
+}
+
+suite.addBatch({
+    'es5': {
+        topic: function () {
+            var file = getFixture('es5.js'),
+                opts = {
+                    directives: {
+                    },
+                    edition: 'latest'
+                };
+
+            validate(file, opts, this.callback);
+        },
+        'should not error': function (err, report) {
+            assert.ifError(err);
+        },
+        'should have no violations': function (err, report) {
+            assert.lengthOf(report, 0);
+        }
+    }
+});
+
+suite.export(module);
