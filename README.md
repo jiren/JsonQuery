@@ -152,9 +152,17 @@ Query your JSON data like database.
   })
 ```
 
+#### Make JsonQuery from result of query for more complex queries.
+
+In example, first search places `name` with `Bayview` and run query on subset of the result.
+
+```
+ var resultJQ = Place.where({'name': 'Bayview'}).toJQ();
+
+ resultJQ.where({'types': 'neighborhood'}).all
+
+ resultJQ.where({'types': 'political'}).all
+
+```
+
 ***
-
-
-
-
-
