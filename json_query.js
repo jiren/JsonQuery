@@ -713,7 +713,7 @@
     return result;
   };
 
-  Q.toQuery = function(){
+  Q.toJQ = function(){
     var q = JsonQuery(this.all, {schema: true});
     q.schema = this.jQ.schema;
     q.getterFns = this.jQ.getterFns;
