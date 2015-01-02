@@ -9,3 +9,6 @@ gh_page.rb
 queries.txt
 filter
 node_modules
+
+dev
+dev.sh

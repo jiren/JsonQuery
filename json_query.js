@@ -152,31 +152,6 @@
     }
   };
 
-  var buildGetPropFnOld = function(field, type){
-    var i = 0, nestedPath, accessPath = "", accessFnBody, map;
-
-    nestedPath = field.split('.');
-
-    for(i = nestedPath.length - 1; i >= 0; i--){
-      var last = nestedPath[i];
-      var parentField = nestedPath.slice(0, i).join('.');
-
-      if(this.schema[parentField] == 'Array'){
-        accessPath = accessPath + ".map(function(r){ return r['" + last +"']})"
-      }else{
-        accessPath = "['" + last +"']"  + accessPath
-      }
-    }
-
-    if(type == 'Date'){
-      accessFnBody = 'var v = obj'+ accessPath +';  return (v ? new Date(v) : null);' ;
-    }else{
-      accessFnBody = 'return obj'+ accessPath +';' ;
-    }
-
-    return new Function('obj', accessFnBody);
-  };
-
   var countArrHierarchy = function(schema, nestedPath){
     var lastArr = 0,
         arrCount = 0,
@@ -208,7 +183,7 @@
 
       if(this.schema[path] == 'Array'){
         if(lastArr == i){
-          accessPath = prefix + (accessPath.length ? ".map(function(r" + i +"){  objs.push(r" + i + accessPath + ")})" : '');
+          accessPath = prefix + (accessPath.length ? ".every(function(r" + i +"){  objs.push(r" + i + accessPath + ")})" : '');
         }else{
           accessPath = prefix + (accessPath.length ? ".map(function(r" + i +"){  return r" + i + accessPath + "})" : '');
         }
@@ -719,6 +694,20 @@
     q.getterFns = this.jQ.getterFns;
 
     return q;
+  };
+
+  Q.destroy = function(){
+    var marked_records = this.all;
+
+    each(marked_records, function(r, i){
+      r._destroy_ = true;
+    });
+
+    this.records = this.jQ.records = this.records.filter(function(r){
+      return !r._destroy_; 
+    });
+
+    return marked_records;
   };
 
 })(this);

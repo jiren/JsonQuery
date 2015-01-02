@@ -29,9 +29,16 @@ function queryHelper(model, onResult){
         $('#query').val(queryString + '.exec()');
       }
 
-      var formated_json = JSON.stringify(result, undefined, 2);
+      var formated_json = JSON.stringify(result, undefined, 2),
+          count;
 
-      updateResult("Found : " + (result.length || 1) + ' in ' + time_taken  + ' ms', formated_json);
+      if($.isPlainObject(result)){
+        count = Object.keys(result).length; 
+      }else{
+        count = result.length;
+      } 
+
+      updateResult("Found : " + count +  ' in ' + time_taken  + ' ms', formated_json);
 
       if(onResult){
         onResult(result);
