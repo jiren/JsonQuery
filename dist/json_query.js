@@ -1,15 +1,15 @@
 /*
  * JsonQuery
- * version: 0.0.2 (15/8/2014)
+ * 0.0.2 (2015-02-21)
  *
- * Licensed under the MIT:
- *   http://www.opensource.org/licenses/mit-license.php
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
  *
- * Copyright 2014 Jiren Patel[jirenpatel@gmail.com]
+ * Copyright 2011-2015 Jiren Patel[jirenpatel@gmail.com]
  *
  */
-
-(function(window) {
+ 
+ (function(window) {
 
   'use strict';
 
