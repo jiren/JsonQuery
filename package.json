@@ -2,7 +2,7 @@
   "name": "JsonQuery",
   "version": "0.0.2",
   "description": "Query your JSON data like database",
-  "homepage": "git@github.com:jiren/JsonQuery.git",
+  "homepage": "https://github.com:jiren/JsonQuery",
   "licenses": [
     {
       "type": "MIT",
@@ -39,6 +39,7 @@
     "gulp-download": ">= 0.0.1",
     "gulp-header": ">= 1.2.1",
     "gulp-rename": ">= 1.2.0",
+    "gulp-injector": ">= 0.0.1",
     "gulp-util": "*",
     "run-sequence": ">= 1.0.2",
     "map-stream": "*"

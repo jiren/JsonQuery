@@ -8,12 +8,13 @@ var gulp = require('gulp'),
   header = require('gulp-header'),
   runSequence = require('run-sequence'),
   rename = require('gulp-rename'),
-  browserSync = require('browser-sync');
+  browserSync = require('browser-sync'),
+  injector = require('gulp-injector');
 
 
 var pkg = require('./package.json'),
     paths = {
-      src: 'src/json_query.js',
+      src: [ 'src/main.js'],
       dist: 'dist'
     },
     uncompressedJs = 'json_query.js',
@@ -42,6 +43,7 @@ gulp.task('scripts', function() {
 
  return gulp.src(paths.src)
   .pipe(concat(uncompressedJs))
+  .pipe(injector())
   .pipe(header(banner, { pkg: pkg } ))
   .pipe(gulp.dest(paths.dist))
   .pipe(sourcemaps.init())
