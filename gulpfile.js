@@ -17,6 +17,7 @@ var pkg = require('./package.json'),
       src: [ 'src/main.js'],
       dist: 'dist'
     },
+    specs = ['spec/*']
     uncompressedJs = 'json_query.js',
     compressedJs = 'json_query.min.js';
 
@@ -57,6 +58,11 @@ gulp.task('watch', function() {
   gulp.watch(paths.src, function(cb){
     runSequence('scripts', browserSync.reload)
   });
+
+  gulp.watch(specs, function(cb){
+    browserSync.reload();
+  })
+
 });
 
 gulp.task('browser-sync', function() {
