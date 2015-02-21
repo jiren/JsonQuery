@@ -1,7 +1,7 @@
 {
-  "name": "filter.js",
-  "version": "2.0.0",
-  "description": "Filter.js builder",
+  "name": "JsonQuery",
+  "version": "0.0.2",
+  "description": "JsonQuery builder",
   "author": "jiren",
   "devDependencies": {
     "grunt": "~0.4.5",
