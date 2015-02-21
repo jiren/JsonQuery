@@ -17,7 +17,8 @@ var pkg = require('./package.json'),
       src: [ 'src/main.js'],
       dist: 'dist'
     },
-    specs = ['spec/*']
+    scripts = 'src/*.js',
+    specs = 'spec/*.js',
     uncompressedJs = 'json_query.js',
     compressedJs = 'json_query.min.js';
 
@@ -55,14 +56,11 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.src, function(cb){
+  gulp.watch(scripts, function(cb){
     runSequence('scripts', browserSync.reload)
   });
 
-  gulp.watch(specs, function(cb){
-    browserSync.reload();
-  })
-
+  gulp.watch(specs, [browserSync.reload])
 });
 
 gulp.task('browser-sync', function() {
@@ -82,5 +80,5 @@ gulp.task('build', function(cb){
 });
 
 gulp.task('default', function(cb){
-  runSequence('clean', 'scripts', ['browser-sync', 'watch'])
+  runSequence('clean', 'scripts', 'watch', 'browser-sync')
 });

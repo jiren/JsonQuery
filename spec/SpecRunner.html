@@ -18,6 +18,7 @@
 
     <!-- include data files for testing here... -->
     <script type="text/javascript" src="data/movies_json_10.js"></script>
+    <script type="text/javascript" src="data/movies_all.js"></script>
     <script type="text/javascript" src="data/services_json.js"></script>
     <script type="text/javascript" src="data/movies_destroy_json.js"></script>
     <script type="text/javascript" src="data/vendors_array_of_array_json.js"></script>
@@ -32,5 +33,8 @@
   </head>
 
   <body>
+    <script type="text/javascript">
+      Movie = JsonQuery(movies_all);
+    </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-var movies_data = [
+var movies_all = [
   {
     "name": "Once Upon a Time in the West",
     "rating": 8.7,

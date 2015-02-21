@@ -11,7 +11,7 @@ var movies_nested = [
       "Bob Gunton"
     ],
     "runtime": 142,
-    "genre": {
+    "genre": [
       "Crime",
       "Drama"
     ],

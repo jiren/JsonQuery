@@ -489,12 +489,12 @@
       result = execGroupBy.call(this, this.criteria['group_by'], result || this.records);
     }
   
-    if(callback){
-      each(result || this.records, callback);
-    };
-  
     if(!result){
       result = this.records;
+    }
+  
+    if(callback){
+      each(result, callback);
     }
   
     if(this.jQ.onResult){
@@ -706,6 +706,23 @@
     });
   
     return marked_records;
+  };
+  
+  Q.update = function(attrs){
+    if(!attrs){
+      return false;
+    }
+  
+    var updated_count = 0;
+  
+    each(this.all, function(r){
+      each(attrs, function(value, key){
+        r[key] = value;
+      });
+      updated_count = updated_count + 1;
+    });
+    
+    return updated_count;
   };
   
 
