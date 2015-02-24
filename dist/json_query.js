@@ -315,7 +315,7 @@
     };
   });
   
-  each(['update', 'destroy'], function(c){
+  each(['update_all', 'destroy_all'], function(c){
     JQ[c] = function(query){
       var q = new Query(this, this.records);
       return q[c].apply(q, arguments);
@@ -701,7 +701,7 @@
     return q;
   };
   
-  Q.destroy = function(){
+  Q.destroy_all = Q.destroy = function(){
     var marked_records = this.all;
   
     each(marked_records, function(r, i){
@@ -715,7 +715,7 @@
     return marked_records;
   };
   
-  Q.update = function(attrs){
+  Q.update_all = Q.update = function(attrs){
     if(!attrs){
       return false;
     }

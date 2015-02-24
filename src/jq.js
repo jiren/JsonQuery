@@ -262,7 +262,7 @@ each(['where', 'or', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order', '
   };
 });
 
-each(['update', 'destroy'], function(c){
+each(['update_all', 'destroy_all'], function(c){
   JQ[c] = function(query){
     var q = new Query(this, this.records);
     return q[c].apply(q, arguments);

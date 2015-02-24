@@ -260,7 +260,7 @@ Q.toJQ = function(){
   return q;
 };
 
-Q.destroy = function(){
+Q.destroy_all = Q.destroy = function(){
   var marked_records = this.all;
 
   each(marked_records, function(r, i){
@@ -274,7 +274,7 @@ Q.destroy = function(){
   return marked_records;
 };
 
-Q.update = function(attrs){
+Q.update_all = Q.update = function(attrs){
   if(!attrs){
     return false;
   }
