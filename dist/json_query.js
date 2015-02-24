@@ -1,6 +1,6 @@
 /*
  * JsonQuery
- * 0.0.2 (2015-02-21)
+ * 0.0.2 (2015-02-24)
  *
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
@@ -312,6 +312,13 @@
       var q = new Query(this, this.records);
       q[c].apply(q, arguments);
       return q;
+    };
+  });
+  
+  each(['update', 'destroy'], function(c){
+    JQ[c] = function(query){
+      var q = new Query(this, this.records);
+      return q[c].apply(q, arguments);
     };
   });
   

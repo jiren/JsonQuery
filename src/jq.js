@@ -262,6 +262,13 @@ each(['where', 'or', 'groupBy', 'select', 'pluck', 'limit', 'offset', 'order', '
   };
 });
 
+each(['update', 'destroy'], function(c){
+  JQ[c] = function(query){
+    var q = new Query(this, this.records);
+    return q[c].apply(q, arguments);
+  };
+});
+
 each(['count', 'first', 'last', 'all'], function(c){
   Object.defineProperty(JQ, c, {
     get: function(){
