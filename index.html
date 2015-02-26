@@ -103,7 +103,7 @@
  Movie.first<a href="#" data-q='14'>Run</a>
  Movie.last<a href="#" data-q='15'>Run</a>
  Movie.groupBy('rating').exec()<a href="#" data-q='16'>Run</a>
- Movie.select(['actor', 'rating']).exec()<a href="#" data-q='17'>Run</a>
+ Movie.select('actor', 'rating').exec()<a href="#" data-q='17'>Run</a>
  Movie.pluck('actor').exec()<a href="#" data-q='18'>Run</a>
  Movie.limit(10).offset(20).exec()<a href="#" data-q='19'>Run</a>
 
