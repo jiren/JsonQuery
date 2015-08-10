@@ -1,107 +1,116 @@
 JsonQuery
 =========
 
-Query your JSON data like database.
+An incredibly fast and easy way to query your JSON data like a database.
 
-[Demo](http://jiren.github.io/JsonQuery/)
+- [Query Demo](http://jiren.github.io/JsonQuery/)
+- [Google Map Demo](http://jiren.github.io/JsonQuery/geo.html)
+- [Leflet Map Demo](http://jiren.github.io/JsonQuery/leaflet.html)
 
-[Demo for Geo: GoogleMap](http://jiren.github.io/JsonQuery/geo.html)
+## Installation
 
-[Demo for Geo: LefletMap](http://jiren.github.io/JsonQuery/leaflet.html)
+```
+bower install https://github.com/jiren/JsonQuery.git --save
+```
+
 
 ### Query JSON data
 
- - Query movies
+For example: If we want to only show the movies with a rating of 8.6, we would do the following:
 
 ```
  var movies = [
-  {"name":"Once Upon a Time in the West","rating":8.7,"director":"Sergio Leone","year":1968,"actor":"Henry Fonda"},
-  ...
-  ...
-  {"name":"Terminator 2: Judgment Day","rating":8.6,"director":"James Cameron","year":1991,"actor":"Arnold Schwarzenegger"},
-  ]
+  {
+    "name":"Once Upon a Time in the West",
+    "rating":8.7,
+    "director":"Sergio Leone",
+    "year":1968,
+    "actor":
+    "Henry Fonda"
+  },
+  {
+    "name":"Terminator 2: Judgment Day",
+    "rating":8.6,
+    "director":"James Cameron",
+    "year":1991,
+    "actor":"Arnold Schwarzenegger"
+  },
+];
 
- # Init query object
- var Movie = JsonQuery(movies);
+var Movie = JsonQuery(movies); //Initialize the Query Engine
+var results = Movie.where({'rating': 8.6}).exec();
 
 ```
--  To execute query and get result call `exec()`
-
-   i.e `Movie.where({'rating': 7.6}).exec()`
 
 ***
 
-#### Equal queries
+#### Equal To
 
 ```
- Movie.where({'rating': 7.6}).exec()
+Movie.where({'rating': 7.6}).exec()
 
- #or
-
- Movie.where({'rating.$eq': 7.6}).exec()
-
- # not equal
- Movie.where({'rating.$ne': 7.6}).exec()
-
+//Optionally use $gt
+Movie.where({'rating.$eq': 7.6}).exec()
 ```
 
-#### Like queries
-
+#### Not Equal To
 ```
- Movie.where({'name.$li': 'Assassins'}).exec()
-
- #or using regex
- Movie.where({'name.$li': /assassins/i}).exec()
-
+Movie.where({'rating.$ne': 7.6}).exec()
 ```
 
+#### Is Like
 
-#### Between queries
+```
+Movie.where({'name.$li': 'Assassins'}).exec()
+
+// or with regex
+Movie.where({'name.$li': /assassins/i}).exec()
+```
+
+
+
+#### Is Between
 
 ```
  Movie.where({'rating.$bt': [7, 8]}).exec()
 
 ```
 
-#### Less then, greater then queries
+#### Is Greater Than
 
 ```
-  # greater then
   Movie.where({'rating.$gt': 7}).exec()
+```
 
-  # less then
+#### Is Less Than
+
+```
   Movie.where({'rating.$lt': 7.6}).exec()
-
 ```
 
-#### In queries
+#### Is In
 
 ```
- # in
  Movie.where({'rating.$in': [7.6, 7.4]}).exec()
+```
 
- # not in
+#### Is NOT In
+
+```
  Movie.where({'rating.$ni': [7.6, 7.3]}).exec()
-
 ```
 
-#### Combine multiple criteria
+## Combine multiple criteria
+
 
 ```
- Movie.where({'rating': 8.4, 'name.$li': /braveheart/i}).exec()
-
- Movie.where({'actor': 'Al Pacino', 'year.$gt': 1970 }).exec()
-
- Movie.where({'actor.$li': /walter/i, 'year.$gt': 1970 }).exec()
-
  Movie.where({'actor.$li': /walter/i, 'year.$bt': [1950, 1980], 'rating': 7.7 }).exec()
-
- Movie.where({'rating': 8.4, 'name.$li': /braveheart/i}).exec()
 ```
 
 #### More query functions : all, groupBy, select, pluck, limit and offset, order, first, last, count
 
-- Chaining multiple functions
+## Chaining multiple functions
+
 
 ```
  Movie.all
