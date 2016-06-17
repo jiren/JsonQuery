@@ -156,7 +156,7 @@ Movie.where({'name.$li': /assassins/i}).all
 #### Iterating query result by passing function to `exec`
 
 ```
-  Movie.order({'rating': 'desc', actor: 'asc'}).exec(function(movie){
+  Movie.order({'rating': 'desc', actor: 'asc'}).each(function(movie){
     console.log(movie.rating);
   })
 ```
