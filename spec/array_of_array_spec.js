@@ -4,7 +4,7 @@ describe("Nested Objects with Array of Array", function(){
   beforeEach(function(){
     jasmine.addMatchers(customMatchers);
 
-    Vendor = JsonQuery(vendors_data);
+    Vendor = JsonQuery.new(vendors_data);
   });
 
   describe("equal", function(){

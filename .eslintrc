@@ -1,0 +1,22 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+     "es6": true,
+     "browser": true,
+     "node": true
+  },
+  "rules": {
+    "arrow-parens": [2, "as-needed"],
+    "no-duplicate-imports": 0,
+    "no-unused-vars": [2, {
+      "vars": "all",
+      "args": "after-used",
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_"
+    }],
+    "no-console" : 0,
+  }
+}

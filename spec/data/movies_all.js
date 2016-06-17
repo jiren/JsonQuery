@@ -1,11 +1,12 @@
-var movies_all = [
+var movies_data = [
   {
     "name": "Once Upon a Time in the West",
     "rating": 8.7,
     "director": "Sergio Leone",
     "year": 1968,
     "actor": "Henry Fonda",
-    "date": "2014-07-01T04:59:06.000+05:30"
+    "date": "1968-06-27T20:53:51.331Z",
+    "id": 1
   },
   {
     "name": "Terminator 2: Judgment Day",
@@ -13,7 +14,8 @@ var movies_all = [
     "director": "James Cameron",
     "year": 1991,
     "actor": "Arnold Schwarzenegger",
-    "date": "2014-05-18T04:14:01.000+05:30"
+    "date": "1991-10-03T19:39:27.999Z",
+    "id": 2
   },
   {
     "name": "Braveheart",
@@ -21,7 +23,8 @@ var movies_all = [
     "director": "Mel Gibson",
     "year": 1995,
     "actor": "Mel Gibson",
-    "date": "2014-07-22T23:29:48.000+05:30"
+    "date": "1995-05-15T04:49:26.020Z",
+    "id": 3
   },
   {
     "name": "Oldboy",
@@ -29,7 +32,8 @@ var movies_all = [
     "director": "Chan-wook Park",
     "year": 2003,
     "actor": "Min-sik Choi",
-    "date": "2014-06-06T12:15:48.000+05:30"
+    "date": "2003-07-09T22:33:48.312Z",
+    "id": 4
   },
   {
     "name": "Witness for the Prosecution",
@@ -37,7 +41,8 @@ var movies_all = [
     "director": "Billy Wilder",
     "year": 1957,
     "actor": "Tyrone Power",
-    "date": "2014-05-07T18:34:48.000+05:30"
+    "date": "1957-05-19T04:49:24.538Z",
+    "id": 5
   },
   {
     "name": "Chinatown",
@@ -45,7 +50,8 @@ var movies_all = [
     "director": "Roman Polanski",
     "year": 1974,
     "actor": "Jack Nicholson",
-    "date": "2014-04-28T01:16:01.000+05:30"
+    "date": "1974-09-01T17:01:44.883Z",
+    "id": 6
   },
   {
     "name": "Amadeus",
@@ -53,7 +59,8 @@ var movies_all = [
     "director": "Milos Forman",
     "year": 1984,
     "actor": "F. Murray Abraham",
-    "date": "2014-06-03T06:55:20.000+05:30"
+    "date": "1984-01-22T09:08:22.598Z",
+    "id": 7
   },
   {
     "name": "Cool Hand Luke",
@@ -61,7 +68,8 @@ var movies_all = [
     "director": "Stuart Rosenberg",
     "year": 1967,
     "actor": "Paul Newman",
-    "date": "2014-07-06T13:44:10.000+05:30"
+    "date": "1967-07-17T04:34:13.885Z",
+    "id": 8
   },
   {
     "name": "Ran",
@@ -69,7 +77,8 @@ var movies_all = [
     "director": "Akira Kurosawa",
     "year": 1985,
     "actor": "Tatsuya Nakadai",
-    "date": "2014-05-03T03:52:50.000+05:30"
+    "date": "1985-09-12T06:56:53.765Z",
+    "id": 9
   },
   {
     "name": "Warrior",
@@ -77,7 +86,8 @@ var movies_all = [
     "director": "Gavin O'Connor",
     "year": 2011,
     "actor": "Tom Hardy",
-    "date": "2014-04-23T14:57:55.000+05:30"
+    "date": "2011-04-05T12:24:51.678Z",
+    "id": 10
   },
   {
     "name": "Butch Cassidy and the Sundance Kid",
@@ -85,7 +95,8 @@ var movies_all = [
     "director": "George Roy Hill",
     "year": 1969,
     "actor": "Paul Newman",
-    "date": "2014-06-23T03:06:59.000+05:30"
+    "date": "1969-11-12T05:04:40.339Z",
+    "id": 11
   },
   {
     "name": "Into the Wild",
@@ -93,7 +104,8 @@ var movies_all = [
     "director": "Sean Penn",
     "year": 2007,
     "actor": "Emile Hirsch",
-    "date": "2014-04-10T17:22:53.000+05:30"
+    "date": "2007-09-11T02:33:12.967Z",
+    "id": 12
   },
   {
     "name": "The Night of the Hunter",
@@ -101,7 +113,8 @@ var movies_all = [
     "director": "Charles Laughton",
     "year": 1955,
     "actor": "Robert Mitchum",
-    "date": "2014-07-16T05:55:43.000+05:30"
+    "date": "1955-08-10T07:02:52.401Z",
+    "id": 13
   },
   {
     "name": "Persona",
@@ -109,7 +122,8 @@ var movies_all = [
     "director": "Ingmar Bergman",
     "year": 1966,
     "actor": "Bibi Andersson",
-    "date": "2014-04-23T17:08:29.000+05:30"
+    "date": "1966-01-26T21:30:00.504Z",
+    "id": 14
   },
   {
     "name": "The Killing",
@@ -117,7 +131,8 @@ var movies_all = [
     "director": "Stanley Kubrick",
     "year": 1956,
     "actor": "Sterling Hayden",
-    "date": "2014-05-30T14:10:02.000+05:30"
+    "date": "1956-11-29T13:23:39.422Z",
+    "id": 15
   },
   {
     "name": "Inherit the Wind",
@@ -125,7 +140,8 @@ var movies_all = [
     "director": "Stanley Kramer",
     "year": 1960,
     "actor": "Spencer Tracy",
-    "date": "2014-06-04T18:39:42.000+05:30"
+    "date": "1960-06-23T14:48:05.156Z",
+    "id": 16
   },
   {
     "name": "8½",
@@ -133,7 +149,8 @@ var movies_all = [
     "director": "Federico Fellini",
     "year": 1963,
     "actor": "Marcello Mastroianni",
-    "date": "2014-07-27T11:38:05.000+05:30"
+    "date": "1963-04-08T17:13:56.206Z",
+    "id": 17
   },
   {
     "name": "Anatomy of a Murder",
@@ -141,7 +158,8 @@ var movies_all = [
     "director": "Otto Preminger",
     "year": 1959,
     "actor": "James Stewart",
-    "date": "2014-05-14T06:22:25.000+05:30"
+    "date": "1959-07-29T17:35:56.908Z",
+    "id": 18
   },
   {
     "name": "The Graduate",
@@ -149,7 +167,8 @@ var movies_all = [
     "director": "Mike Nichols",
     "year": 1967,
     "actor": "Dustin Hoffman",
-    "date": "2014-07-30T05:03:25.000+05:30"
+    "date": "1967-01-01T02:21:31.313Z",
+    "id": 19
   },
   {
     "name": "The Man Who Shot Liberty Valance",
@@ -157,7 +176,8 @@ var movies_all = [
     "director": "John Ford",
     "year": 1962,
     "actor": "James Stewart",
-    "date": "2014-04-23T09:39:52.000+05:30"
+    "date": "1962-06-28T01:47:14.200Z",
+    "id": 20
   },
   {
     "name": "The Wild Bunch",
@@ -165,7 +185,8 @@ var movies_all = [
     "director": "Sam Peckinpah",
     "year": 1969,
     "actor": "William Holden",
-    "date": "2014-07-19T01:38:42.000+05:30"
+    "date": "1969-11-25T15:17:00.411Z",
+    "id": 21
   },
   {
     "name": "Roman Holiday",
@@ -173,7 +194,8 @@ var movies_all = [
     "director": "William Wyler",
     "year": 1953,
     "actor": "Gregory Peck",
-    "date": "2014-07-24T07:00:15.000+05:30"
+    "date": "1953-09-01T00:31:02.383Z",
+    "id": 22
   },
   {
     "name": "Barry Lyndon",
@@ -181,7 +203,8 @@ var movies_all = [
     "director": "Stanley Kubrick",
     "year": 1975,
     "actor": "Ryan O'Neal",
-    "date": "2014-04-28T16:51:06.000+05:30"
+    "date": "1975-09-22T15:39:20.937Z",
+    "id": 23
   },
   {
     "name": "Rio Bravo",
@@ -189,7 +212,8 @@ var movies_all = [
     "director": "Howard Hawks",
     "year": 1959,
     "actor": "John Wayne",
-    "date": "2014-07-13T01:21:18.000+05:30"
+    "date": "1959-11-19T06:46:00.420Z",
+    "id": 24
   },
   {
     "name": "Elite Squad: The Enemy Within",
@@ -197,7 +221,8 @@ var movies_all = [
     "director": "José Padilha",
     "year": 2010,
     "actor": "Wagner Moura",
-    "date": "2014-05-14T08:43:29.000+05:30"
+    "date": "2010-01-05T04:07:13.180Z",
+    "id": 25
   },
   {
     "name": "Charade",
@@ -205,7 +230,8 @@ var movies_all = [
     "director": "Stanley Donen",
     "year": 1963,
     "actor": "Cary Grant",
-    "date": "2014-05-18T15:38:33.000+05:30"
+    "date": "1963-04-06T17:17:32.248Z",
+    "id": 26
   },
   {
     "name": "What Ever Happened to Baby Jane?",
@@ -213,7 +239,8 @@ var movies_all = [
     "director": "Robert Aldrich",
     "year": 1962,
     "actor": "Bette Davis",
-    "date": "2014-04-11T22:13:53.000+05:30"
+    "date": "1962-08-07T05:22:57.437Z",
+    "id": 27
   },
   {
     "name": "The Return",
@@ -221,7 +248,8 @@ var movies_all = [
     "director": "Andrey Zvyagintsev",
     "year": 2003,
     "actor": "Vladimir Garin",
-    "date": "2014-05-25T01:59:02.000+05:30"
+    "date": "2003-09-21T14:37:22.009Z",
+    "id": 28
   },
   {
     "name": "Let the Right One In",
@@ -229,7 +257,8 @@ var movies_all = [
     "director": "Tomas Alfredson",
     "year": 2008,
     "actor": "Kåre Hedebrant",
-    "date": "2014-06-26T18:44:35.000+05:30"
+    "date": "2008-08-23T04:00:47.486Z",
+    "id": 29
   },
   {
     "name": "The Big Heat",
@@ -237,7 +266,8 @@ var movies_all = [
     "director": "Fritz Lang",
     "year": 1953,
     "actor": "Glenn Ford",
-    "date": "2014-06-09T17:43:41.000+05:30"
+    "date": "1953-06-05T14:26:06.105Z",
+    "id": 30
   },
   {
     "name": "Being There",
@@ -245,7 +275,8 @@ var movies_all = [
     "director": "Hal Ashby",
     "year": 1979,
     "actor": "Peter Sellers",
-    "date": "2014-05-04T08:12:57.000+05:30"
+    "date": "1979-01-28T12:41:15.765Z",
+    "id": 31
   },
   {
     "name": "Shame",
@@ -253,7 +284,8 @@ var movies_all = [
     "director": "Ingmar Bergman",
     "year": 1968,
     "actor": "Liv Ullmann",
-    "date": "2014-04-13T01:33:35.000+05:30"
+    "date": "1968-10-10T08:04:40.331Z",
+    "id": 32
   },
   {
     "name": "Jean de Florette",
@@ -261,7 +293,8 @@ var movies_all = [
     "director": "Claude Berri",
     "year": 1986,
     "actor": "Yves Montand",
-    "date": "2014-04-19T00:09:07.000+05:30"
+    "date": "1986-04-02T19:10:42.940Z",
+    "id": 33
   },
   {
     "name": "This Is Spinal Tap",
@@ -269,7 +302,8 @@ var movies_all = [
     "director": "Rob Reiner",
     "year": 1984,
     "actor": "Rob Reiner",
-    "date": "2014-08-03T17:07:27.000+05:30"
+    "date": "1984-02-07T20:50:41.466Z",
+    "id": 34
   },
   {
     "name": "Midnight Cowboy",
@@ -277,7 +311,8 @@ var movies_all = [
     "director": "John Schlesinger",
     "year": 1969,
     "actor": "Dustin Hoffman",
-    "date": "2014-07-29T06:33:25.000+05:30"
+    "date": "1969-09-05T00:14:40.483Z",
+    "id": 35
   },
   {
     "name": "Days of Heaven",
@@ -285,7 +320,8 @@ var movies_all = [
     "director": "Terrence Malick",
     "year": 1978,
     "actor": "Richard Gere",
-    "date": "2014-06-14T04:27:24.000+05:30"
+    "date": "1978-11-01T22:54:20.676Z",
+    "id": 36
   },
   {
     "name": "A Man for All Seasons",
@@ -293,7 +329,8 @@ var movies_all = [
     "director": "Fred Zinnemann",
     "year": 1966,
     "actor": "Paul Scofield",
-    "date": "2014-05-05T01:00:02.000+05:30"
+    "date": "1966-03-12T10:09:34.531Z",
+    "id": 37
   },
   {
     "name": "A Raisin in the Sun",
@@ -301,7 +338,8 @@ var movies_all = [
     "director": "Daniel Petrie",
     "year": 1961,
     "actor": "Sidney Poitier",
-    "date": "2014-06-16T23:32:35.000+05:30"
+    "date": "1961-07-01T13:54:54.458Z",
+    "id": 38
   },
   {
     "name": "Head-On",
@@ -309,7 +347,8 @@ var movies_all = [
     "director": "Fatih Akin",
     "year": 2004,
     "actor": "Birol Ünel",
-    "date": "2014-06-24T06:04:40.000+05:30"
+    "date": "2004-01-20T10:16:40.793Z",
+    "id": 39
   },
   {
     "name": "No Man's Land",
@@ -317,7 +356,8 @@ var movies_all = [
     "director": "Danis Tanovic",
     "year": 2001,
     "actor": "Branko Djuric",
-    "date": "2014-07-28T10:10:34.000+05:30"
+    "date": "2001-03-31T23:39:51.850Z",
+    "id": 40
   },
   {
     "name": "Miller's Crossing",
@@ -325,7 +365,8 @@ var movies_all = [
     "director": "Joel Coen",
     "year": 1990,
     "actor": "Gabriel Byrne",
-    "date": "2014-04-17T09:34:12.000+05:30"
+    "date": "1990-10-22T18:32:33.984Z",
+    "id": 41
   },
   {
     "name": "The Sacrifice",
@@ -333,7 +374,8 @@ var movies_all = [
     "director": "Andrei Tarkovskij",
     "year": 1986,
     "actor": "Erland Josephson",
-    "date": "2014-05-19T08:11:18.000+05:30"
+    "date": "1986-11-15T08:27:08.553Z",
+    "id": 42
   },
   {
     "name": "Crash",
@@ -341,7 +383,8 @@ var movies_all = [
     "director": "Paul Haggis",
     "year": 2004,
     "actor": "Don Cheadle",
-    "date": "2014-05-17T00:27:01.000+05:30"
+    "date": "2004-08-29T22:10:26.666Z",
+    "id": 43
   },
   {
     "name": "Kagemusha",
@@ -349,7 +392,8 @@ var movies_all = [
     "director": "Akira Kurosawa",
     "year": 1980,
     "actor": "Tatsuya Nakadai",
-    "date": "2014-06-28T23:00:14.000+05:30"
+    "date": "1980-04-06T13:11:09.907Z",
+    "id": 44
   },
   {
     "name": "Forbidden Games",
@@ -357,7 +401,8 @@ var movies_all = [
     "director": "René Clément",
     "year": 1952,
     "actor": "Georges Poujouly",
-    "date": "2014-05-12T12:23:01.000+05:30"
+    "date": "1952-05-08T10:36:55.092Z",
+    "id": 45
   },
   {
     "name": "One, Two, Three",
@@ -365,7 +410,8 @@ var movies_all = [
     "director": "Billy Wilder",
     "year": 1961,
     "actor": "James Cagney",
-    "date": "2014-06-28T11:23:46.000+05:30"
+    "date": "1961-01-16T16:31:30.888Z",
+    "id": 46
   },
   {
     "name": "Hud",
@@ -373,7 +419,8 @@ var movies_all = [
     "director": "Martin Ritt",
     "year": 1963,
     "actor": "Paul Newman",
-    "date": "2014-05-16T17:42:27.000+05:30"
+    "date": "1963-10-11T23:09:49.495Z",
+    "id": 47
   },
   {
     "name": "4 Months, 3 Weeks and 2 Days",
@@ -381,7 +428,8 @@ var movies_all = [
     "director": "Cristian Mungiu",
     "year": 2007,
     "actor": "Anamaria Marinca",
-    "date": "2014-06-13T18:40:46.000+05:30"
+    "date": "2007-05-19T01:23:29.564Z",
+    "id": 48
   },
   {
     "name": "Ferris Bueller's Day Off",
@@ -389,7 +437,8 @@ var movies_all = [
     "director": "John Hughes",
     "year": 1986,
     "actor": "Matthew Broderick",
-    "date": "2014-06-12T05:49:20.000+05:30"
+    "date": "1986-05-29T06:02:50.971Z",
+    "id": 49
   },
   {
     "name": "The Iron Giant",
@@ -397,7 +446,8 @@ var movies_all = [
     "director": "Brad Bird",
     "year": 1999,
     "actor": "Eli Marienthal",
-    "date": "2014-07-09T22:59:30.000+05:30"
+    "date": "1999-02-21T14:50:17.516Z",
+    "id": 50
   },
   {
     "name": "Kannathil Muthamittal",
@@ -405,7 +455,8 @@ var movies_all = [
     "director": "Mani Ratnam",
     "year": 2002,
     "actor": "Madhavan",
-    "date": "2014-04-17T06:44:47.000+05:30"
+    "date": "2002-10-20T16:42:41.465Z",
+    "id": 51
   },
   {
     "name": "The Innocents",
@@ -413,7 +464,8 @@ var movies_all = [
     "director": "Jack Clayton",
     "year": 1961,
     "actor": "Deborah Kerr",
-    "date": "2014-06-22T16:33:16.000+05:30"
+    "date": "1961-03-15T16:08:57.091Z",
+    "id": 52
   },
   {
     "name": "Diary of a Country Priest",
@@ -421,7 +473,8 @@ var movies_all = [
     "director": "Robert Bresson",
     "year": 1951,
     "actor": "Claude Laydu",
-    "date": "2014-04-26T13:53:36.000+05:30"
+    "date": "1951-10-16T20:44:02.200Z",
+    "id": 53
   },
   {
     "name": "Simon",
@@ -429,7 +482,8 @@ var movies_all = [
     "director": "Eddy Terstall",
     "year": 2004,
     "actor": "Cees Geel",
-    "date": "2014-06-17T18:27:39.000+05:30"
+    "date": "2004-04-13T03:42:44.216Z",
+    "id": 54
   },
   {
     "name": "The Man from Nowhere",
@@ -437,7 +491,8 @@ var movies_all = [
     "director": "Jeong-beom Lee",
     "year": 2010,
     "actor": "Bin Won",
-    "date": "2014-06-07T17:25:34.000+05:30"
+    "date": "2010-02-18T06:39:16.413Z",
+    "id": 55
   },
   {
     "name": "Evil Dead II",
@@ -445,7 +500,8 @@ var movies_all = [
     "director": "Sam Raimi",
     "year": 1987,
     "actor": "Bruce Campbell",
-    "date": "2014-05-05T13:31:41.000+05:30"
+    "date": "1987-03-22T07:06:01.863Z",
+    "id": 56
   },
   {
     "name": "Landscape in the Mist",
@@ -453,7 +509,8 @@ var movies_all = [
     "director": "Theodoros Angelopoulos",
     "year": 1988,
     "actor": "Michalis Zeke",
-    "date": "2014-05-17T22:34:32.000+05:30"
+    "date": "1988-09-28T00:34:23.586Z",
+    "id": 57
   },
   {
     "name": "The World's Fastest Indian",
@@ -461,7 +518,8 @@ var movies_all = [
     "director": "Roger Donaldson",
     "year": 2005,
     "actor": "Anthony Hopkins",
-    "date": "2014-05-29T12:03:51.000+05:30"
+    "date": "2005-07-10T12:58:46.123Z",
+    "id": 58
   },
   {
     "name": "Salaam Bombay!",
@@ -469,7 +527,8 @@ var movies_all = [
     "director": "Mira Nair",
     "year": 1988,
     "actor": "Shafiq Syed",
-    "date": "2014-08-01T18:30:04.000+05:30"
+    "date": "1988-05-03T04:17:50.954Z",
+    "id": 59
   },
   {
     "name": "The Girl with the Dragon Tattoo",
@@ -477,7 +536,8 @@ var movies_all = [
     "director": "Niels Arden Oplev",
     "year": 2009,
     "actor": "Michael Nyqvist",
-    "date": "2014-06-24T23:44:54.000+05:30"
+    "date": "2009-07-02T17:15:47.208Z",
+    "id": 60
   },
   {
     "name": "The Train",
@@ -485,7 +545,8 @@ var movies_all = [
     "director": "John Frankenheimer",
     "year": 1964,
     "actor": "Burt Lancaster",
-    "date": "2014-06-12T15:23:01.000+05:30"
+    "date": "1964-06-21T07:59:53.476Z",
+    "id": 61
   },
   {
     "name": "The Edge of Heaven",
@@ -493,7 +554,8 @@ var movies_all = [
     "director": "Fatih Akin",
     "year": 2007,
     "actor": "Baki Davrak",
-    "date": "2014-06-19T15:50:43.000+05:30"
+    "date": "2007-11-19T18:12:02.836Z",
+    "id": 62
   },
   {
     "name": "The Last Emperor",
@@ -501,7 +563,8 @@ var movies_all = [
     "director": "Bernardo Bertolucci",
     "year": 1987,
     "actor": "John Lone",
-    "date": "2014-04-30T12:50:12.000+05:30"
+    "date": "1987-06-27T12:08:59.262Z",
+    "id": 63
   },
   {
     "name": "I Saw the Devil",
@@ -509,7 +572,8 @@ var movies_all = [
     "director": "Jee-woon Kim",
     "year": 2010,
     "actor": "Byung-hun Lee",
-    "date": "2014-06-18T01:49:00.000+05:30"
+    "date": "2010-01-09T14:42:05.272Z",
+    "id": 64
   },
   {
     "name": "Johnny Got His Gun",
@@ -517,7 +581,8 @@ var movies_all = [
     "director": "Dalton Trumbo",
     "year": 1971,
     "actor": "Timothy Bottoms",
-    "date": "2014-04-24T00:10:35.000+05:30"
+    "date": "1971-10-09T06:57:55.613Z",
+    "id": 65
   },
   {
     "name": "Serpico",
@@ -525,7 +590,8 @@ var movies_all = [
     "director": "Sidney Lumet",
     "year": 1973,
     "actor": "Al Pacino",
-    "date": "2014-06-29T09:40:54.000+05:30"
+    "date": "1973-03-25T18:30:20.486Z",
+    "id": 66
   },
   {
     "name": "After the Wedding",
@@ -533,7 +599,8 @@ var movies_all = [
     "director": "Susanne Bier",
     "year": 2006,
     "actor": "Mads Mikkelsen",
-    "date": "2014-05-30T07:39:15.000+05:30"
+    "date": "2006-05-18T09:48:14.522Z",
+    "id": 67
   },
   {
     "name": "True Grit",
@@ -541,7 +608,8 @@ var movies_all = [
     "director": "Ethan CoenJoel Coen",
     "year": 2010,
     "actor": "Jeff Bridges",
-    "date": "2014-04-20T11:38:14.000+05:30"
+    "date": "2010-11-28T06:28:12.383Z",
+    "id": 68
   },
   {
     "name": "The Last of the Mohicans",
@@ -549,7 +617,8 @@ var movies_all = [
     "director": "Michael Mann",
     "year": 1992,
     "actor": "Daniel Day-Lewis",
-    "date": "2014-05-10T13:18:25.000+05:30"
+    "date": "1992-03-08T15:31:05.450Z",
+    "id": 69
   },
   {
     "name": "A Place in the Sun",
@@ -557,7 +626,8 @@ var movies_all = [
     "director": "George Stevens",
     "year": 1951,
     "actor": "Montgomery Clift",
-    "date": "2014-05-06T05:40:18.000+05:30"
+    "date": "1951-03-12T20:53:58.022Z",
+    "id": 70
   },
   {
     "name": "South Park: Bigger Longer & Uncut",
@@ -565,7 +635,8 @@ var movies_all = [
     "director": "Trey Parker",
     "year": 1999,
     "actor": "Trey Parker",
-    "date": "2014-06-18T16:35:18.000+05:30"
+    "date": "1999-10-04T00:46:20.968Z",
+    "id": 71
   },
   {
     "name": "The Gospel According to St. Matthew",
@@ -573,7 +644,8 @@ var movies_all = [
     "director": "Pier Paolo Pasolini",
     "year": 1964,
     "actor": "Enrique Irazoqui",
-    "date": "2014-04-14T10:43:56.000+05:30"
+    "date": "1964-06-22T09:13:09.934Z",
+    "id": 72
   },
   {
     "name": "Barton Fink",
@@ -581,7 +653,8 @@ var movies_all = [
     "director": "Joel Coen",
     "year": 1991,
     "actor": "John Turturro",
-    "date": "2014-07-07T00:06:47.000+05:30"
+    "date": "1991-06-10T22:59:32.484Z",
+    "id": 73
   },
   {
     "name": "Kramer vs. Kramer",
@@ -589,7 +662,8 @@ var movies_all = [
     "director": "Robert Benton",
     "year": 1979,
     "actor": "Dustin Hoffman",
-    "date": "2014-05-09T02:14:27.000+05:30"
+    "date": "1979-05-24T01:53:59.867Z",
+    "id": 74
   },
   {
     "name": "Mysterious Skin",
@@ -597,7 +671,8 @@ var movies_all = [
     "director": "Gregg Araki",
     "year": 2004,
     "actor": "Brady Corbet",
-    "date": "2014-05-20T22:09:05.000+05:30"
+    "date": "2004-07-21T21:49:19.996Z",
+    "id": 75
   },
   {
     "name": "Guess Who's Coming to Dinner",
@@ -605,7 +680,8 @@ var movies_all = [
     "director": "Stanley Kramer",
     "year": 1967,
     "actor": "Spencer Tracy",
-    "date": "2014-06-14T19:44:41.000+05:30"
+    "date": "1967-04-27T15:46:38.919Z",
+    "id": 76
   },
   {
     "name": "The Defiant Ones",
@@ -613,7 +689,8 @@ var movies_all = [
     "director": "Stanley Kramer",
     "year": 1958,
     "actor": "Tony Curtis",
-    "date": "2014-07-25T05:00:17.000+05:30"
+    "date": "1958-05-01T08:21:26.564Z",
+    "id": 77
   },
   {
     "name": "The Court Jester",
@@ -621,7 +698,8 @@ var movies_all = [
     "director": "Melvin FrankNorman Panama",
     "year": 1955,
     "actor": "Danny Kaye",
-    "date": "2014-05-05T06:57:10.000+05:30"
+    "date": "1955-07-26T00:36:42.892Z",
+    "id": 78
   },
   {
     "name": "Dead Man's Shoes",
@@ -629,7 +707,8 @@ var movies_all = [
     "director": "Shane Meadows",
     "year": 2004,
     "actor": "Paddy Considine",
-    "date": "2014-05-04T22:50:27.000+05:30"
+    "date": "2004-10-04T15:58:17.693Z",
+    "id": 79
   },
   {
     "name": "The Taking of Pelham One Two Three",
@@ -637,7 +716,8 @@ var movies_all = [
     "director": "Joseph Sargent",
     "year": 1974,
     "actor": "Walter Matthau",
-    "date": "2014-07-07T23:19:45.000+05:30"
+    "date": "1974-07-18T14:23:54.309Z",
+    "id": 80
   },
   {
     "name": "Forbidden Planet",
@@ -645,7 +725,8 @@ var movies_all = [
     "director": "Fred McLeod Wilcox",
     "year": 1956,
     "actor": "Walter Pidgeon",
-    "date": "2014-05-22T22:36:19.000+05:30"
+    "date": "1956-07-03T23:55:09.404Z",
+    "id": 81
   },
   {
     "name": "Hamlet",
@@ -653,7 +734,8 @@ var movies_all = [
     "director": "Kenneth Branagh",
     "year": 1996,
     "actor": "Kenneth Branagh",
-    "date": "2014-07-06T18:15:37.000+05:30"
+    "date": "1996-08-17T11:19:07.316Z",
+    "id": 82
   },
   {
     "name": "Star Trek II: The Wrath of Khan",
@@ -661,7 +743,8 @@ var movies_all = [
     "director": "Nicholas Meyer",
     "year": 1982,
     "actor": "William Shatner",
-    "date": "2014-05-25T04:12:43.000+05:30"
+    "date": "1982-05-06T17:51:26.282Z",
+    "id": 83
   },
   {
     "name": "Black Hawk Down",
@@ -669,7 +752,8 @@ var movies_all = [
     "director": "Ridley Scott",
     "year": 2001,
     "actor": "Josh Hartnett",
-    "date": "2014-05-04T23:45:43.000+05:30"
+    "date": "2001-11-10T22:35:11.018Z",
+    "id": 84
   },
   {
     "name": "Withnail & I",
@@ -677,7 +761,8 @@ var movies_all = [
     "director": "Bruce Robinson",
     "year": 1987,
     "actor": "Richard E. Grant",
-    "date": "2014-05-04T22:20:42.000+05:30"
+    "date": "1987-05-15T09:35:27.702Z",
+    "id": 85
   },
   {
     "name": "The Haunting",
@@ -685,7 +770,8 @@ var movies_all = [
     "director": "Robert Wise",
     "year": 1963,
     "actor": "Julie Harris",
-    "date": "2014-04-13T11:32:17.000+05:30"
+    "date": "1963-04-22T01:09:40.481Z",
+    "id": 86
   },
   {
     "name": "Kes",
@@ -693,7 +779,8 @@ var movies_all = [
     "director": "Kenneth Loach",
     "year": 1969,
     "actor": "David Bradley",
-    "date": "2014-07-28T10:11:17.000+05:30"
+    "date": "1969-01-03T09:46:55.159Z",
+    "id": 87
   },
   {
     "name": "The Wicker Man",
@@ -701,7 +788,8 @@ var movies_all = [
     "director": "Robin Hardy",
     "year": 1973,
     "actor": "Edward Woodward",
-    "date": "2014-07-05T18:37:23.000+05:30"
+    "date": "1973-03-19T22:12:20.702Z",
+    "id": 88
   },
   {
     "name": "Hugo",
@@ -709,7 +797,8 @@ var movies_all = [
     "director": "Martin Scorsese",
     "year": 2011,
     "actor": "Asa Butterfield",
-    "date": "2014-06-15T08:00:09.000+05:30"
+    "date": "2011-05-22T14:22:51.202Z",
+    "id": 89
   },
   {
     "name": "Show Me Love",
@@ -717,7 +806,8 @@ var movies_all = [
     "director": "Lukas Moodysson",
     "year": 1998,
     "actor": "Alexandra Dahlström",
-    "date": "2014-05-12T08:24:55.000+05:30"
+    "date": "1998-02-06T02:07:17.218Z",
+    "id": 90
   },
   {
     "name": "A Fish Called Wanda",
@@ -725,7 +815,8 @@ var movies_all = [
     "director": "Charles Crichton",
     "year": 1988,
     "actor": "John Cleese",
-    "date": "2014-06-01T22:46:23.000+05:30"
+    "date": "1988-01-07T13:45:34.561Z",
+    "id": 91
   },
   {
     "name": "The Producers",
@@ -733,7 +824,8 @@ var movies_all = [
     "director": "Mel Brooks",
     "year": 1968,
     "actor": "Zero Mostel",
-    "date": "2014-05-01T09:07:19.000+05:30"
+    "date": "1968-03-13T19:55:28.886Z",
+    "id": 92
   },
   {
     "name": "Hour of the Wolf",
@@ -741,7 +833,8 @@ var movies_all = [
     "director": "Ingmar Bergman",
     "year": 1968,
     "actor": "Max von Sydow",
-    "date": "2014-06-18T11:53:07.000+05:30"
+    "date": "1968-03-18T15:22:23.888Z",
+    "id": 93
   },
   {
     "name": "Detachment",
@@ -749,7 +842,8 @@ var movies_all = [
     "director": "Tony Kaye",
     "year": 2011,
     "actor": "Adrien Brody",
-    "date": "2014-07-23T21:12:01.000+05:30"
+    "date": "2011-04-25T20:01:12.967Z",
+    "id": 94
   },
   {
     "name": "A Pure Formality",
@@ -757,7 +851,8 @@ var movies_all = [
     "director": "Giuseppe Tornatore",
     "year": 1994,
     "actor": "Gérard Depardieu",
-    "date": "2014-07-25T17:35:55.000+05:30"
+    "date": "1994-06-17T16:10:58.229Z",
+    "id": 95
   },
   {
     "name": "Marathon",
@@ -765,7 +860,8 @@ var movies_all = [
     "director": "Yoon-Chul Jeong",
     "year": 2005,
     "actor": "Seung-woo Cho",
-    "date": "2014-05-07T00:56:50.000+05:30"
+    "date": "2005-07-18T17:40:48.018Z",
+    "id": 96
   },
   {
     "name": "Where Eagles Dare",
@@ -773,7 +869,8 @@ var movies_all = [
     "director": "Brian G. Hutton",
     "year": 1968,
     "actor": "Richard Burton",
-    "date": "2014-06-16T22:10:46.000+05:30"
+    "date": "1968-11-04T14:26:26.302Z",
+    "id": 97
   },
   {
     "name": "The Spy Who Came in from the Cold",
@@ -781,7 +878,8 @@ var movies_all = [
     "director": "Martin Ritt",
     "year": 1965,
     "actor": "Richard Burton",
-    "date": "2014-05-26T03:40:52.000+05:30"
+    "date": "1965-01-22T10:17:36.038Z",
+    "id": 98
   },
   {
     "name": "You Can Count on Me",
@@ -789,7 +887,8 @@ var movies_all = [
     "director": "Kenneth Lonergan",
     "year": 2000,
     "actor": "Laura Linney",
-    "date": "2014-08-02T14:48:07.000+05:30"
+    "date": "2000-08-03T03:29:03.378Z",
+    "id": 99
   },
   {
     "name": "The Passion of Anna",
@@ -797,6 +896,7 @@ var movies_all = [
     "director": "Ingmar Bergman",
     "year": 1969,
     "actor": "Liv Ullmann",
-    "date": "2014-06-05T08:46:58.000+05:30"
+    "date": "1969-03-23T15:06:05.385Z",
+    "id": 100
   }
 ]

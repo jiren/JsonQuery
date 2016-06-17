@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var Place = JsonQuery(places, {'latitude': 'geometry.location.lat', 'longitude': 'geometry.location.lng'});
+  var Place = JsonQuery.new(places, {'latitude': 'geometry.location.lat', 'longitude': 'geometry.location.lng'});
   window.Place = Place;
 
   var place = Place.first;

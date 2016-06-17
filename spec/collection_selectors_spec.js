@@ -2,7 +2,7 @@ describe("Other Collection Selectors", function(){
   var Movie;
 
   beforeEach(function(){
-    Movie = JsonQuery(movies_data);
+    Movie = JsonQuery.new(movies_data);
   });
 
   describe("All", function(){
@@ -49,53 +49,19 @@ describe("Other Collection Selectors", function(){
 
   })
 
-  describe("Group By", function(){
-    it('group by records', function(){
-      rating_group = Movie.groupBy('rating').exec()
-
-      expect(Object.keys(rating_group)).toEqual(['8.7', '8.6', '8.4', '8.2', '8.3', '7.6'])
-    });
-
-    it('group by records with where', function(){
-      rating_group = Movie.where({'rating': 8.4}).groupBy('rating').exec()
-
-      expect(Object.keys(rating_group)).toEqual(['8.4'])
-      expect(rating_group['8.4'].length).toBe(5)
-    });
-
-  });
-
-  describe("Select", function(){
-
-    it('select fields', function(){
-      movies = Movie.select('name', 'rating').exec();
-
-      var m;
-
-      $.each(movies, function(i){
-        m = {name: movies_data[i].name, rating: movies_data[i].rating}
-        expect(this).toEqual(m)
-      });
-
+  describe("Pluck", function(){
+    beforeEach(function(){
+      Movie = JsonQuery.new(movies_data_10);
     })
 
-    it('select fields with where', function(){
-      movies = Movie.where({'rating': 8.4}).select('name', 'rating').exec();
-
-      expect(movies.length).toBe(5);
-    });
-
-  });
-
-  describe("Pluck", function(){
     it('pluck field', function(){
-      actors = Movie.pluck('actor').exec();
+      actors = Movie.pluck('actor');
 
-      expect(actors).toEqual(["Henry Fonda", "Arnold Schwarzenegger", "Mel Gibson", "Min-sik Choi", "Tyrone Power", "Jack Nicholson", "F. Murray Abraham", "Paul Newman", "Tatsuya Nakadai", "Liv Ullmann"]);
+      expect(actors).toEqual(["Henry Fonda", "Arnold Schwarzenegger", "Mel Gibson", "Min-sik Choi", "Tyrone Power", "Jack Nicholson", "F. Murray Abraham", "Paul Newman", "Tatsuya Nakadai", "Tom Hardy"]);
     });
 
     it('pluck field with where', function(){
-      actors = Movie.where({'year.$in':[1968, 1991]}).pluck('actor').exec();
+      actors = Movie.where({'year.$in':[1968, 1991]}).pluck('actor');
 
       expect(actors).toEqual(["Henry Fonda", "Arnold Schwarzenegger"]);
     });
@@ -104,76 +70,138 @@ describe("Other Collection Selectors", function(){
   describe('Limit and Offset', function(){
 
     it('fetch records by limit', function(){
-      movies = Movie.limit(5).exec();
+      movies = Movie.limit(5).all;
 
       expect(movies.length).toBe(5)
     });
 
     it('fetch records by limit with where', function(){
-      movies = Movie.where({'rating': 8.4}).limit(2).exec();
+      movies = Movie.where({'rating': 8.4}).limit(2).all;
 
       expect(movies.length).toBe(2);
-      expect(movies[0].name).toBe('Braveheart');
+
+      movies.forEach(function(m){
+        expect(m.rating).toBe(8.4)
+      })
     });
 
     it('fetch records by limit and offset', function(){
-      movies = Movie.offset(7).limit(5).exec();
+      Movie = JsonQuery.new(movies_data_10);
+
+      movies = Movie.offset(7).limit(5).all;
 
       expect(movies.length).toBe(3)
-      expect(movies[0].name).toBe('Cool Hand Luke');
+      
+      movies.forEach(function(m, i){
+        expect(m.id).toBe(8 + i);
+      })
     });
 
     it('fetch records by limit and offset with where', function(){
-      movies = Movie.where({'rating': 8.4}).offset(1).limit(5).exec();
+      movies = Movie.where({'rating': 8.4}).offset(1).limit(5).all;
 
       expect(movies.length).toBe(4)
-      expect(movies[0].name).toBe('Oldboy');
+
+      movies.forEach(function(m){
+        expect(m.rating).toBe(8.4)
+      })
     });
 
   });
 
   describe('Order', function(){
+    beforeEach(function(){
+      Movie = JsonQuery.new(movies_data_10);
+    });
 
     it('fetch records by desc order', function(){
-      movies = Movie.order({'rating': 'desc'}).exec()
+      movies = Movie.desc('rating').all
 
-      var rating_in_orders = [8.7, 8.6, 8.4, 8.4, 8.4, 8.4, 8.4, 8.3, 8.2, 7.6];
+      var rating_in_orders = [8.7, 8.6, 8.4, 8.4, 8.4, 8.4, 8.4, 8.3, 8.2, 8.2]; 
 
-      $.each(movies, function(i){
-        expect(this.rating).toBe(rating_in_orders[i]);
+      movies.forEach(function(movie, i){
+        expect(movie.rating).toBe(rating_in_orders[i]);
       })
     });
 
     it('fetch records by asc order', function(){
-      movies = Movie.order({'rating': 'asc'}).exec()
+      movies = Movie.asc('rating').all
 
-      var rating_in_orders = [7.6, 8.2, 8.3, 8.4, 8.4, 8.4, 8.4, 8.4, 8.6, 8.7];
+      var rating_in_orders = [ 8.2, 8.2, 8.3, 8.4, 8.4, 8.4, 8.4, 8.4, 8.6, 8.7];
 
-      $.each(movies, function(i){
-        expect(this.rating).toBe(rating_in_orders[i]);
+      movies.forEach(function(movie, i){
+        expect(movie.rating).toBe(rating_in_orders[i]);
       })
     });
 
     it('fetch records by desc order with where', function(){
-      movies = Movie.where({'year.$gt': 1970 }).order({'rating': 'desc'}).exec();
+      movies = Movie.where({'year.$gt': 1970 }).desc('rating').all;
 
-      var ratings = [8.6, 8.4, 8.4, 8.4, 8.4, 8.3];
-      $.each(movies, function(i){
-        expect(this.year).toBeGreaterThan(1970);
-        expect(this.rating).toBe(ratings[i]);
+      var ratings = [8.6, 8.4, 8.4, 8.4, 8.4, 8.3, 8.2];
+
+      movies.forEach(function(movie, i){
+        expect(movie.year).toBeGreaterThan(1970);
+        expect(movie.rating).toBe(ratings[i]);
       });
 
     });
-
   });
 
   describe('Uniq', function(){
-    it('fetch uniq records', function(){
-      var ratings = Movie.uniq('rating').pluck('rating').exec();
+    beforeEach(function(){
+      Movie = JsonQuery.new(movies_data_10);
+    });
 
-      expect(ratings).toEqual([8.7, 8.6, 8.4, 8.2, 8.3, 7.6])
+    it('fetch uniq records', function(){
+      var ratings = Movie.uniq('rating').pluck('rating');
+
+      expect(ratings).toEqual([8.7, 8.6, 8.4, 8.2, 8.3])
     });
   });
 
+  describe("Group By", function(){
+    beforeEach(function(){
+      Movie = JsonQuery.new(movies_data_10);
+    });
+
+    it('group by records', function(){
+      rating_group = Movie.groupBy('rating').all
+
+      expect(Object.keys(rating_group)).toEqual(['8.7', '8.6', '8.4', '8.2', '8.3'])
+    });
+
+    it('group by records with where', function(){
+      rating_group = Movie.where({'rating': 8.4}).groupBy('rating').all
+
+      expect(Object.keys(rating_group)).toEqual(['8.4'])
+      expect(rating_group['8.4'].length).toBe(5)
+    });
+
+  });
+
+  describe('Sum', function(){
+    beforeEach(function(){
+      Movie = JsonQuery.new(movies_data_10);
+    });
+
+    it('sum records field', function(){
+      expect('84.00').toEqual(Movie.sum('rating').toFixed(2))
+    });
+  })
+
+  describe('Find', function(){
+    it('by id', function(){
+      var record = Movie.find(5);
+
+      expect(5).toEqual(record.id);
+    });
+
+    it('by field name and value', function(){
+      var record = Movie.find('year', 2000);
+
+      expect(2000).toEqual(record.year);
+    });
+    
+  });
 
 });

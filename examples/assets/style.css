@@ -46,3 +46,7 @@ pre.ui-distance {
 .leaflet-popup .leaflet-popup-content-wrapper{
   border-radius: 0; 
 }
+
+pre a{
+  margin-left: 5px;
+}

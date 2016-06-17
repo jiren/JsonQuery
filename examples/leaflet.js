@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var Place = JsonQuery(places, {'latitude': 'geometry.location.lat', 'longitude': 'geometry.location.lng'});
+  var Place = JsonQuery.new(places, {'latitude': 'geometry.location.lat', 'longitude': 'geometry.location.lng'});
 
   LefletMap.init(37.782479, -122.440465, Place);
 
@@ -45,8 +45,8 @@ var LefletMap = {
       }).addTo(this.map);
     */
 
-    $.each(Model.all, function(){
-      self.addMarker(this);
+    Model.each(function(place, i){
+      self.addMarker(place);
     });
 
     this.setCenterPoint();

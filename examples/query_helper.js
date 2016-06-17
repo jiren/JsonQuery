@@ -24,19 +24,18 @@ function queryHelper(model, onResult){
           result = eval(queryString),
           time_taken = new Date() - t1;
 
-      if(result.criteria){
-        result = result.exec();
-        $('#query').val(queryString + '.exec()');
-      }
+      $('#query').val(queryString);
 
       var formated_json = JSON.stringify(result, undefined, 2),
           count;
 
       if($.isPlainObject(result)){
         count = Object.keys(result).length; 
-      }else{
+      }else if(Array.isArray(result)){
         count = result.length;
-      } 
+      }else{
+        count = result ? 1 : 0;
+      }
 
       updateResult("Found : " + count +  ' in ' + time_taken  + ' ms', formated_json);
 

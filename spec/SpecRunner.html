@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Json Jquery Specs</title>
+    <title>JsonQuery Specs</title>
 
     <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
@@ -16,25 +16,33 @@
     <!-- include source files here... -->
     <script type="text/javascript" src="dist/json_query.js"></script>
 
-    <!-- include data files for testing here... -->
+    <!-- include data files for testing here... --> 
+    <script type="text/javascript" src="data/services_json.js"></script>
     <script type="text/javascript" src="data/movies_json_10.js"></script>
     <script type="text/javascript" src="data/movies_all.js"></script>
-    <script type="text/javascript" src="data/services_json.js"></script>
     <script type="text/javascript" src="data/movies_destroy_json.js"></script>
     <script type="text/javascript" src="data/vendors_array_of_array_json.js"></script>
+    <script type="text/javascript" src="data/places_json.js"></script>
 
-    <!-- include spec files here... -->
-    <script type="text/javascript" src="where_spec.js"></script>
+
     <script type="text/javascript" src="collection_selectors_spec.js"></script>
+    <script type="text/javascript" src="where_spec.js" status="done"></script>
     <script type="text/javascript" src="nested_selectors_spec.js"></script>
     <script type="text/javascript" src="array_of_array_spec.js"></script>
+    <script type="text/javascript" src="geo_spec.js"></script>
+    <!-- include spec files here... 
     <script type="text/javascript" src="destroy_spec.js"></script>
+    -->
 
   </head>
 
   <body>
     <script type="text/javascript">
-      Movie = JsonQuery(movies_all);
+      /*
+      var jQ = JsonQuery.new(services_data);
+      window.jQ = jQ;
+      jQ.where({"to_param": "11-ms-leone-schuppe"}).all
+      */
     </script>
   </body>
 </html>

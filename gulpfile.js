@@ -1,84 +1,80 @@
 var gulp = require('gulp'),
-  uglify = require('gulp-uglify'),
-  changed = require('gulp-changed'),
-  concat = require('gulp-concat'),
   sourcemaps = require('gulp-sourcemaps'),
-  download = require("gulp-download"),
-  del = require('del'),
+  babel = require('gulp-babel'),
+  uglify = require('gulp-uglify'),
   header = require('gulp-header'),
-  runSequence = require('run-sequence'),
   rename = require('gulp-rename'),
-  browserSync = require('browser-sync'),
-  injector = require('gulp-injector');
-
+  browserify = require('gulp-browserify'),
+  del = require('del'),
+  fs = require("fs"),
+  eslint = require('gulp-eslint'),
+  browserSync = require('browser-sync').create();
 
 var pkg = require('./package.json'),
     paths = {
-      src: [ 'src/main.js'],
-      dist: 'dist'
-    },
-    scripts = 'src/*.js',
-    specs = 'spec/*.js',
-    uncompressedJs = 'json_query.js',
-    compressedJs = 'json_query.min.js';
+      srcEntryPoint: "./src/JsonQuery.js",
+      scripts: './src/**/*.js',
+      spec: './spec',
+      dist: './dist',
+      outfile: 'json_query',
+      headerTemplate: './header-template.txt'
+    };
 
-
-var banner = [
-   '/*',
-   ' * <%= pkg.title || pkg.name %>',
-   ' * <%= pkg.version %> (<%= new Date().toISOString().slice(0, 10) %>)',
-   ' *',
-   ' * Released under the MIT license',
-   ' * http://opensource.org/licenses/MIT',
-   ' *',
-   ' * Copyright 2011-<%= new Date().getFullYear() %> <%= pkg.author.name %>[<%= pkg.author.email %>]',
-   ' *',
-   ' */',
-   ' ',
-   ' ' ].join('\n');
+var LICENSE_TEMPLATE = fs.readFileSync('./header-template.txt', 'utf8');
 
 gulp.task('clean', function(cb) {
   del([paths.dist], cb);
 });
 
-gulp.task('scripts', function() {
+gulp.task("minify", ['scripts'], function(){
+  var outfile = paths.dist + '/' + paths.outfile + '.js'
 
- return gulp.src(paths.src)
-  .pipe(concat(uncompressedJs))
-  .pipe(injector())
-  .pipe(header(banner, { pkg: pkg } ))
-  .pipe(gulp.dest(paths.dist))
-  .pipe(sourcemaps.init())
-  .pipe(uglify({preserveComments: 'all'}))
-  .pipe(rename(compressedJs))
-  .pipe(gulp.dest(paths.dist))
+  return gulp.src(outfile)
+    .pipe(rename(paths.outfile + '.min.js'))  
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
+    .pipe(header(LICENSE_TEMPLATE, { pkg: pkg }))
+    .pipe(gulp.dest(paths.dist));
+})
 
+gulp.task('scripts', ['lint'], function() {
+  return gulp.src(paths.srcEntryPoint)
+    .pipe(browserify({
+      transform: ['babelify'],
+      standalone: 'JsonQuery'
+    }))
+    .pipe(rename(paths.outfile + '.js'))
+    .pipe(header(LICENSE_TEMPLATE, { pkg : pkg } ))
+    .pipe(gulp.dest(paths.dist))
 });
 
-gulp.task('watch', function() {
-  gulp.watch(scripts, function(cb){
-    runSequence('scripts', browserSync.reload)
-  });
-
-  gulp.watch(specs, [browserSync.reload])
+gulp.task('lint', function() {
+  gulp.src(paths.scripts)
+    .pipe(eslint())
+    .pipe(eslint.formatEach())
+    .pipe(eslint.result(function (result) {
+        console.log('ESLint: ' + result.filePath + " # Warnings:" + result.warningCount  + " # Errors: " + result.errorCount);
+        console.log('# Messages: ' + result.messages);
+    }));
 });
 
-gulp.task('browser-sync', function() {
-  browserSync({
+gulp.task('build', ['clean', 'minify']);
+
+gulp.task('scripts-watch', ['clean', 'scripts'], browserSync.reload);
+
+gulp.task('serve', ['scripts'], function () {
+  browserSync.init({
     server: {
-      baseDir: "./spec",
+      baseDir: paths.spec,
       index: 'SpecRunner.html',
       routes: {
         '/dist/json_query.js': './dist/json_query.js'
       }
     }
   });
+
+  gulp.watch(paths.scripts, ['scripts-watch']);
 });
 
-gulp.task('build', function(cb){
-  runSequence('clean', 'scripts', cb)
-});
-
-gulp.task('default', function(cb){
-  runSequence('clean', 'scripts', 'watch', 'browser-sync')
-});
+gulp.task('default', ['clean', 'serve']);

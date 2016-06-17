@@ -1,0 +1,11 @@
+/*
+ * <%= pkg.title || pkg.name %>
+ * <%= pkg.version %> (<%= new Date().toISOString().slice(0, 10) %>)
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Copyright 2011-<%= new Date().getFullYear() %> <%= pkg.author.name %>[<%= pkg.author.email %>]
+ *
+ */
+
